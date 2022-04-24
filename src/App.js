@@ -3,7 +3,6 @@ import "./App.css";
 
 function RenderQuote({ input, quote }) {
   const [active, setActive] = React.useState();
-  // console.log(active);
   return (
     <div>
       {quote.map((item, index) => {
@@ -43,9 +42,8 @@ export default function App() {
     <div className="App">
       <div className="wrapper">
         <RenderQuote input={input.split("")} quote={quote.split("")} />
-        <br /> <br />
         <input
-          autocomplete="off"
+          autoComplete="off"
           spellcheck="false"
           autoFocus
           ref={inputRef}
