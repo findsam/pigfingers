@@ -1,24 +1,32 @@
 import * as React from "react";
 import "./App.css";
 
-function RenderQuote({ input, quote }) {
-  const inputSplit = input.split("");
-  const quoteSplit = quote.split(" ");
-
-  const currWord = input.split(" ").length - 1;
-
+function RenderQuote(props) {
+  const input = props.input.split("");
+  const quote = props.quote.split("");
   return (
     <div className="quotewrapper">
-      {quoteSplit.map((word, index) => {
+      {quote.map((item, index) => {
+        let color;
+        let active;
+
+        if (index === input.length) {
+          active = index;
+        }
+
+        if (index < input.length) {
+          color = item === input[index] ? "#ebdbb2" : "#fb4934";
+        }
+
         return (
-          <div
+          <span
+            style={{ color: color }}
             key={index}
-            className={`word ${currWord === index ? "active" : ""}`}
+            className={`${active === index && "active"} text__item`}
           >
-            {word.split("").map((letter, index) => (
-              <span key={index}>{letter}</span>
-            ))}
-          </div>
+            {item}
+            {active === index && <span className="caret" />}
+          </span>
         );
       })}
     </div>

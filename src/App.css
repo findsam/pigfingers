@@ -40,10 +40,8 @@ body {
 }
 
 .quotewrapper {
-  max-width: 660px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  max-width: 720px;
+  padding: 1rem;
   width: 100%;
   margin: 0 auto;
 }
@@ -51,7 +49,11 @@ body {
   position: relative;
 }
 .active {
-  color: #ebdbb2;
+  /* color: #ebdbb2; */
+  text-decoration: underline;
+}
+.active__letter {
+  color: #ebdbb2 !important;
 }
 .word > span {
   color: inherit;
