@@ -9,8 +9,10 @@ body {
   width: 100%;
   position: relative;
   font-family: "Source Code Pro", monospace;
-  background: #171717;
-  color: #fff;
+  background: #282828;
+  font-size: 22px;
+  color: #665c54;
+  /* color: #fff; */
 }
 .wrapper {
   max-width: 990px;
@@ -37,23 +39,20 @@ body {
   flex-direction: column;
 }
 
-.caret-underscore > .text__item > .caret {
-  animation: blink 1s step-end infinite;
-  border-bottom: 2px solid orange;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.quotewrapper {
+  max-width: 660px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   width: 100%;
+  margin: 0 auto;
 }
-.text__item {
+.word {
   position: relative;
 }
-/* @keyframes blink {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: orange;
-  }
-} */
+.active {
+  color: #ebdbb2;
+}
+.word > span {
+  color: inherit;
+}

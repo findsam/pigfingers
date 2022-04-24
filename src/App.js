@@ -2,35 +2,26 @@ import * as React from "react";
 import "./App.css";
 
 function RenderQuote({ input, quote }) {
-  const [active, setActive] = React.useState();
+  const inputSplit = input.split("");
+  const quoteSplit = quote.split(" ");
+
+  const currWord = input.split(" ").length - 1;
+
   return (
-    <>
-      {quote.map((item, index) => {
-        let color;
-        let active;
-
-        let length = input.length;
-
-        if (length === index) {
-          active = index;
-        }
-
-        if (index < input.length) {
-          color = item === input[index] ? "#99cc00" : "#ff2b33";
-        }
-
+    <div className="quotewrapper">
+      {quoteSplit.map((word, index) => {
         return (
-          <span
-            style={{ color: color }}
+          <div
             key={index}
-            className={`${active === index && "active"} text__item`}
+            className={`word ${currWord === index ? "active" : ""}`}
           >
-            {item}
-            {active === index && <span className="caret" />}
-          </span>
+            {word.split("").map((letter, index) => (
+              <span key={index}>{letter}</span>
+            ))}
+          </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
@@ -50,14 +41,13 @@ export default function App() {
     getQuote();
   }, []);
 
-  if (quote.length === 0) return null; // small error handler.
+  if (quote.length === 0) return null;
 
   return (
     <div className="App">
       <div className="wrapper">
-        <div className="caret-underscore">
-          <RenderQuote input={input.split("")} quote={quote.split("")} />
-        </div>
+        <RenderQuote input={input} quote={quote} />
+
         <input
           autoComplete="off"
           spellCheck="false"
