@@ -4,19 +4,33 @@ import "./App.css";
 function RenderQuote({ input, quote }) {
   const [active, setActive] = React.useState();
   return (
-    <div>
+    <>
       {quote.map((item, index) => {
         let color;
+        let active;
+
+        let length = input.length;
+
+        if (length === index) {
+          active = index;
+        }
+
         if (index < input.length) {
           color = item === input[index] ? "#99cc00" : "#ff2b33";
         }
+
         return (
-          <span style={{ color: color }} key={index}>
+          <span
+            style={{ color: color }}
+            key={index}
+            className={`${active === index && "active"} text__item`}
+          >
             {item}
+            {active === index && <span className="caret" />}
           </span>
         );
       })}
-    </div>
+    </>
   );
 }
 
@@ -41,10 +55,12 @@ export default function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <RenderQuote input={input.split("")} quote={quote.split("")} />
+        <div className="caret-underscore">
+          <RenderQuote input={input.split("")} quote={quote.split("")} />
+        </div>
         <input
           autoComplete="off"
-          spellcheck="false"
+          spellCheck="false"
           autoFocus
           ref={inputRef}
           className="input"
