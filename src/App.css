@@ -21,6 +21,10 @@ body {
   margin-top: 1rem;
   font-family: inherit;
   max-width: 300px;
+  color: transparent;
+  background: transparent;
+  border: 0;
+  outline: none;
 }
 .App {
   height: 100vh;
@@ -29,4 +33,21 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }

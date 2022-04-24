@@ -2,6 +2,8 @@ import * as React from "react";
 import "./App.css";
 
 function RenderQuote({ input, quote }) {
+  const [active, setActive] = React.useState();
+  // console.log(active);
   return (
     <div>
       {quote.map((item, index) => {
@@ -22,6 +24,7 @@ function RenderQuote({ input, quote }) {
 export default function App() {
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
+  const inputRef = React.useRef(null);
 
   async function getQuote() {
     const res = await fetch("https://api.quotable.io/random");
@@ -30,6 +33,7 @@ export default function App() {
   }
 
   React.useEffect(() => {
+    inputRef?.current?.focus();
     getQuote();
   }, []);
 
@@ -41,6 +45,8 @@ export default function App() {
         <RenderQuote input={input.split("")} quote={quote.split("")} />
         <br /> <br />
         <input
+          autoFocus
+          ref={inputRef}
           className="input"
           type="text"
           onChange={(e) => setInput(e.target.value)}
