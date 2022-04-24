@@ -45,6 +45,8 @@ export default function App() {
         <RenderQuote input={input.split("")} quote={quote.split("")} />
         <br /> <br />
         <input
+          autocomplete="off"
+          spellcheck="false"
           autoFocus
           ref={inputRef}
           className="input"
