@@ -41,11 +41,19 @@ body {
 
 .quotewrapper {
   max-width: 880px;
-  padding: 1rem;
+  /* padding: 1rem; */
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
   flex-wrap: wrap;
+}
+.caret-container {
+  z-index: -1000;
+  background: orange;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .letter {

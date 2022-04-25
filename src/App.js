@@ -38,6 +38,7 @@ export default function App() {
   const [input, setInput] = React.useState("");
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
+  const wrapperRef = React.useRef(null);
 
   async function getQuote() {
     const res = await fetch("https://api.quotable.io/random");
@@ -56,8 +57,12 @@ export default function App() {
     <div className="App">
       <div className="wrapper">
         {input}
-        <div className="quotewrapper">
-          {/* <Caret length={input.length} /> */}
+        <div className="quotewrapper" ref={wrapperRef}>
+          <Caret
+            length={input.length}
+            textRef={textRef}
+            wrapperRef={wrapperRef}
+          />
           <RenderQuote input={input} quote={quote} textRef={textRef} />
         </div>
         <input
