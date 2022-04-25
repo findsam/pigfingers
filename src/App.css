@@ -44,13 +44,26 @@ body {
   padding: 1rem;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 .word {
   position: relative;
 }
 .active {
-  /* color: #ebdbb2; */
-  text-decoration: underline;
+  position: relative;
+}
+.active::after {
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  /* background: orange; */
 }
 .active__letter {
   color: #ebdbb2 !important;

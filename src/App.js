@@ -1,34 +1,49 @@
 import * as React from "react";
 import "./App.css";
 
+function captureCaret(
+  letterIndex,
+  wordIndex,
+  letter,
+  word,
+  activeLetter,
+  quote,
+  input
+) {
+  // let letterToStyle = quote.split("")[letterIndex];
+  const indexs = quote.split("").map((_, index) => index);
+  consonle.log(indexs);
+}
+
 function RenderQuote(props) {
   const input = props.input.split("");
-  const quote = props.quote.split("");
+  const wordsBySpace = props.quote.split(" ");
+  const activeLetter = input.length;
+
   return (
     <div className="quotewrapper">
-      {quote.map((item, index) => {
-        let color;
-        let active;
-
-        if (index === input.length) {
-          active = index;
-        }
-
-        if (index < input.length) {
-          color = item === input[index] ? "#ebdbb2" : "#fb4934";
-        }
-
-        return (
-          <span
-            style={{ color: color }}
-            key={index}
-            className={`${active === index && "active"} text__item`}
-          >
-            {item}
-            {active === index && <span className="caret" />}
-          </span>
-        );
-      })}
+      <>
+        {wordsBySpace.map((word, index) => {
+          const active = props.input.split(" ").length - 1 === index;
+          const wordIndex = index;
+          return (
+            <div className={`${active && "active"}`} key={index}>
+              {word.split("").map((letter, index) => {
+                captureCaret(
+                  index,
+                  wordIndex,
+                  letter,
+                  word,
+                  activeLetter,
+                  props.quote,
+                  props.input
+                );
+                return <span key={index}>{letter}</span>;
+              })}
+            </div>
+          );
+        })}
+      </>
     </div>
   );
 }
