@@ -7,6 +7,7 @@ function captureCaret(
   letter,
   word,
   activeLetter,
+  activeWord,
   quote,
   input
 ) {
@@ -16,7 +17,17 @@ function captureCaret(
   const activeIndex = indexs.findIndex((index) => index === activeLetter);
   const activeIndexLetter = quote.split("")[activeIndex - 1];
 
-  return { activeIndex, activeIndexLetter };
+  const indexedWords = quote.split(" ").map((_, index) => index);
+  const activeWordIndex = indexedWords.findIndex(
+    (index) => index === wordIndex
+  );
+  const activeIndexWord = quote.split(" ")[activeWordIndex];
+
+  console.log(activeIndexWord);
+
+  const currentTargetIndex = null;
+
+  return { activeIndex, activeIndexLetter, currentTargetIndex };
 }
 
 function RenderQuote(props) {
@@ -28,22 +39,24 @@ function RenderQuote(props) {
     <div className="quotewrapper">
       <>
         {wordsBySpace.map((word, index) => {
-          const active = props.input.split(" ").length - 1 === index;
+          const activeWord = props.input.split(" ").length - 1 === index;
+          const activeWordIndex = props.input.split(" ").length;
+
           const wordIndex = index;
           return (
-            <div className={`${active && "active"}`} key={index}>
+            <div className={`${activeWord && "active"}`} key={index}>
               {word.split("").map((letter, index) => {
-                const { activeIndex, activeIndexLetter } = captureCaret(
-                  index,
-                  wordIndex,
-                  letter,
-                  word,
-                  activeLetter,
-                  props.quote,
-                  props.input
-                );
-
-                // console.log(activeIndex === activeLetter);
+                const { activeIndex, activeIndexLetter, currentTargetIndex } =
+                  captureCaret(
+                    index,
+                    wordIndex,
+                    letter,
+                    word,
+                    activeLetter,
+                    activeWordIndex,
+                    props.quote,
+                    props.input
+                  );
 
                 return (
                   <span
@@ -51,7 +64,7 @@ function RenderQuote(props) {
                     className={`${
                       activeIndex === activeLetter &&
                       letter === activeIndexLetter &&
-                      wordIndex === index &&
+                      currentTargetIndex === index &&
                       "active-letter"
                     }`}
                   >
