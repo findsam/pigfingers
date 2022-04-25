@@ -1,78 +1,32 @@
 import * as React from "react";
 import "./App.css";
 
-function captureCaret(
-  letterIndex,
-  wordIndex,
-  letter,
-  word,
-  activeLetter,
-  activeWord,
-  quote,
-  input
-) {
-  // const mainLetter = quote.split("")[activeLetter];
-  // console.log(input.split("").at(-1) === quote.split("")[activeLetter - 1]);
-  const indexs = quote.split("").map((_, index) => index);
-  const activeIndex = indexs.findIndex((index) => index === activeLetter);
-  const activeIndexLetter = quote.split("")[activeIndex - 1];
-
-  const indexedWords = quote.split(" ").map((_, index) => index);
-  const activeWordIndex = indexedWords.findIndex(
-    (index) => index === wordIndex
-  );
-  const activeIndexWord = quote.split(" ")[activeWordIndex];
-
-  console.log(activeIndexWord);
-
-  const currentTargetIndex = null;
-
-  return { activeIndex, activeIndexLetter, currentTargetIndex };
-}
-
 function RenderQuote(props) {
-  const input = props.input.split("");
+  const inputBySpace = props.input.split(" ");
   const wordsBySpace = props.quote.split(" ");
-  const activeLetter = input.length;
 
   return (
     <div className="quotewrapper">
+      {props.input}
+      <br />
+      <br />
       <>
-        {wordsBySpace.map((word, index) => {
-          const activeWord = props.input.split(" ").length - 1 === index;
-          const activeWordIndex = props.input.split(" ").length;
+        {props.quote.split("").map((letter, index) => {
+          const active = props.input.split("").length === index;
 
-          const wordIndex = index;
           return (
-            <div className={`${activeWord && "active"}`} key={index}>
-              {word.split("").map((letter, index) => {
-                const { activeIndex, activeIndexLetter, currentTargetIndex } =
-                  captureCaret(
-                    index,
-                    wordIndex,
-                    letter,
-                    word,
-                    activeLetter,
-                    activeWordIndex,
-                    props.quote,
-                    props.input
-                  );
-
-                return (
-                  <span
-                    key={index}
-                    className={`${
-                      activeIndex === activeLetter &&
-                      letter === activeIndexLetter &&
-                      currentTargetIndex === index &&
-                      "active-letter"
-                    }`}
-                  >
-                    {letter}
-                  </span>
-                );
-              })}
-            </div>
+            <span
+              key={index}
+              className={`letter ${active && "active"} ${
+                index < props.input.length
+                  ? letter === props.input[index]
+                    ? "correct"
+                    : "incorrect"
+                  : null
+              }`}
+            >
+              {letter}
+            </span>
           );
         })}
       </>
@@ -86,10 +40,9 @@ export default function App() {
   const inputRef = React.useRef(null);
 
   async function getQuote() {
-    // const res = await fetch("https://api.quotable.io/random");
-    // const { content } = await res.json();
-    // setQuote(content);
-    setQuote("Bascially the best.");
+    const res = await fetch("https://api.quotable.io/random");
+    const { content } = await res.json();
+    setQuote(content);
   }
 
   React.useEffect(() => {
@@ -103,7 +56,6 @@ export default function App() {
     <div className="App">
       <div className="wrapper">
         <RenderQuote input={input} quote={quote} />
-
         <input
           autoComplete="off"
           spellCheck="false"

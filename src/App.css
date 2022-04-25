@@ -45,37 +45,18 @@ body {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  gap: 0.5rem;
-  display: flex;
   flex-wrap: wrap;
 }
 .word {
   position: relative;
 }
-.active {
-  position: relative;
-  /* color: orange; */
-}
-.active-letter {
-  color: pink;
-}
-.active::after {
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  /* background: orange; */
-}
-.active__letter {
-  color: #ebdbb2 !important;
-}
-.word > span {
-  color: inherit;
-}
 
-.POG {
-  color: green;
+.active {
+  text-decoration: underline;
+}
+.correct {
+  color: #ebdbb2;
+}
+.incorrect {
+  color: #fb4934;
 }
