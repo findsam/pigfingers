@@ -40,17 +40,17 @@ body {
 }
 
 .quotewrapper {
-  max-width: 720px;
+  max-width: 880px;
   padding: 1rem;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
   flex-wrap: wrap;
 }
-.word {
-  position: relative;
-}
 
+.letter {
+  transition: color 0.125s ease;
+}
 .active {
   text-decoration: underline;
 }
@@ -59,4 +59,13 @@ body {
 }
 .incorrect {
   color: #fb4934;
+}
+
+.caret {
+  transition: all 0.125s ease;
+  position: relative;
+  left: 0;
+  height: 2px;
+  width: 14px;
+  background: orange;
 }

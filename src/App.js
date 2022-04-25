@@ -1,35 +1,34 @@
 import * as React from "react";
 import "./App.css";
+import Caret from "./Caret";
 
 function RenderQuote(props) {
   const inputBySpace = props.input.split(" ");
   const wordsBySpace = props.quote.split(" ");
 
-  return (
-    <div className="quotewrapper">
-      {props.input}
-      <br />
-      <br />
-      <>
-        {props.quote.split("").map((letter, index) => {
-          const active = props.input.split("").length === index;
+  React.useEffect(() => {
+    console.log(props?.textRef?.current?.childNodes?.length);
+  }, [props.textRef]);
 
-          return (
-            <span
-              key={index}
-              className={`letter ${active && "active"} ${
-                index < props.input.length
-                  ? letter === props.input[index]
-                    ? "correct"
-                    : "incorrect"
-                  : null
-              }`}
-            >
-              {letter}
-            </span>
-          );
-        })}
-      </>
+  return (
+    <div ref={props.textRef}>
+      {props.quote.split("").map((letter, index) => {
+        const active = props.input.split("").length === index;
+        return (
+          <span
+            key={index}
+            className={`letter ${active && "active"} ${
+              index < props.input.length
+                ? letter === props.input[index]
+                  ? "correct"
+                  : "incorrect"
+                : ""
+            }`}
+          >
+            {letter}
+          </span>
+        );
+      })}
     </div>
   );
 }
@@ -38,6 +37,7 @@ export default function App() {
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
   const inputRef = React.useRef(null);
+  const textRef = React.useRef(null);
 
   async function getQuote() {
     const res = await fetch("https://api.quotable.io/random");
@@ -55,7 +55,11 @@ export default function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <RenderQuote input={input} quote={quote} />
+        {input}
+        <div className="quotewrapper">
+          {/* <Caret length={input.length} /> */}
+          <RenderQuote input={input} quote={quote} textRef={textRef} />
+        </div>
         <input
           autoComplete="off"
           spellCheck="false"
