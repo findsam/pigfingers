@@ -54,6 +54,10 @@ body {
 }
 .active {
   position: relative;
+  /* color: orange; */
+}
+.active-letter {
+  color: pink;
 }
 .active::after {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
@@ -70,4 +74,8 @@ body {
 }
 .word > span {
   color: inherit;
+}
+
+.POG {
+  color: green;
 }

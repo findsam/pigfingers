@@ -10,9 +10,13 @@ function captureCaret(
   quote,
   input
 ) {
-  // let letterToStyle = quote.split("")[letterIndex];
+  // const mainLetter = quote.split("")[activeLetter];
+  // console.log(input.split("").at(-1) === quote.split("")[activeLetter - 1]);
   const indexs = quote.split("").map((_, index) => index);
-  consonle.log(indexs);
+  const activeIndex = indexs.findIndex((index) => index === activeLetter);
+  const activeIndexLetter = quote.split("")[activeIndex - 1];
+
+  return { activeIndex, activeIndexLetter };
 }
 
 function RenderQuote(props) {
@@ -29,7 +33,7 @@ function RenderQuote(props) {
           return (
             <div className={`${active && "active"}`} key={index}>
               {word.split("").map((letter, index) => {
-                captureCaret(
+                const { activeIndex, activeIndexLetter } = captureCaret(
                   index,
                   wordIndex,
                   letter,
@@ -38,7 +42,22 @@ function RenderQuote(props) {
                   props.quote,
                   props.input
                 );
-                return <span key={index}>{letter}</span>;
+
+                // console.log(activeIndex === activeLetter);
+
+                return (
+                  <span
+                    key={index}
+                    className={`${
+                      activeIndex === activeLetter &&
+                      letter === activeIndexLetter &&
+                      wordIndex === index &&
+                      "active-letter"
+                    }`}
+                  >
+                    {letter}
+                  </span>
+                );
               })}
             </div>
           );
@@ -54,9 +73,10 @@ export default function App() {
   const inputRef = React.useRef(null);
 
   async function getQuote() {
-    const res = await fetch("https://api.quotable.io/random");
-    const { content } = await res.json();
-    setQuote(content);
+    // const res = await fetch("https://api.quotable.io/random");
+    // const { content } = await res.json();
+    // setQuote(content);
+    setQuote("Bascially the best.");
   }
 
   React.useEffect(() => {
