@@ -1,11 +1,16 @@
+import * as React from "react";
+import Settings from "./Container/Settings";
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer__commands">
-        <p className="footer__commands--item">
-          <span>ctrl/cmd</span>+<span>p</span> - command line
-        </p>
-      </div>
-    </footer>
+    <>
+      <Settings />
+      <footer className="footer">
+        <div className="footer__commands">
+          <p className="footer__commands--item">
+            <span>esc/escape</span> - command line
+          </p>
+        </div>
+      </footer>
+    </>
   );
 }
