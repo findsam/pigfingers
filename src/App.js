@@ -1,35 +1,7 @@
 import * as React from "react";
 import "./App.css";
-import Caret from "./Caret";
-
-function RenderQuote(props) {
-  const inputBySpace = props.input.split(" ");
-  const wordsBySpace = props.quote.split(" ");
-
-  return (
-    <div className="paragraph" ref={props.textRef}>
-      {props.quote.split("").map((letter, index) => {
-        const active = props.input.split("").length === index;
-        if (active) props.setCurrentDomNode(index);
-
-        return (
-          <span
-            key={index}
-            className={`letter ${active && "active"} ${
-              index < props.input.length
-                ? letter === props.input[index]
-                  ? "correct"
-                  : "incorrect"
-                : ""
-            }`}
-          >
-            {letter}
-          </span>
-        );
-      })}
-    </div>
-  );
-}
+import Caret from "./Components/Caret";
+import Paragraph from "./Components/Paragraph";
 
 export default function App() {
   const [quote, setQuote] = React.useState("");
@@ -63,7 +35,7 @@ export default function App() {
             textRef={textRef}
             input={input}
           />
-          <RenderQuote
+          <Paragraph
             currentDomNode={currentDomNode}
             setCurrentDomNode={setCurrentDomNode}
             input={input}
