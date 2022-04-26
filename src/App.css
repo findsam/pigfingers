@@ -40,6 +40,7 @@ body {
 }
 .paragraph {
   max-width: max-content;
+  line-height: 35px;
 }
 .quotewrapper {
   max-width: 880px;
@@ -51,12 +52,27 @@ body {
 }
 .caret-container {
   z-index: -1000;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  max-width: 100vw;
+  /* background: orange; */
+}
+.caret {
+  transition: all 0.1s ease 0.01s;
+  position: relative;
+  background: #fabd2f;
+  z-index: 1000000;
+  height: 2px;
+  width: 14px;
 }
 
-.caret {
+/* .caret {
   transition: all 0.125s ease;
   position: relative;
   left: 0;
@@ -64,13 +80,13 @@ body {
   width: 14px;
   background: white;
   z-index: 1000000;
-}
+} */
 
 .letter {
-  transition: color 0.125s ease;
+  transition: color 0.1s ease;
 }
 .active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 .correct {
   color: #ebdbb2;
