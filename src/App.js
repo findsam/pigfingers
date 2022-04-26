@@ -6,12 +6,12 @@ function RenderQuote(props) {
   const inputBySpace = props.input.split(" ");
   const wordsBySpace = props.quote.split(" ");
 
-  React.useEffect(() => {
-    console.log(props?.textRef?.current?.childNodes?.length);
-  }, [props.textRef]);
+  // React.useEffect(() => {
+  //   console.log(props?.textRef?.current?.childNodes?.length);
+  // }, [props.textRef]);
 
   return (
-    <div ref={props.textRef}>
+    <div className="paragraph" ref={props.textRef}>
       {props.quote.split("").map((letter, index) => {
         const active = props.input.split("").length === index;
         return (
@@ -40,6 +40,8 @@ export default function App() {
   const textRef = React.useRef(null);
   const wrapperRef = React.useRef(null);
 
+  const [activeCaret, setActiveCaret] = React.useState(0);
+
   async function getQuote() {
     const res = await fetch("https://api.quotable.io/random");
     const { content } = await res.json();
@@ -55,13 +57,16 @@ export default function App() {
 
   return (
     <div className="App">
+      {input}
       <div className="wrapper">
-        {input}
         <div className="quotewrapper" ref={wrapperRef}>
           <Caret
+            activeCaret={activeCaret}
+            setActiveCaret={setActiveCaret}
             length={input.length}
             textRef={textRef}
             wrapperRef={wrapperRef}
+            input={input}
           />
           <RenderQuote input={input} quote={quote} textRef={textRef} />
         </div>

@@ -38,10 +38,11 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-
+.paragraph {
+  max-width: max-content;
+}
 .quotewrapper {
   max-width: 880px;
-  /* padding: 1rem; */
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -56,6 +57,16 @@ body {
   left: 0;
 }
 
+.caret {
+  transition: all 0.125s ease;
+  position: relative;
+  left: 0;
+  height: 2px;
+  width: 14px;
+  background: white;
+  z-index: 1000000;
+}
+
 .letter {
   transition: color 0.125s ease;
 }
@@ -67,13 +78,4 @@ body {
 }
 .incorrect {
   color: #fb4934;
-}
-
-.caret {
-  transition: all 0.125s ease;
-  position: relative;
-  left: 0;
-  height: 2px;
-  width: 14px;
-  background: orange;
 }
