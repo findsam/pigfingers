@@ -1,4 +1,7 @@
 import React from "react";
+import { RiSettings4Line } from "react-icons/ri";
+import { IoMdQuote } from "react-icons/io";
+import { FaClock } from "react-icons/fa";
 
 export default function Settings() {
   const [open, setOpen] = React.useState();
@@ -19,15 +22,17 @@ export default function Settings() {
     open && (
       <div className="settings">
         <div className="settings__inner">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          <h1>
+            <RiSettings4Line /> Settings
+          </h1>
+          <ul>
+            <li>
+              <IoMdQuote /> Quote length...
+            </li>
+            <li>
+              <FaClock /> Time...
+            </li>
+          </ul>
         </div>
       </div>
     )
