@@ -126,7 +126,7 @@ body {
   display: flex;
   justify-content: center;
   background: #282828;
-  padding: 1rem;
+  padding: 1rem 0;
   border-radius: 12px;
   max-width: 550px;
   min-width: 550px;
@@ -134,24 +134,21 @@ body {
   flex-direction: column;
   align-items: flex-start;
 }
-.settings__inner > h1 {
+.settings__inner > ul {
   width: 100%;
-  padding: 0 0 0.5rem 0;
-  align-items: center;
-  display: flex;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-.settings__inner > h1 > svg {
-  margin-right: 0.5rem;
 }
 .settings__inner > ul > li {
-  padding: 0.33rem 0;
+  transition: all 0.08s ease;
+  padding: 0.33rem 1rem;
   display: flex;
   align-items: center;
+  width: 100%;
   list-style: none;
   font-size: 12px;
+}
+.settings__inner > ul > li:hover {
+  background: #ebdbb2;
+  cursor: pointer;
 }
 .settings__inner > ul > li > svg {
   list-style: none;

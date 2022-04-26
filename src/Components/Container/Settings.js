@@ -1,14 +1,16 @@
 import React from "react";
 import { RiSettings4Line } from "react-icons/ri";
+import { AiFillInfoCircle } from "react-icons/ai";
+import { SiLetterboxd } from "react-icons/si";
 import { IoMdQuote } from "react-icons/io";
-import { FaClock } from "react-icons/fa";
+import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 
 export default function Settings() {
   const [open, setOpen] = React.useState();
 
   const close = React.useCallback((event) => {
     if (event.keyCode === 27) {
-      setOpen((po) => !po);
+      setOpen((prevOpen) => !prevOpen);
     }
   }, []);
 
@@ -18,19 +20,32 @@ export default function Settings() {
       document.removeEventListener("keydown", close);
     };
   }, [close]);
+
   return (
     open && (
       <div className="settings">
         <div className="settings__inner">
-          <h1>
-            <RiSettings4Line /> Settings
-          </h1>
           <ul>
+            <li>
+              <FaBars /> Mode...
+            </li>
             <li>
               <IoMdQuote /> Quote length...
             </li>
             <li>
+              <SiLetterboxd /> Words...
+            </li>
+            <li>
               <FaClock /> Time...
+            </li>
+            <li>
+              <FaClock /> Time/Progress...
+            </li>
+            <li>
+              <FaTachometerAlt /> Live WPM...
+            </li>
+            <li>
+              <AiFillInfoCircle /> Creator...
             </li>
           </ul>
         </div>
