@@ -10,9 +10,8 @@ function RenderQuote(props) {
     <div className="paragraph" ref={props.textRef}>
       {props.quote.split("").map((letter, index) => {
         const active = props.input.split("").length === index;
-        if (active) {
-          props.setCurrentDomNode(index);
-        }
+        if (active) props.setCurrentDomNode(index);
+
         return (
           <span
             key={index}
@@ -38,6 +37,7 @@ export default function App() {
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
   const wrapperRef = React.useRef(null);
+
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
 
   async function getQuote() {
@@ -61,7 +61,6 @@ export default function App() {
             currentDomNode={currentDomNode}
             setCurrentDomNode={setCurrentDomNode}
             textRef={textRef}
-            wrapperRef={wrapperRef}
             input={input}
           />
           <RenderQuote
