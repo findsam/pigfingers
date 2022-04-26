@@ -23,7 +23,7 @@ export default function Caret(props) {
     <div className="caret-container">
       <div
         className="caret"
-        style={{ top: `${position?.top + 28}px`, left: `${position?.left}px` }}
+        style={{ top: `${position?.top + 30}px`, left: `${position?.left}px` }}
       />
     </div>
   );
