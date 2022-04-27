@@ -5,9 +5,6 @@ import Statistics from "../Statistics";
 
 export default function Game() {
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
-  const [gameInfo, setGameInfo] = React.useState({
-    wpm: 0,
-  });
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
   const inputRef = React.useRef(null);
