@@ -7,6 +7,7 @@ export default function Game() {
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
+  const [playing, setPlaying] = React.useState(false);
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
 
@@ -22,6 +23,24 @@ export default function Game() {
   }, []);
 
   if (quote.length === 0) return null;
+
+  function playGame(e) {
+    const { value } = e.target;
+    if (input === "") {
+      startTimer();
+      setPlaying(true);
+    }
+    setInput(value);
+    checkComplete(input, quote);
+  }
+
+  const checkComplete = () => {
+    const data = sortData(form.input, form.quote);
+    if (data[0] === data[1]) {
+      clearInterval();
+      setPlaying(false);
+    }
+  };
 
   return (
     <>
@@ -50,7 +69,7 @@ export default function Game() {
         ref={inputRef}
         className="input"
         type="text"
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => playGame(e.target.value)}
       />
     </>
   );
