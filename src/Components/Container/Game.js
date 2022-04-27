@@ -1,13 +1,17 @@
 import * as React from "react";
 import Caret from "../Caret";
 import Paragraph from "../Paragraph";
+import Statistics from "../Statistics";
 
 export default function Game() {
-  const inputRef = React.useRef(null);
-  const textRef = React.useRef(null);
+  const [currentDomNode, setCurrentDomNode] = React.useState(null);
+  const [gameInfo, setGameInfo] = React.useState({
+    wpm: 0,
+  });
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
-  const [currentDomNode, setCurrentDomNode] = React.useState(null);
+  const inputRef = React.useRef(null);
+  const textRef = React.useRef(null);
 
   async function getQuote() {
     const res = await fetch("https://api.quotable.io/random");
@@ -24,6 +28,9 @@ export default function Game() {
 
   return (
     <>
+      <div className="gameinfo">
+        <Statistics input={input} quote={quote} />
+      </div>
       <div className="quotewrapper">
         <Caret
           currentDomNode={currentDomNode}
