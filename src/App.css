@@ -245,5 +245,5 @@ body {
 .reset__btn:before,
 .reset__btn:after {
   opacity: 0;
-  transition: all 0.125s ease;
+  transition: all 0.3s ease;
 }
