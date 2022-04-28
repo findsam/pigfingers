@@ -3,7 +3,7 @@ import { calcCorrectSymbols, calcWPM } from "../Static/Utils";
 export default function Statistics(props) {
   function calcSpeed() {
     const correctSymbols = calcCorrectSymbols(props.input, props.quote);
-    const finalWPM = calcWPM(correctSymbols, 15);
+    const finalWPM = calcWPM(correctSymbols, props.time);
     return finalWPM;
   }
 
