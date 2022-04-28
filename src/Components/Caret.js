@@ -10,7 +10,7 @@ export default function Caret(props) {
         props?.currentDomNode
       ]?.getBoundingClientRect()
     );
-  }, [props.textRef, props.currentDomNode]);
+  }, [props.textRef, props.currentDomNode, props.quote]);
 
   return (
     <div className="caret-container">

@@ -65,6 +65,7 @@ export default function Game() {
           setCurrentDomNode={setCurrentDomNode}
           textRef={textRef}
           input={input}
+          quote={quote}
         />
         <Paragraph
           currentDomNode={currentDomNode}
@@ -78,8 +79,13 @@ export default function Game() {
         <button
           className="reset__btn"
           onClick={() => {
-            console.log("");
-            return "";
+            setPlaying(false);
+            clearInterval(intervalRef.current);
+            setInput("");
+            setTime(0);
+            setCurrentDomNode(0);
+            getQuote();
+            inputRef?.current?.focus();
           }}
         >
           <VscDebugRestart />
@@ -92,6 +98,7 @@ export default function Game() {
         ref={inputRef}
         className="input"
         type="text"
+        value={input}
         onChange={(e) => playGame(e)}
       />
     </>
