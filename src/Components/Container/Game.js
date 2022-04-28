@@ -2,7 +2,7 @@ import * as React from "react";
 import Caret from "../Caret";
 import Paragraph from "../Paragraph";
 import Statistics from "../Statistics";
-import { sortData } from "../../Static/Utils";
+import { VscDebugRestart } from "react-icons/vsc";
 
 export default function Game() {
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
@@ -73,6 +73,17 @@ export default function Game() {
           quote={quote}
           textRef={textRef}
         />
+      </div>
+      <div className="reset">
+        <button
+          className="reset__btn"
+          onClick={() => {
+            console.log("");
+            return "";
+          }}
+        >
+          <VscDebugRestart />
+        </button>
       </div>
       <input
         autoComplete="off"
