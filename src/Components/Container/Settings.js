@@ -5,15 +5,15 @@ import { SiLetterboxd } from "react-icons/si";
 import { IoMdQuote } from "react-icons/io";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 
-function renderCorrectSetting(activeSetting, setActiveSetting) {
-  switch (activeSetting) {
+function SettingsSetter(props) {
+  switch (props.activeSetting) {
     case "test": {
       return "hi";
     }
     default:
       return (
         <ul>
-          <li onClick={() => setActiveSetting("test")}>
+          <li onClick={() => props.setActiveSetting("test")}>
             <FaBars /> Mode...
           </li>
           <li>
@@ -63,7 +63,10 @@ export default function Settings() {
     open && (
       <div className="settings">
         <div className="settings__inner">
-          {renderCorrectSetting(activeSetting, setActiveSetting)}
+          <SettingsSetter
+            activeSetting={activeSetting}
+            setActiveSetting={setActiveSetting}
+          />
         </div>
       </div>
     )
