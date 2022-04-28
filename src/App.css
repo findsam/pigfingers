@@ -181,17 +181,17 @@ body {
   color: #665c54;
   transition: color 0.3s ease;
   position: relative;
-  min-width: 50px;
-  min-height: 50px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 4px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 .reset__btn:hover {
   cursor: pointer;
   color: #ebdbb2;
-  background: RGB(0, 0, 0, 0.6);
+  /* background: RGB(0, 0, 0, 0.6); */
 }
 .reset__btn:hover:after {
   opacity: 1;
@@ -203,6 +203,7 @@ body {
 }
 .reset__btn:after {
   /* opacity: 0; */
+  color: white !important;
   background: RGB(0, 0, 0, 0.6);
   border-radius: 4px;
   display: flex;
@@ -218,19 +219,19 @@ body {
   font-family: "Source Code Pro", monospace;
   top: 4rem;
   content: "Restart Game";
-  margin-left: auto;
-  margin-right: auto;
+  transform: translateY(-8px);
+  position: absolute;
   left: 0;
   right: 0;
-  transform: translateY(-8px);
+  margin-left: auto;
+  margin-right: -37px;
 }
 .reset__btn:before {
-  /* opacity: 0; */
   position: absolute;
   content: "";
   width: 0;
   height: 0;
-  bottom: -14px;
+  bottom: -1.5rem;
   margin-left: auto;
   margin-right: auto;
   left: 0;
