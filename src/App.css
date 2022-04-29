@@ -80,6 +80,10 @@ body {
 .incorrect {
   color: #fb4934;
 }
+.set {
+  color: #ebdbb2;
+  /* color: lime; */
+}
 .footer {
   position: fixed;
   bottom: 0;

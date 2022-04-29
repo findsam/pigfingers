@@ -4,7 +4,6 @@ export default function Caret(props) {
   const [position, setPosition] = React.useState(null);
 
   React.useEffect(() => {
-    // console.log(props?.textRef?.current?.childNodes.length);
     setPosition(
       props?.textRef?.current?.childNodes[
         props?.currentDomNode

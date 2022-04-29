@@ -25,7 +25,7 @@ export default function Game() {
 
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
-  let intervalRef = React.useRef(null);
+  const intervalRef = React.useRef(null);
 
   async function getQuote() {
     const res = await fetch(`${gameSettings.quoteLength}`);
@@ -41,11 +41,8 @@ export default function Game() {
   }
 
   function startGame() {
-    if (gameSettings.mode === "quote") {
-      getQuote();
-    } else if (gameSettings.mode === "words") {
-      getWords();
-    }
+    if (gameSettings.mode === "quote") getQuote();
+    else if (gameSettings.mode === "words") getWords();
   }
 
   React.useEffect(() => {
