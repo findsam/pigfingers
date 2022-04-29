@@ -1,50 +1,11 @@
 import React from "react";
-import { RiSettings4Line } from "react-icons/ri";
-import { AiFillInfoCircle } from "react-icons/ai";
 import { SiLetterboxd } from "react-icons/si";
 import { IoMdQuote } from "react-icons/io";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
+import { MdSubdirectoryArrowRight } from "react-icons/md";
 
-function SettingsSetter(props) {
-  switch (props.activeSetting) {
-    case "test": {
-      return "hi";
-    }
-    default:
-      return (
-        <ul>
-          <li onClick={() => props.setActiveSetting("test")}>
-            <FaBars /> Mode...
-          </li>
-          <li>
-            <SiLetterboxd /> Words...
-          </li>
-          <li>
-            <IoMdQuote /> Quote length...
-          </li>
-          <li>
-            <FaClock /> Letter Progress...
-          </li>
-          <li>
-            <FaClock /> Word Progress...
-          </li>
-          <li>
-            <FaClock /> Time...
-          </li>
-          <li>
-            <FaTachometerAlt /> Live WPM...
-          </li>
-          <li>
-            <AiFillInfoCircle /> Creator...
-          </li>
-        </ul>
-      );
-  }
-}
-
-export default function Settings() {
+export default function Settings(props) {
   const [open, setOpen] = React.useState();
-  const [activeSetting, setActiveSetting] = React.useState();
 
   const close = React.useCallback((event) => {
     if (event.keyCode === 27) {
@@ -59,14 +20,242 @@ export default function Settings() {
     };
   }, [close]);
 
+  // console.log(props.gameSettings);
   return (
     open && (
       <div className="settings">
         <div className="settings__inner">
-          <SettingsSetter
-            activeSetting={activeSetting}
-            setActiveSetting={setActiveSetting}
-          />
+          <ul>
+            <li>
+              <span>
+                <FaBars /> Mode...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      mode: "quote",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Quote
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      mode: "words",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Words
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <SiLetterboxd /> Words Length...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      wordLength: 25,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> 25
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      wordLength: 50,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> 50
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      wordLength: 75,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> 75
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      wordLength: 100,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> 100
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <IoMdQuote /> Quote Length...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      quoteLength: "all",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> all
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      quoteLength: "small",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> small
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      quoteLength: "medium",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> medium
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      quoteLength: "large",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> large
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <FaTachometerAlt /> Show WPM...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      showWpm: true,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> on
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      showWpm: false,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> off
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <FaClock /> Letter Progress...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      letterProg: true,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> on
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      letterProg: false,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> off
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <FaClock /> Word Progress...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      wordProg: true,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> on
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      wordProg: false,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> off
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <FaClock /> Show Time...
+              </span>
+              <div>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      showTime: true,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> on
+                </p>
+                <p
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      showTime: false,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> off
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     )

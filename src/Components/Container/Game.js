@@ -2,14 +2,26 @@ import * as React from "react";
 import Caret from "../Caret";
 import Paragraph from "../Paragraph";
 import Statistics from "../Statistics";
+import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
 
 export default function Game() {
-  const [currentDomNode, setCurrentDomNode] = React.useState(null);
+  const [time, setTime] = React.useState(0);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
   const [playing, setPlaying] = React.useState(false);
-  const [time, setTime] = React.useState(0);
+  const [currentDomNode, setCurrentDomNode] = React.useState(null);
+
+  const [gameSettings, setGameSettings] = React.useState({
+    mode: "quote",
+    quoteLength: "all",
+    wordLength: 100,
+    showWpm: true,
+    letterProg: true,
+    wordProg: true,
+    showTime: false,
+  });
+
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
   let intervalRef = React.useRef(null);
@@ -54,10 +66,25 @@ export default function Game() {
     }
   };
 
+  function restart() {
+    setPlaying(false);
+    clearInterval(intervalRef.current);
+    setInput("");
+    setTime(0);
+    setCurrentDomNode(0);
+    getQuote();
+    inputRef?.current?.focus();
+  }
+
   return (
     <>
       <div className="gameinfo">
-        <Statistics input={input} quote={quote} time={time} />
+        <Statistics
+          gameSettings={gameSettings}
+          input={input}
+          quote={quote}
+          time={time}
+        />
       </div>
       <div className="quotewrapper">
         <Caret
@@ -76,18 +103,7 @@ export default function Game() {
         />
       </div>
       <div className="reset">
-        <button
-          className="reset__btn"
-          onClick={() => {
-            setPlaying(false);
-            clearInterval(intervalRef.current);
-            setInput("");
-            setTime(0);
-            setCurrentDomNode(0);
-            getQuote();
-            inputRef?.current?.focus();
-          }}
-        >
+        <button className="reset__btn" onClick={restart}>
           <VscDebugRestart />
         </button>
       </div>
@@ -101,6 +117,7 @@ export default function Game() {
         value={input}
         onChange={(e) => playGame(e)}
       />
+      <Footer gameSettings={gameSettings} setGameSettings={setGameSettings} />
     </>
   );
 }

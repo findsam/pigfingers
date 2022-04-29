@@ -9,7 +9,6 @@ export default function App() {
       <div className="wrapper">
         <Game />
       </div>
-      <Footer />
     </div>
   );
 }
