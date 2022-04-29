@@ -1,6 +1,6 @@
 ## About the Project
 
-> Pigfingers was built to provide myself & friends a competitive typing environment with total control. Full fledge decision making on design systems acontrol of keybinds, gamemodes, length of quotes, difficulty of words was required when our favorite typing service was shutdown.
+> Pigfingers was built to provide myself & friends a competitive typing environment with total control. Full fledge decision making on design systems control of keybinds, gamemodes, length of quotes, difficulty of words was required when our favorite typing service was shutdown.
 
 #### Build using this technology:
 
