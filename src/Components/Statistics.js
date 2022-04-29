@@ -22,6 +22,7 @@ export default function Statistics(props) {
         </p>
       )}
       {props?.gameSettings.showWpm && <p>wpm: {calcSpeed()}</p>}
+      {props?.gameSettings.showTime && <p>time: {props?.time}</p>}
     </div>
   );
 }

@@ -174,7 +174,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> large
+                      <MdSubdirectoryArrowRight size={15} /> long
                     </p>
                   </div>
                 </li>
