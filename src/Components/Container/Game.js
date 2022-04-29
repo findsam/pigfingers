@@ -5,6 +5,7 @@ import Statistics from "../Statistics";
 import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
 import Data from "../../Static/Words";
+import { playSound } from "../../Static/Utils";
 
 export default function Game() {
   const [time, setTime] = React.useState(0);
@@ -21,6 +22,7 @@ export default function Game() {
     letterProg: false,
     wordProg: false,
     showTime: false,
+    audio: false,
   });
 
   const inputRef = React.useRef(null);
@@ -79,6 +81,7 @@ export default function Game() {
     }
     setInput(value);
     checkComplete();
+    if (gameSettings.audio) playSound();
   }
 
   const checkComplete = () => {

@@ -3,6 +3,7 @@ import { SiLetterboxd } from "react-icons/si";
 import { IoMdQuote } from "react-icons/io";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
+import { BsFillVolumeDownFill } from "react-icons/bs";
 
 export default function Settings(props) {
   const [open, setOpen] = React.useState();
@@ -296,6 +297,35 @@ export default function Settings(props) {
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
                       showTime: false,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> off
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <BsFillVolumeDownFill /> Audio...
+              </span>
+              <div>
+                <p
+                  className={`${props.gameSettings.audio === true && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      audio: true,
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> on
+                </p>
+                <p
+                  className={`${props.gameSettings.audio === false && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      audio: false,
                     }))
                   }
                 >
