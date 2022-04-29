@@ -18,19 +18,10 @@ export default function Game() {
   const [input, setInput] = React.useState("");
   const [playing, setPlaying] = React.useState(false);
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
-
   const [gameSettings, setGameSettings] = React.useState(INITIAL_STATE);
-
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
   const intervalRef = React.useRef(null);
-
-  async function startGame() {
-    if (gameSettings.mode === "quote")
-      setQuote(await getQuote(gameSettings.quoteLength));
-    else if (gameSettings.mode === "words")
-      setQuote(await getWords(gameSettings.wordLength));
-  }
 
   React.useEffect(() => {
     restart();
@@ -50,6 +41,13 @@ export default function Game() {
   }, [restartKeybind]);
 
   if (quote.length === 0) return null;
+
+  async function startGame() {
+    if (gameSettings.mode === "quote")
+      setQuote(await getQuote(gameSettings.quoteLength));
+    else if (gameSettings.mode === "words")
+      setQuote(await getWords(gameSettings.wordLength));
+  }
 
   function startTimer() {
     const intervalId = setInterval(() => {

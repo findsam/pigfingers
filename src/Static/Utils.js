@@ -59,14 +59,12 @@ export function getWords(wordLength) {
   const shuffled = Data.sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, wordLength);
   const stringify = selected.join(" ");
-  // setQuote(stringify);
   return stringify;
 }
 
 export async function getQuote(quoteLength) {
   const res = await fetch(`${quoteLength}`);
   const { content } = await res.json();
-  // setQuote(content);
   return content;
 }
 
