@@ -118,7 +118,7 @@ export default function Game() {
       </div>
       <div className="reset">
         <button className="reset__btn" onClick={restart}>
-          <VscDebugRestart />
+          <VscDebugRestart size={22} />
         </button>
       </div>
       <input
