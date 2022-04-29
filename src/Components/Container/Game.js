@@ -18,8 +18,8 @@ export default function Game() {
     quoteLength: "https://api.quotable.io/random?minLength=10&maxLength=500",
     wordLength: 25,
     showWpm: true,
-    letterProg: true,
-    wordProg: true,
+    letterProg: false,
+    wordProg: false,
     showTime: false,
   });
 
@@ -41,7 +41,6 @@ export default function Game() {
   }
 
   function startGame() {
-    inputRef?.current?.focus();
     if (gameSettings.mode === "quote") {
       getQuote();
     } else if (gameSettings.mode === "words") {
@@ -50,7 +49,7 @@ export default function Game() {
   }
 
   React.useEffect(() => {
-    startGame();
+    restart();
   }, [gameSettings.mode, gameSettings.quoteLength, gameSettings.wordLength]);
 
   if (quote.length === 0) return null;
@@ -85,9 +84,9 @@ export default function Game() {
   function restart() {
     setPlaying(false);
     clearInterval(intervalRef.current);
-    setInput("");
     setTime(0);
     setCurrentDomNode(0);
+    setInput("");
     startGame();
     inputRef?.current?.focus();
   }

@@ -88,16 +88,6 @@ export default function Settings(props) {
                 >
                   <MdSubdirectoryArrowRight size={15} /> 75
                 </p>
-                <p
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      wordLength: 100,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> 100
-                </p>
               </div>
             </li>
             <li>
