@@ -28,7 +28,7 @@ export default function Settings(props) {
           <ul>
             <li>
               <span>
-                <FaBars /> Mode...
+                <FaBars /> Mode:
               </span>
               <div>
                 <p
@@ -59,7 +59,7 @@ export default function Settings(props) {
               <>
                 <li>
                   <span>
-                    <SiLetterboxd /> Words Length...
+                    <SiLetterboxd /> Words Length:
                   </span>
                   <div>
                     <p
@@ -109,7 +109,7 @@ export default function Settings(props) {
               <>
                 <li>
                   <span>
-                    <IoMdQuote /> Quote Length...
+                    <IoMdQuote /> Quote Length:
                   </span>
                   <div>
                     <p
@@ -182,7 +182,7 @@ export default function Settings(props) {
             )}
             <li>
               <span>
-                <FaTachometerAlt /> Show WPM...
+                <FaTachometerAlt /> Show WPM:
               </span>
               <div>
                 <p
@@ -211,7 +211,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <FaClock /> Letter Progress...
+                <FaClock /> Letter Progress:
               </span>
               <div>
                 <p
@@ -244,7 +244,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <FaClock /> Word Progress...
+                <FaClock /> Word Progress:
               </span>
               <div>
                 <p
@@ -275,7 +275,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <FaClock /> Show Time...
+                <FaClock /> Show Time:
               </span>
               <div>
                 <p
@@ -306,7 +306,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <BsFillVolumeDownFill /> Audio...
+                <BsFillVolumeDownFill size={20} /> Audio:
               </span>
               <div>
                 <p
