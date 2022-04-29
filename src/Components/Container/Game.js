@@ -5,6 +5,8 @@ import Statistics from "../Statistics";
 import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
 import Data from "../../Static/Words";
+import useLocalstorage from "../../Hooks/useLocalstorage";
+
 import {
   playSound,
   getQuote,
@@ -18,7 +20,10 @@ export default function Game() {
   const [input, setInput] = React.useState("");
   const [playing, setPlaying] = React.useState(false);
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
-  const [gameSettings, setGameSettings] = React.useState(INITIAL_STATE);
+  const [gameSettings, setGameSettings] = useLocalstorage(
+    "game_state",
+    INITIAL_STATE
+  );
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
   const intervalRef = React.useRef(null);
