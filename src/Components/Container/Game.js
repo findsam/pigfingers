@@ -5,7 +5,12 @@ import Statistics from "../Statistics";
 import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
 import Data from "../../Static/Words";
-import { playSound } from "../../Static/Utils";
+import {
+  playSound,
+  getQuote,
+  getWords,
+  INITIAL_STATE,
+} from "../../Static/Utils";
 
 export default function Game() {
   const [time, setTime] = React.useState(0);
@@ -14,37 +19,17 @@ export default function Game() {
   const [playing, setPlaying] = React.useState(false);
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
 
-  const [gameSettings, setGameSettings] = React.useState({
-    mode: "quote",
-    quoteLength: "https://api.quotable.io/random?minLength=10&maxLength=500",
-    wordLength: 25,
-    showWpm: true,
-    letterProg: false,
-    wordProg: false,
-    showTime: false,
-    audio: false,
-  });
+  const [gameSettings, setGameSettings] = React.useState(INITIAL_STATE);
 
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
   const intervalRef = React.useRef(null);
 
-  async function getQuote() {
-    const res = await fetch(`${gameSettings.quoteLength}`);
-    const { content } = await res.json();
-    setQuote(content);
-  }
-
-  function getWords() {
-    const shuffled = Data.sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, gameSettings.wordLength);
-    const stringify = selected.join(" ");
-    setQuote(stringify);
-  }
-
-  function startGame() {
-    if (gameSettings.mode === "quote") getQuote();
-    else if (gameSettings.mode === "words") getWords();
+  async function startGame() {
+    if (gameSettings.mode === "quote")
+      setQuote(await getQuote(gameSettings.quoteLength));
+    else if (gameSettings.mode === "words")
+      setQuote(await getWords(gameSettings.wordLength));
   }
 
   React.useEffect(() => {
