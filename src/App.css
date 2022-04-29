@@ -15,8 +15,10 @@
 body {
   height: 100%;
   width: 100%;
+  font-weight: 400;
   position: relative;
-  font-family: "Source Code Pro", monospace;
+  /* font-family: "Source Code Pro", monospace; */
+  font-family: "Fira Code", monospace;
   background: var(--bg);
   color: var(--sub-clr);
 }
@@ -54,8 +56,9 @@ body {
 }
 .paragraph {
   max-width: max-content;
-  line-height: 35px;
-  font-size: 24px;
+  line-height: 33px;
+  font-size: 22px;
+  font-weight: 400;
 }
 .caret-container {
   z-index: -1000;
@@ -95,7 +98,7 @@ body {
   position: fixed;
   bottom: 0;
   padding: 2rem;
-  font-size: 12px;
+  font-size: 13px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -162,7 +165,7 @@ body {
   align-items: flex-start;
   width: 100%;
   list-style: none;
-  font-size: 12px;
+  font-size: 13px;
   flex-direction: column;
 }
 .settings__inner > ul > li > span {
