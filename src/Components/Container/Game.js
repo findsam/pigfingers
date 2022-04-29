@@ -51,7 +51,7 @@ export default function Game() {
 
   React.useEffect(() => {
     startGame();
-  }, []);
+  }, [gameSettings.mode, gameSettings.quoteLength, gameSettings.wordLength]);
 
   if (quote.length === 0) return null;
 
