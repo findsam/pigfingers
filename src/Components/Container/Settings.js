@@ -109,7 +109,8 @@ export default function Settings(props) {
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
-                      quoteLength: "all",
+                      quoteLength:
+                        "https://api.quotable.io/random?minLength=10&maxLength=500",
                     }))
                   }
                 >
@@ -119,7 +120,8 @@ export default function Settings(props) {
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
-                      quoteLength: "small",
+                      quoteLength:
+                        "https://api.quotable.io/random?minLength=10&maxLength=150",
                     }))
                   }
                 >
@@ -129,7 +131,8 @@ export default function Settings(props) {
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
-                      quoteLength: "medium",
+                      quoteLength:
+                        "https://api.quotable.io/random?minLength=150&maxLength=300",
                     }))
                   }
                 >
@@ -139,7 +142,8 @@ export default function Settings(props) {
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
-                      quoteLength: "large",
+                      quoteLength:
+                        "https://api.quotable.io/random?minLength=300&maxLength=500",
                     }))
                   }
                 >

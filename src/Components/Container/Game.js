@@ -4,6 +4,7 @@ import Paragraph from "../Paragraph";
 import Statistics from "../Statistics";
 import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
+import Data from "../../Static/Words";
 
 export default function Game() {
   const [time, setTime] = React.useState(0);
@@ -14,8 +15,8 @@ export default function Game() {
 
   const [gameSettings, setGameSettings] = React.useState({
     mode: "quote",
-    quoteLength: "all",
-    wordLength: 100,
+    quoteLength: "https://api.quotable.io/random?minLength=10&maxLength=500",
+    wordLength: 25,
     showWpm: true,
     letterProg: true,
     wordProg: true,
@@ -27,14 +28,29 @@ export default function Game() {
   let intervalRef = React.useRef(null);
 
   async function getQuote() {
-    const res = await fetch("https://api.quotable.io/random");
+    const res = await fetch(`${gameSettings.quoteLength}`);
     const { content } = await res.json();
     setQuote(content);
   }
 
-  React.useEffect(() => {
+  function getWords() {
+    const shuffled = Data.sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, gameSettings.wordLength);
+    const stringify = selected.join(" ");
+    setQuote(stringify);
+  }
+
+  function startGame() {
     inputRef?.current?.focus();
-    getQuote();
+    if (gameSettings.mode === "quote") {
+      getQuote();
+    } else if (gameSettings.mode === "words") {
+      getWords();
+    }
+  }
+
+  React.useEffect(() => {
+    startGame();
   }, []);
 
   if (quote.length === 0) return null;
@@ -72,7 +88,7 @@ export default function Game() {
     setInput("");
     setTime(0);
     setCurrentDomNode(0);
-    getQuote();
+    startGame();
     inputRef?.current?.focus();
   }
 
