@@ -89,7 +89,7 @@ body {
   color: var(--color);
 }
 .set {
-  color: var(--brand);
+  color: var(--color);
 }
 .incorrect {
   color: var(--err);
