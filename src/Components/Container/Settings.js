@@ -3,7 +3,6 @@ import { SiLetterboxd } from "react-icons/si";
 import { IoMdQuote } from "react-icons/io";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
-import { IoCheckmarkSharp } from "react-icons/io5";
 
 export default function Settings(props) {
   const [open, setOpen] = React.useState();

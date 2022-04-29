@@ -69,8 +69,6 @@ export default function Game() {
   }
 
   const checkComplete = () => {
-    // const data = sortData(input, quote);
-    // if (data[0] === data[1]) {
     const newLength = input.length + 1;
     if (newLength === quote.length) {
       clearInterval(intervalRef.current);
