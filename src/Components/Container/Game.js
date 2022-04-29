@@ -49,11 +49,11 @@ export default function Game() {
     restart();
   }, [gameSettings.mode, gameSettings.quoteLength, gameSettings.wordLength]);
 
-  const restartKeybind = React.useCallback((event) => {
+  const restartKeybind = (event) => {
     if (event.key.toLowerCase() === "enter" && event.ctrlKey) {
       restart();
     }
-  }, []);
+  };
 
   React.useEffect(() => {
     document.addEventListener("keydown", restartKeybind);
