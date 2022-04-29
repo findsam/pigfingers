@@ -64,12 +64,12 @@ export default function Settings(props) {
                   <div>
                     <p
                       className={`${
-                        props.gameSettings.wordLength === 25 && "set"
+                        props.gameSettings.wordLength === 15 && "set"
                       }`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          wordLength: 25,
+                          wordLength: 15,
                         }))
                       }
                     >
@@ -77,12 +77,12 @@ export default function Settings(props) {
                     </p>
                     <p
                       className={`${
-                        props.gameSettings.wordLength === 50 && "set"
+                        props.gameSettings.wordLength === 30 && "set"
                       }`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          wordLength: 50,
+                          wordLength: 30,
                         }))
                       }
                     >
@@ -90,16 +90,16 @@ export default function Settings(props) {
                     </p>
                     <p
                       className={`${
-                        props.gameSettings.wordLength === 75 && "set"
+                        props.gameSettings.wordLength === 60 && "set"
                       }`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          wordLength: 75,
+                          wordLength: 60,
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> 75
+                      <MdSubdirectoryArrowRight size={15} /> 60
                     </p>
                   </div>
                 </li>
