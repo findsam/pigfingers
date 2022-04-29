@@ -10,10 +10,10 @@ export default function Footer(props) {
       <footer className="footer">
         <div className="footer__commands">
           <p className="footer__commands--item">
-            <span>tab</span> - restart game
+            <span>esc/escape</span> - command line
           </p>
           <p className="footer__commands--item">
-            <span>esc/escape</span> - command line
+            <span>ctrl/cmd</span>+<span>enter</span> - restart game
           </p>
         </div>
       </footer>
