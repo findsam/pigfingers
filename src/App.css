@@ -256,11 +256,11 @@ body {
   height: 24px;
   font-size: 12px;
   width: fit-content;
-  padding: 0rem 0.7rem 0.12rem 0.7rem;
+  padding: 0.12rem 0.7rem 0.12rem 0.7rem;
   max-width: fit-content;
   position: absolute;
   white-space: nowrap;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Fira Code", monospace;
   top: 4rem;
   content: "Restart";
   transform: translateY(-8px);
