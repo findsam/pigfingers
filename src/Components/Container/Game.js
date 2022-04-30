@@ -90,6 +90,11 @@ export default function Game() {
     inputRef?.current?.focus();
   }
 
+  // const onFocus = () => null;
+  const onFocusFall = () => {
+    inputRef?.current?.focus();
+  };
+
   return (
     <>
       <div className="gameinfo">
@@ -122,6 +127,7 @@ export default function Game() {
         </button>
       </div>
       <input
+        onBlur={onFocusFall}
         autoComplete="off"
         spellCheck="false"
         autoFocus
