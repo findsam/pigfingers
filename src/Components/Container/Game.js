@@ -133,7 +133,11 @@ export default function Game() {
         value={input}
         onChange={(e) => playGame(e)}
       />
-      <Footer gameSettings={gameSettings} setGameSettings={setGameSettings} />
+      <Footer
+        gameSettings={gameSettings}
+        setGameSettings={setGameSettings}
+        playing={playing}
+      />
     </>
   );
 }

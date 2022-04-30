@@ -7,7 +7,7 @@ export default function Footer(props) {
         gameSettings={props.gameSettings}
         setGameSettings={props.setGameSettings}
       />
-      <footer className="footer">
+      <footer className={`footer ${props.playing && "close"}`}>
         <div className="footer__commands">
           <p className="footer__commands--item">
             <span>esc/escape</span> - command line
