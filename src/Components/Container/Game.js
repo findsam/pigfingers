@@ -4,7 +4,6 @@ import Paragraph from "../Paragraph";
 import Statistics from "../Statistics";
 import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
-import Data from "../../Static/Words";
 import useLocalstorage from "../../Hooks/useLocalstorage";
 
 import {
