@@ -125,8 +125,16 @@ body {
   padding: 0 0.3rem 0.1rem 0.3rem;
   margin: 0 0.5rem;
 }
-
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .settings {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -138,7 +146,6 @@ body {
   max-height: 100vh;
   max-width: 100vw;
   background: rgba(0, 0, 0, 0.8);
-  /* background: orange; */
   display: flex;
   align-items: flex-start;
   justify-content: center;

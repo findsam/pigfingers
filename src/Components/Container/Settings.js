@@ -6,7 +6,7 @@ import { MdSubdirectoryArrowRight } from "react-icons/md";
 import { BsFillVolumeDownFill } from "react-icons/bs";
 
 export default function Settings(props) {
-  const [open, setOpen] = React.useState();
+  const [open, setOpen] = React.useState(false);
 
   const close = React.useCallback((event) => {
     if (event.keyCode === 27) {
@@ -23,7 +23,7 @@ export default function Settings(props) {
 
   return (
     open && (
-      <div className="settings">
+      <div className={`settings`}>
         <div className="settings__inner">
           <ul>
             <li>

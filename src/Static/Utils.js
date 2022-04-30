@@ -79,3 +79,5 @@ export const INITIAL_STATE = {
   showTime: false,
   audio: false,
 };
+
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
