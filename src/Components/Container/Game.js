@@ -90,10 +90,7 @@ export default function Game() {
     inputRef?.current?.focus();
   }
 
-  // const onFocus = () => null;
-  const onFocusFall = () => {
-    inputRef?.current?.focus();
-  };
+  const onFocusFall = () => inputRef?.current?.focus();
 
   return (
     <>
