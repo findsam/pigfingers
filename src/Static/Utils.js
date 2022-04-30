@@ -62,6 +62,7 @@ export function getWords(wordLength) {
   return stringify;
 }
 
+// .match(/[^_\W]+/g).join(' '); regex to remove punctuation add setting soonTM
 export async function getQuote(quoteLength) {
   const res = await fetch(`${quoteLength}`);
   const { content } = await res.json();
