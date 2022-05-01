@@ -1,9 +1,9 @@
 import React from "react";
-import { SiLetterboxd } from "react-icons/si";
 import { IoMdQuote } from "react-icons/io";
-import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
-import { MdSubdirectoryArrowRight } from "react-icons/md";
+import { SiLetterboxd } from "react-icons/si";
 import { BsFillVolumeDownFill } from "react-icons/bs";
+import { MdSubdirectoryArrowRight } from "react-icons/md";
+import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 
 export default function Settings(props) {
   const [open, setOpen] = React.useState(false);

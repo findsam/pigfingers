@@ -1,11 +1,10 @@
-import * as React from "react";
 import Caret from "../Caret";
+import Footer from "../Footer";
+import * as React from "react";
 import Paragraph from "../Paragraph";
 import Statistics from "../Statistics";
-import Footer from "../Footer";
 import { VscDebugRestart } from "react-icons/vsc";
 import useLocalstorage from "../../Hooks/useLocalstorage";
-
 import {
   playSound,
   getQuote,
@@ -32,16 +31,12 @@ export default function Game() {
   }, [gameSettings.mode, gameSettings.quoteLength, gameSettings.wordLength]);
 
   const restartKeybind = (event) => {
-    if (event.key.toLowerCase() === "enter" && event.ctrlKey) {
-      restart();
-    }
+    if (event.key.toLowerCase() === "enter" && event.ctrlKey) restart();
   };
 
   React.useEffect(() => {
     document.addEventListener("keydown", restartKeybind);
-    return () => {
-      document.removeEventListener("keydown", restartKeybind);
-    };
+    return () => document.removeEventListener("keydown", restartKeybind);
   }, [restartKeybind]);
 
   if (quote.length === 0) return null;
