@@ -2,7 +2,6 @@ import * as React from "react";
 
 export default function Caret(props) {
   const [position, setPosition] = React.useState(null);
-
   const { caretType } = props?.gameSettings;
 
   React.useEffect(() => {
