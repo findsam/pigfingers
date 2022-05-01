@@ -78,6 +78,7 @@ export const INITIAL_STATE = {
   wordProg: false,
   showTime: false,
   audio: false,
+  caretType: "stroke",
 };
 
 export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

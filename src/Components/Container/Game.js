@@ -22,6 +22,7 @@ export default function Game() {
     "game_state",
     INITIAL_STATE
   );
+  // const [gameSettings, setGameSettings] = React.useState(INITIAL_STATE);
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
   const intervalRef = React.useRef(null);
@@ -103,6 +104,7 @@ export default function Game() {
           textRef={textRef}
           input={input}
           quote={quote}
+          gameSettings={gameSettings}
         />
         <Paragraph
           currentDomNode={currentDomNode}

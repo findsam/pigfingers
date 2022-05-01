@@ -63,6 +63,8 @@ body {
   line-height: 33px;
   font-size: 22px;
   font-weight: 400;
+  position: relative;
+  z-index: 10;
 }
 .caret-container {
   z-index: -1000;
@@ -77,9 +79,33 @@ body {
   position: relative;
   background: var(--brand);
   border-radius: 6px;
-  z-index: 1000000;
+  z-index: 500;
   height: 3px;
   width: 15px;
+}
+@keyframes Blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.blink {
+  animation: Blink 1s linear infinite;
+}
+.caret.stroke {
+  transition: all 0.1s ease 0.01s;
+  position: relative;
+  background: var(--brand);
+  border-radius: 2px;
+  z-index: 501;
+  height: 25px;
+  width: 3px;
+  margin-top: 2px;
 }
 .letter {
   transition: color 0.1s ease;

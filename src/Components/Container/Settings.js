@@ -2,7 +2,7 @@ import React from "react";
 import { IoMdQuote } from "react-icons/io";
 import { SiLetterboxd } from "react-icons/si";
 import { BsFillVolumeDownFill } from "react-icons/bs";
-import { MdSubdirectoryArrowRight } from "react-icons/md";
+import { MdSubdirectoryArrowRight, MdFormatItalic } from "react-icons/md";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 
 export default function Settings(props) {
@@ -330,6 +330,54 @@ export default function Settings(props) {
                   }
                 >
                   <MdSubdirectoryArrowRight size={15} /> off
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <span>
+                <MdFormatItalic size={20} /> Caret:
+              </span>
+              <div>
+                <p
+                  className={`${
+                    props.gameSettings.caretType === "underline" && "set"
+                  }`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "underline",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Underline
+                </p>
+                <p
+                  className={`${
+                    props.gameSettings.caretType === "stroke" && "set"
+                  }`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "stroke",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Block
+                </p>
+
+                <p
+                  className={`${
+                    props.gameSettings.caretType === "default" && "set"
+                  }`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "default",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Off
                 </p>
               </div>
             </li>
