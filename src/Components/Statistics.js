@@ -1,12 +1,6 @@
-import { calcCorrectSymbols, calcWPM, sleep } from "../Static/Utils";
+import { calcCorrectSymbols, calcWPM, sleep, calcSpeed } from "../Static/Utils";
 
 export default function Statistics(props) {
-  function calcSpeed() {
-    const correctSymbols = calcCorrectSymbols(props.input, props.quote);
-    const finalWPM = calcWPM(correctSymbols, props.time) | 0;
-    return finalWPM;
-  }
-
   return (
     <div className="statitstics">
       {props?.gameSettings?.letterProg && (
@@ -21,7 +15,9 @@ export default function Statistics(props) {
           {props?.quote.split(" ").length}
         </p>
       )}
-      {props?.gameSettings.showWpm && <p>wpm: {calcSpeed()}</p>}
+      {props?.gameSettings.showWpm && (
+        <p>wpm: {calcSpeed(props?.input, props?.quote, props?.time)}</p>
+      )}
       {props?.gameSettings.showTime && <p>time: {props?.time}</p>}
     </div>
   );

@@ -34,6 +34,12 @@ export const calcWPM = (value, seconds) => {
   return 0;
 };
 
+export const calcSpeed = (input, quote, time) => {
+  const correctSymbols = calcCorrectSymbols(input, quote);
+  const finalWPM = calcWPM(correctSymbols, time) | 0;
+  return finalWPM;
+};
+
 export const playSound = () => {
   const audioOptions = [
     sOne,

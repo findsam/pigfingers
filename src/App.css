@@ -187,7 +187,7 @@ body {
   display: flex;
   justify-content: center;
   background: var(--bg);
-  padding: 2rem 0rem;
+  padding: 1.5rem 0rem;
   border-radius: 12px;
   max-width: 600px;
   min-width: 600px;
