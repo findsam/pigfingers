@@ -124,7 +124,7 @@ body {
   position: fixed;
   bottom: 0;
   padding: 2rem;
-  font-size: 13px;
+  font-size: 12px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -180,7 +180,6 @@ body {
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
 }
-
 .settings__inner {
   animation: move 0.5s ease;
   animation-fill-mode: forwards;
@@ -205,7 +204,7 @@ body {
   width: 100%;
   list-style: none;
   align-items: flex-end;
-  font-size: 13px;
+  font-size: 12px;
   display: flex;
 }
 .settings__inner > ul > li > span {
