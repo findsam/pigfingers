@@ -26,35 +26,6 @@ export default function Settings(props) {
       <div className={`settings`}>
         <div className="settings__inner">
           <ul>
-            <li>
-              <span>
-                <FaBars /> Mode:
-              </span>
-              <div>
-                <p
-                  className={`${props.gameSettings.mode === "quote" && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      mode: "quote",
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> Quote
-                </p>
-                <p
-                  className={`${props.gameSettings.mode === "words" && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      mode: "words",
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> Words
-                </p>
-              </div>
-            </li>
             {props.gameSettings.mode === "words" && (
               <>
                 <li>
@@ -180,6 +151,82 @@ export default function Settings(props) {
                 </li>
               </>
             )}
+            <li>
+              <span>
+                <FaBars /> Mode:
+              </span>
+              <div>
+                <p
+                  className={`${props.gameSettings.mode === "quote" && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      mode: "quote",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Quote
+                </p>
+                <p
+                  className={`${props.gameSettings.mode === "words" && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      mode: "words",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Words
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>
+                <MdFormatItalic size={15} /> Caret:
+              </span>
+              <div>
+                <p
+                  className={`${
+                    props.gameSettings.caretType === "underline" && "set"
+                  }`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "underline",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Underline
+                </p>
+                <p
+                  className={`${
+                    props.gameSettings.caretType === "stroke" && "set"
+                  }`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "stroke",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Block
+                </p>
+
+                <p
+                  className={`${
+                    props.gameSettings.caretType === "default" && "set"
+                  }`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "default",
+                    }))
+                  }
+                >
+                  <MdSubdirectoryArrowRight size={15} /> Off
+                </p>
+              </div>
+            </li>
             <li>
               <span>
                 <FaTachometerAlt /> Show WPM:
@@ -309,76 +356,22 @@ export default function Settings(props) {
                 <BsFillVolumeDownFill size={20} /> Audio:
               </span>
               <div>
-                <p
-                  className={`${props.gameSettings.audio === true && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      audio: true,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> on
-                </p>
-                <p
-                  className={`${props.gameSettings.audio === false && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      audio: false,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> off
-                </p>
-              </div>
-            </li>
-
-            <li>
-              <span>
-                <MdFormatItalic size={20} /> Caret:
-              </span>
-              <div>
-                <p
-                  className={`${
-                    props.gameSettings.caretType === "underline" && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      caretType: "underline",
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> Underline
-                </p>
-                <p
-                  className={`${
-                    props.gameSettings.caretType === "stroke" && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      caretType: "stroke",
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> Block
-                </p>
-
-                <p
-                  className={`${
-                    props.gameSettings.caretType === "default" && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      caretType: "default",
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> Off
-                </p>
+                <label class="checkboxcontainer">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    checked={props.gameSettings.audio}
+                  />
+                  <span
+                    class="slider round"
+                    onClick={() =>
+                      props.setGameSettings((prevSettings) => ({
+                        ...prevSettings,
+                        audio: !prevSettings.audio,
+                      }))
+                    }
+                  ></span>
+                </label>
               </div>
             </li>
           </ul>
