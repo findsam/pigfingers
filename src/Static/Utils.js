@@ -58,6 +58,7 @@ export const playSound = () => {
   const randomAudio =
     audioOptions[Math.floor(Math.random() * audioOptions.length)];
   let audio = new Audio(randomAudio);
+  audio.volume = 0.6;
   audio.play();
 };
 

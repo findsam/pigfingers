@@ -2,7 +2,7 @@ import React from "react";
 import { IoMdQuote } from "react-icons/io";
 import { SiLetterboxd } from "react-icons/si";
 import { AiFillSound } from "react-icons/ai";
-import { MdFormatItalic } from "react-icons/md";
+import { BiItalic } from "react-icons/bi";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 
 export default function Settings(props) {
@@ -183,7 +183,7 @@ export default function Settings(props) {
 
             <li>
               <span>
-                <MdFormatItalic size={15} /> caret:
+                <BiItalic size={15} /> caret:
               </span>
               <div>
                 <p

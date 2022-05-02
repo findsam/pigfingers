@@ -201,7 +201,7 @@ body {
 }
 .settings__inner > ul > li {
   transition: all 0.08s ease;
-  padding: 0.33rem 0;
+  padding: 0.4rem 0;
   width: 100%;
   list-style: none;
   align-items: flex-end;
