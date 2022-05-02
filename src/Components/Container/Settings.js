@@ -232,28 +232,22 @@ export default function Settings(props) {
                 <FaTachometerAlt /> Show WPM:
               </span>
               <div>
-                <p
-                  className={`${props.gameSettings.showWpm === true && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      showWpm: true,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> on
-                </p>
-                <p
-                  className={`${props.gameSettings.showWpm === false && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      showWpm: false,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> off
-                </p>
+                <label class="checkboxcontainer">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    checked={props.gameSettings.showWpm}
+                  />
+                  <span
+                    class="slider"
+                    onClick={() =>
+                      props.setGameSettings((prevSettings) => ({
+                        ...prevSettings,
+                        showWpm: !prevSettings.showWpm,
+                      }))
+                    }
+                  ></span>
+                </label>
               </div>
             </li>
             <li>
@@ -261,32 +255,22 @@ export default function Settings(props) {
                 <FaClock /> Letter Progress:
               </span>
               <div>
-                <p
-                  className={`${
-                    props.gameSettings.letterProg === true && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      letterProg: true,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> on
-                </p>
-                <p
-                  className={`${
-                    props.gameSettings.letterProg === false && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      letterProg: false,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> off
-                </p>
+                <label class="checkboxcontainer">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    checked={props.gameSettings.letterProg}
+                  />
+                  <span
+                    class="slider"
+                    onClick={() =>
+                      props.setGameSettings((prevSettings) => ({
+                        ...prevSettings,
+                        letterProg: !prevSettings.letterProg,
+                      }))
+                    }
+                  ></span>
+                </label>
               </div>
             </li>
             <li>
@@ -294,30 +278,22 @@ export default function Settings(props) {
                 <FaClock /> Word Progress:
               </span>
               <div>
-                <p
-                  className={`${props.gameSettings.wordProg === true && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      wordProg: true,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> on
-                </p>
-                <p
-                  className={`${
-                    props.gameSettings.wordProg === false && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      wordProg: false,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> off
-                </p>
+                <label class="checkboxcontainer">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    checked={props.gameSettings.wordProg}
+                  />
+                  <span
+                    class="slider"
+                    onClick={() =>
+                      props.setGameSettings((prevSettings) => ({
+                        ...prevSettings,
+                        wordProg: !prevSettings.wordProg,
+                      }))
+                    }
+                  ></span>
+                </label>
               </div>
             </li>
             <li>
@@ -325,30 +301,22 @@ export default function Settings(props) {
                 <FaClock /> Show Time:
               </span>
               <div>
-                <p
-                  className={`${props.gameSettings.showTime === true && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      showTime: true,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> on
-                </p>
-                <p
-                  className={`${
-                    props.gameSettings.showTime === false && "set"
-                  }`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      showTime: false,
-                    }))
-                  }
-                >
-                  <MdSubdirectoryArrowRight size={15} /> off
-                </p>
+                <label class="checkboxcontainer">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    checked={props.gameSettings.showTime}
+                  />
+                  <span
+                    class="slider"
+                    onClick={() =>
+                      props.setGameSettings((prevSettings) => ({
+                        ...prevSettings,
+                        showTime: !prevSettings.showTime,
+                      }))
+                    }
+                  ></span>
+                </label>
               </div>
             </li>
             <li>
@@ -363,7 +331,7 @@ export default function Settings(props) {
                     checked={props.gameSettings.audio}
                   />
                   <span
-                    class="slider round"
+                    class="slider"
                     onClick={() =>
                       props.setGameSettings((prevSettings) => ({
                         ...prevSettings,
