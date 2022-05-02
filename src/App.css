@@ -115,6 +115,7 @@ body {
 }
 .set {
   color: var(--color);
+  text-decoration: underline;
 }
 .incorrect {
   color: var(--err);
@@ -232,7 +233,7 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   align-content: flex-end;
-  gap: 2rem;
+  gap: 0.5rem;
   margin-right: 1.5rem;
 }
 .settings__inner > ul > li > div > p {
@@ -242,9 +243,8 @@ body {
   margin-right: 0.25rem;
 }
 .settings__inner > ul > li > div > p:hover {
-  background: var(--color);
+  text-decoration: underline;
   cursor: pointer;
-  color: var(--sub-clr);
 }
 .statitstics {
   display: flex;

@@ -1,8 +1,8 @@
 import React from "react";
 import { IoMdQuote } from "react-icons/io";
 import { SiLetterboxd } from "react-icons/si";
-import { BsFillVolumeDownFill } from "react-icons/bs";
-import { MdSubdirectoryArrowRight, MdFormatItalic } from "react-icons/md";
+import { AiFillSound } from "react-icons/ai";
+import { MdFormatItalic } from "react-icons/md";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 
 export default function Settings(props) {
@@ -26,11 +26,40 @@ export default function Settings(props) {
       <div className={`settings`}>
         <div className="settings__inner">
           <ul>
+            <li>
+              <span>
+                <FaBars /> mode:
+              </span>
+              <div>
+                <p
+                  className={`${props.gameSettings.mode === "quote" && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      mode: "quote",
+                    }))
+                  }
+                >
+                  quote
+                </p>
+                <p
+                  className={`${props.gameSettings.mode === "words" && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      mode: "words",
+                    }))
+                  }
+                >
+                  words
+                </p>
+              </div>
+            </li>
             {props.gameSettings.mode === "words" && (
               <>
                 <li>
                   <span>
-                    <SiLetterboxd /> Words Length:
+                    <SiLetterboxd /> world length:
                   </span>
                   <div>
                     <p
@@ -80,7 +109,7 @@ export default function Settings(props) {
               <>
                 <li>
                   <span>
-                    <IoMdQuote /> Quote Length:
+                    <IoMdQuote /> quote length:
                   </span>
                   <div>
                     <p
@@ -151,38 +180,10 @@ export default function Settings(props) {
                 </li>
               </>
             )}
+
             <li>
               <span>
-                <FaBars /> Mode:
-              </span>
-              <div>
-                <p
-                  className={`${props.gameSettings.mode === "quote" && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      mode: "quote",
-                    }))
-                  }
-                >
-                  Quote
-                </p>
-                <p
-                  className={`${props.gameSettings.mode === "words" && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      mode: "words",
-                    }))
-                  }
-                >
-                  Words
-                </p>
-              </div>
-            </li>
-            <li>
-              <span>
-                <MdFormatItalic size={15} /> Caret:
+                <MdFormatItalic size={15} /> caret:
               </span>
               <div>
                 <p
@@ -196,7 +197,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  Underline
+                  underline
                 </p>
                 <p
                   className={`${
@@ -209,7 +210,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  Block
+                  block
                 </p>
 
                 <p
@@ -223,13 +224,13 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  Off
+                  off
                 </p>
               </div>
             </li>
             <li>
               <span>
-                <FaTachometerAlt /> Show WPM:
+                <FaTachometerAlt /> show wpm:
               </span>
               <div>
                 <label className="checkboxcontainer">
@@ -253,7 +254,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <FaClock /> Letter Progress:
+                <FaClock /> letter progress:
               </span>
               <div>
                 <label className="checkboxcontainer">
@@ -277,7 +278,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <FaClock /> Word Progress:
+                <FaClock /> word progress:
               </span>
               <div>
                 <label className="checkboxcontainer">
@@ -301,7 +302,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <FaClock /> Show Time:
+                <FaClock /> show time:
               </span>
               <div>
                 <label className="checkboxcontainer">
@@ -325,7 +326,7 @@ export default function Settings(props) {
             </li>
             <li>
               <span>
-                <BsFillVolumeDownFill size={20} /> Audio:
+                <AiFillSound size={15} /> audio:
               </span>
               <div>
                 <label className="checkboxcontainer">
