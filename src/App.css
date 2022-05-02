@@ -236,12 +236,6 @@ body {
   margin-right: 1.5rem;
 }
 .settings__inner > ul > li > div > p {
-  max-width: fit-content;
-  width: fit-content;
-  display: flex;
-  align-self: flex-end;
-  align-items: flex-end;
-  justify-content: flex-end;
   font-weight: 500;
 }
 .settings__inner > ul > li > div > p > svg {

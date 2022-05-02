@@ -44,7 +44,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> 25
+                      25
                     </p>
                     <p
                       className={`${
@@ -57,7 +57,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> 50
+                      50
                     </p>
                     <p
                       className={`${
@@ -70,7 +70,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> 60
+                      60
                     </p>
                   </div>
                 </li>
@@ -97,7 +97,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> all
+                      all
                     </p>
                     <p
                       className={`${
@@ -113,7 +113,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> small
+                      small
                     </p>
                     <p
                       className={`${
@@ -129,7 +129,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> medium
+                      medium
                     </p>
                     <p
                       className={`${
@@ -145,7 +145,7 @@ export default function Settings(props) {
                         }))
                       }
                     >
-                      <MdSubdirectoryArrowRight size={15} /> long
+                      long
                     </p>
                   </div>
                 </li>
@@ -165,7 +165,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  <MdSubdirectoryArrowRight size={15} /> Quote
+                  Quote
                 </p>
                 <p
                   className={`${props.gameSettings.mode === "words" && "set"}`}
@@ -176,7 +176,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  <MdSubdirectoryArrowRight size={15} /> Words
+                  Words
                 </p>
               </div>
             </li>
@@ -196,7 +196,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  <MdSubdirectoryArrowRight size={15} /> Underline
+                  Underline
                 </p>
                 <p
                   className={`${
@@ -209,7 +209,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  <MdSubdirectoryArrowRight size={15} /> Block
+                  Block
                 </p>
 
                 <p
@@ -223,7 +223,7 @@ export default function Settings(props) {
                     }))
                   }
                 >
-                  <MdSubdirectoryArrowRight size={15} /> Off
+                  Off
                 </p>
               </div>
             </li>
@@ -232,14 +232,15 @@ export default function Settings(props) {
                 <FaTachometerAlt /> Show WPM:
               </span>
               <div>
-                <label class="checkboxcontainer">
+                <label className="checkboxcontainer">
                   <input
                     className="checkbox"
                     type="checkbox"
                     checked={props.gameSettings.showWpm}
+                    readOnly
                   />
                   <span
-                    class="slider"
+                    className="slider"
                     onClick={() =>
                       props.setGameSettings((prevSettings) => ({
                         ...prevSettings,
@@ -255,14 +256,15 @@ export default function Settings(props) {
                 <FaClock /> Letter Progress:
               </span>
               <div>
-                <label class="checkboxcontainer">
+                <label className="checkboxcontainer">
                   <input
                     className="checkbox"
                     type="checkbox"
+                    readOnly
                     checked={props.gameSettings.letterProg}
                   />
                   <span
-                    class="slider"
+                    className="slider"
                     onClick={() =>
                       props.setGameSettings((prevSettings) => ({
                         ...prevSettings,
@@ -278,14 +280,15 @@ export default function Settings(props) {
                 <FaClock /> Word Progress:
               </span>
               <div>
-                <label class="checkboxcontainer">
+                <label className="checkboxcontainer">
                   <input
                     className="checkbox"
+                    readOnly
                     type="checkbox"
                     checked={props.gameSettings.wordProg}
                   />
                   <span
-                    class="slider"
+                    className="slider"
                     onClick={() =>
                       props.setGameSettings((prevSettings) => ({
                         ...prevSettings,
@@ -301,14 +304,15 @@ export default function Settings(props) {
                 <FaClock /> Show Time:
               </span>
               <div>
-                <label class="checkboxcontainer">
+                <label className="checkboxcontainer">
                   <input
+                    readOnly
                     className="checkbox"
                     type="checkbox"
                     checked={props.gameSettings.showTime}
                   />
                   <span
-                    class="slider"
+                    className="slider"
                     onClick={() =>
                       props.setGameSettings((prevSettings) => ({
                         ...prevSettings,
@@ -324,14 +328,15 @@ export default function Settings(props) {
                 <BsFillVolumeDownFill size={20} /> Audio:
               </span>
               <div>
-                <label class="checkboxcontainer">
+                <label className="checkboxcontainer">
                   <input
+                    readOnly
                     className="checkbox"
                     type="checkbox"
                     checked={props.gameSettings.audio}
                   />
                   <span
-                    class="slider"
+                    className="slider"
                     onClick={() =>
                       props.setGameSettings((prevSettings) => ({
                         ...prevSettings,
