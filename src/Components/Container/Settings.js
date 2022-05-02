@@ -59,7 +59,7 @@ export default function Settings(props) {
               <>
                 <li>
                   <span>
-                    <SiLetterboxd /> world length:
+                    <IoMdQuote /> word length:
                   </span>
                   <div>
                     <p
