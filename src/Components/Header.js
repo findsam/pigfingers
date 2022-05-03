@@ -23,26 +23,26 @@ export default function Header(props) {
           <li>
             <ExternalLink href="https://twitter.com">
               <FaTwitter size={15} />
+              Twitter
             </ExternalLink>
-            <span>Twitter</span>
           </li>
           <li>
             <ExternalLink href="https://discord.com">
               <SiDiscord size={15} />
+              Discord
             </ExternalLink>
-            <span>Discord</span>
           </li>
           <li>
             <ExternalLink href="https://discord.com">
               <FaGithub size={14} />
+              Github
             </ExternalLink>
-            <span>Github</span>
           </li>
           <li>
             <ExternalLink href="https://discord.com">
               <FaHeart size={14} />
+              Donate
             </ExternalLink>
-            <span>Donate</span>
           </li>
         </ul>
       </aside>
