@@ -12,7 +12,11 @@ export default function Header(props) {
   return (
     <header className={`header`}>
       <aside className={`header__item header__item--left`}>
-        {/* <img src={Logo} alt="Pigfingers logo" /> */}
+        <div className="header__logo">
+          <span className="top">www.</span>
+          <h1>PIGFINGERS</h1>
+          <span className="bottom">.gg</span>
+        </div>
       </aside>
       <aside
         className={`header__item header__item--right ${
