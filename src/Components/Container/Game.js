@@ -1,4 +1,5 @@
 import Caret from "../Caret";
+import Header from "../Header";
 import Footer from "../Footer";
 import * as React from "react";
 import Paragraph from "../Paragraph";
@@ -89,6 +90,7 @@ export default function Game() {
 
   return (
     <>
+      <Header playing={playing} />
       <div className="gameinfo">
         <Statistics
           gameSettings={gameSettings}

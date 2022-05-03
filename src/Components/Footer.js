@@ -1,5 +1,6 @@
 import * as React from "react";
 import Settings from "./Container/Settings";
+import { FaCodeBranch } from "react-icons/fa";
 export default function Footer(props) {
   return (
     <>
@@ -14,6 +15,9 @@ export default function Footer(props) {
           </p>
           <p className="footer__commands--item">
             <span>ctrl/cmd</span>+<span>enter</span> - restart game
+          </p>
+          <p className="footer__commands--item">
+            <FaCodeBranch style={{ marginRight: "0.5rem" }} /> v1.0.0
           </p>
         </div>
       </footer>

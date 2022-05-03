@@ -383,3 +383,42 @@ body {
   transform: translateX(15px);
   background: var(--sub-clr);
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  padding: 2rem 0;
+  font-size: 12px;
+  width: 100%;
+  max-width: 990px;
+  /* background: orange; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  transition: transform 0.4s ease, opacity 0.15s linear;
+}
+.header__item {
+  display: flex;
+  flex: 1;
+}
+.header__item--left {
+  align-self: flex-start;
+}
+.header__item--right {
+  align-self: flex-end;
+  transition: transform 0.4s ease, opacity 0.15s linear;
+}
+.header__item--right.close {
+  transform: translate(0, -15px);
+  opacity: 0;
+}
+.header__item__ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+}
