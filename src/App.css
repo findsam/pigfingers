@@ -388,7 +388,7 @@ body {
   position: fixed;
   top: 0;
   padding: 2rem 0;
-  font-size: 12px;
+  font-size: 13px;
   width: 100%;
   max-width: 990px;
   /* background: orange; */
@@ -406,6 +406,14 @@ body {
 .header__item--left {
   align-self: flex-start;
 }
+.header__item--left > img {
+  height: 45px;
+  width: 45px;
+}
+.header__item--left > h1 {
+  height: 30px;
+  width: 30px;
+}
 .header__item--right {
   align-self: flex-end;
   transition: transform 0.4s ease, opacity 0.15s linear;
@@ -419,6 +427,32 @@ body {
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  align-self: flex-end;
+  align-items: center;
+  align-self: center;
+  gap: 1rem;
+}
+.header__item__ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 13px;
+}
+.header__item__ul li:hover {
+  color: var(--color);
+  cursor: pointer;
+}
+.header__item__ul li a {
+  color: inherit;
+}
+.header__item__ul span {
+  font-size: 13px;
+  line-height: 13px;
+  color: inherit;
+}
+.header__item__ul li a svg {
+  vertical-align: middle;
+  font-size: 13px;
+  margin-right: 0.43rem;
+  line-height: 13px;
 }
