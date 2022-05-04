@@ -16,7 +16,7 @@ export default function Settings(props) {
         if (prevOpen === true) {
           settingsRef.current.childNodes[0].style = `transform: translateY(-35px)!important`;
           settingsRef.current.style = `opacity:0;`;
-          await sleep(300);
+          await sleep(500);
           setOpen(false);
         } else if (prevOpen === false) {
           setOpen(true);
