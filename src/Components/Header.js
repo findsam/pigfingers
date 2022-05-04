@@ -18,13 +18,13 @@ export default function Header(props) {
           <span className="bottom">.gg</span>
         </div>
       </aside>
-      <aside
+      {/* <aside
         className={`header__item header__item--right ${
           props.playing && "close"
         }`}
       >
         <ul className="header__item__ul">
-          {/* <li>
+          <li>
             <ExternalLink href="https://twitter.com">
               <FaTwitter size={18} />
             </ExternalLink>
@@ -38,15 +38,15 @@ export default function Header(props) {
             <ExternalLink href="https://discord.com">
               <FaGithub size={17} />
             </ExternalLink>
-          </li> */}
-          {/* <li>
+          </li>
+          <li>
             <ExternalLink href="https://discord.com">
               Donate
               <FaHeart size={17} />
             </ExternalLink>
-          </li> */}
+          </li>
         </ul>
-      </aside>
+      </aside> */}
     </header>
   );
 }

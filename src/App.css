@@ -126,7 +126,7 @@ body {
 .footer {
   position: fixed;
   bottom: 0;
-  padding: 2rem;
+  padding: 2rem 0;
   font-size: 12px;
   width: 100%;
   display: flex;
@@ -403,7 +403,9 @@ body {
   flex: 1;
 }
 .header__item--left {
-  align-self: flex-start;
+  /* align-self: flex-start; */
+  align-items: center;
+  justify-content: center;
 }
 .header__item--left > img {
   height: 45px;
