@@ -50,6 +50,9 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+.opac {
+  transition: opacity 0.15s ease;
+}
 .quotewrapper {
   max-width: 990px;
   width: 100%;
@@ -65,7 +68,6 @@ body {
   font-weight: 400;
   position: relative;
   z-index: 10;
-  transition: opacity 0.3s ease, background 0.3s ease;
 }
 .caret-container {
   z-index: -1000;
@@ -422,7 +424,7 @@ body {
   }
 }
 .header__logo > h1 {
-  animation: colorChange 2s linear infinite;
+  /* animation: colorChange 2s linear infinite; */
   font-size: 2em;
   letter-spacing: 2px;
   color: var(--color);

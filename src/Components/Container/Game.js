@@ -27,6 +27,7 @@ export default function Game() {
   // const [gameSettings, setGameSettings] = React.useState(INITIAL_STATE);
   const inputRef = React.useRef(null);
   const textRef = React.useRef(null);
+  const opacRef = React.useRef(null);
   const intervalRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -85,10 +86,10 @@ export default function Game() {
     setInput("");
     startGame();
     inputRef?.current?.focus();
-    if (textRef.current !== null) {
-      textRef.current.style.background = "red";
-      await sleep(500);
-      textRef.current.style.background = "black";
+    if (opacRef.current !== null) {
+      opacRef.current.style = `opacity:0;`;
+      await sleep(350);
+      opacRef.current.style = `opacity:1;`;
     }
   }
 
@@ -97,30 +98,32 @@ export default function Game() {
   return (
     <>
       <Header playing={playing} />
-      <div className="gameinfo">
-        <Statistics
-          gameSettings={gameSettings}
-          input={input}
-          quote={quote}
-          time={time}
-        />
-      </div>
-      <div className="quotewrapper">
-        <Caret
-          currentDomNode={currentDomNode}
-          setCurrentDomNode={setCurrentDomNode}
-          textRef={textRef}
-          input={input}
-          quote={quote}
-          gameSettings={gameSettings}
-        />
-        <Paragraph
-          currentDomNode={currentDomNode}
-          setCurrentDomNode={setCurrentDomNode}
-          input={input}
-          quote={quote}
-          textRef={textRef}
-        />
+      <div className="opac" ref={opacRef}>
+        <div className="gameinfo">
+          <Statistics
+            gameSettings={gameSettings}
+            input={input}
+            quote={quote}
+            time={time}
+          />
+        </div>
+        <div className="quotewrapper">
+          <Caret
+            currentDomNode={currentDomNode}
+            setCurrentDomNode={setCurrentDomNode}
+            textRef={textRef}
+            input={input}
+            quote={quote}
+            gameSettings={gameSettings}
+          />
+          <Paragraph
+            currentDomNode={currentDomNode}
+            setCurrentDomNode={setCurrentDomNode}
+            input={input}
+            quote={quote}
+            textRef={textRef}
+          />
+        </div>
       </div>
       <div className="reset">
         <button className="reset__btn" onClick={restart}>

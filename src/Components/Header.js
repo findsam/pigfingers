@@ -39,12 +39,12 @@ export default function Header(props) {
               <FaGithub size={17} />
             </ExternalLink>
           </li> */}
-          <li>
+          {/* <li>
             <ExternalLink href="https://discord.com">
               Donate
               <FaHeart size={17} />
             </ExternalLink>
-          </li>
+          </li> */}
         </ul>
       </aside>
     </header>
