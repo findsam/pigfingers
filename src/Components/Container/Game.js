@@ -12,6 +12,7 @@ import {
   getWords,
   INITIAL_STATE,
 } from "../../Static/Utils";
+import { sleep } from "../../Static/Utils";
 
 export default function Game() {
   const [time, setTime] = React.useState(0);
@@ -76,7 +77,7 @@ export default function Game() {
     }
   };
 
-  function restart() {
+  async function restart() {
     setPlaying(false);
     clearInterval(intervalRef.current);
     setTime(0);
@@ -84,6 +85,11 @@ export default function Game() {
     setInput("");
     startGame();
     inputRef?.current?.focus();
+    if (textRef.current !== null) {
+      textRef.current.style.background = "red";
+      await sleep(500);
+      textRef.current.style.background = "black";
+    }
   }
 
   const onFocusFall = () => inputRef?.current?.focus();

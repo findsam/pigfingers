@@ -24,28 +24,25 @@ export default function Header(props) {
         }`}
       >
         <ul className="header__item__ul">
-          <li>
+          {/* <li>
             <ExternalLink href="https://twitter.com">
-              <FaTwitter size={15} />
-              Twitter
+              <FaTwitter size={18} />
             </ExternalLink>
           </li>
           <li>
             <ExternalLink href="https://discord.com">
-              <SiDiscord size={15} />
-              Discord
+              <SiDiscord size={19} />
             </ExternalLink>
           </li>
           <li>
             <ExternalLink href="https://discord.com">
-              <FaGithub size={14} />
-              Github
+              <FaGithub size={17} />
             </ExternalLink>
-          </li>
+          </li> */}
           <li>
             <ExternalLink href="https://discord.com">
-              <FaHeart size={14} />
               Donate
+              <FaHeart size={17} />
             </ExternalLink>
           </li>
         </ul>
