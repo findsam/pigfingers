@@ -182,6 +182,8 @@ body {
   align-items: flex-start;
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.15s ease;
+  /* opacity: 0; */
 }
 .settings__inner {
   animation: move 0.5s ease;

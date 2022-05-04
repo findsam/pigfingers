@@ -4,15 +4,27 @@ import { SiLetterboxd } from "react-icons/si";
 import { AiFillSound } from "react-icons/ai";
 import { BiItalic } from "react-icons/bi";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
+import { sleep } from "../../Static/Utils";
 
 export default function Settings(props) {
   const [open, setOpen] = React.useState(false);
+  const settingsRef = React.useRef(null);
 
   const close = React.useCallback((event) => {
     if (event.keyCode === 27) {
-      setOpen((prevOpen) => !prevOpen);
+      setOpen(async (prevOpen) => {
+        if (prevOpen === true) {
+          settingsRef.current.style = `opacity:0;`;
+          await sleep(500);
+          setOpen(false);
+        } else if (prevOpen === false) {
+          setOpen(true);
+        }
+      });
     }
   }, []);
+
+  console.log(open);
 
   React.useEffect(() => {
     document.addEventListener("keydown", close);
@@ -23,7 +35,7 @@ export default function Settings(props) {
 
   return (
     open && (
-      <div className={`settings`}>
+      <div className={`settings`} ref={settingsRef}>
         <div className="settings__inner">
           <ul>
             <li>

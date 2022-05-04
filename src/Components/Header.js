@@ -1,6 +1,6 @@
 // import Logo from "../Static/Sound/logo.png";
-import { FaTwitter, FaGithub, FaHeart } from "react-icons/fa";
-import { SiDiscord } from "react-icons/si";
+// import { FaTwitter, FaGithub, FaHeart } from "react-icons/fa";
+// import { SiDiscord } from "react-icons/si";
 
 const ExternalLink = ({ href, children }) => (
   <a target="_blank" rel="noopener noreferrer" href={href}>
