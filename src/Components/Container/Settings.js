@@ -14,6 +14,7 @@ export default function Settings(props) {
     if (event.keyCode === 27) {
       setOpen(async (prevOpen) => {
         if (prevOpen === true) {
+          settingsRef.current.childNodes[0].style = `transform: translateY(-35px)!important`;
           settingsRef.current.style = `opacity:0;`;
           await sleep(300);
           setOpen(false);

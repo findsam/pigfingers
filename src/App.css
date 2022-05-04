@@ -187,7 +187,7 @@ body {
 }
 .settings__inner {
   animation: move 0.5s ease;
-  animation-fill-mode: forwards;
+  transition: all 0.5s ease !important;
   margin-top: 10vh;
   display: flex;
   justify-content: center;
