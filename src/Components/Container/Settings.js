@@ -15,7 +15,7 @@ export default function Settings(props) {
       setOpen(async (prevOpen) => {
         if (prevOpen === true) {
           settingsRef.current.style = `opacity:0;`;
-          await sleep(500);
+          await sleep(300);
           setOpen(false);
         } else if (prevOpen === false) {
           setOpen(true);
@@ -23,8 +23,6 @@ export default function Settings(props) {
       });
     }
   }, []);
-
-  console.log(open);
 
   React.useEffect(() => {
     document.addEventListener("keydown", close);
