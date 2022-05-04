@@ -64,7 +64,7 @@ body {
 .paragraph {
   max-width: max-content;
   line-height: 33px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   position: relative;
   z-index: 10;
@@ -84,7 +84,7 @@ body {
   border-radius: 6px;
   z-index: 500;
   height: 3px;
-  width: 15px;
+  width: 13px;
 }
 @keyframes Blink {
   0% {
@@ -127,7 +127,7 @@ body {
   position: fixed;
   bottom: 0;
   padding: 2rem 0;
-  font-size: 12px;
+  font-size: 11px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -209,7 +209,7 @@ body {
   width: 100%;
   list-style: none;
   align-items: flex-end;
-  font-size: 12px;
+  font-size: 11px;
   display: flex;
 }
 .settings__inner > ul > li > span {
@@ -302,7 +302,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 24px;
-  font-size: 12px;
+  font-size: 11px;
   width: fit-content;
   padding: 0.12rem 0.7rem 0.12rem 0.7rem;
   max-width: fit-content;
@@ -429,7 +429,7 @@ body {
 }
 .header__logo > h1 {
   /* animation: colorChange 2s linear infinite; */
-  font-size: 2em;
+  font-size: 1.7em;
   letter-spacing: 2px;
   color: var(--color);
   font-family: "Days One", sans-serif;
@@ -476,7 +476,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 12px;
   background: var(--sub-clr);
   color: var(--color);

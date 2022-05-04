@@ -32,7 +32,7 @@ export default function Caret(props) {
           <div
             className={`caret  ${props?.input?.length === 0 && "blink"}`}
             style={{
-              top: `${position?.top + 27}px`,
+              top: `${position?.top + 24}px`,
               left: `${position?.left}px`,
             }}
           />
