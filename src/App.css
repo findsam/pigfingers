@@ -84,7 +84,7 @@ body {
   border-radius: 6px;
   z-index: 500;
   height: 3px;
-  width: 13px;
+  width: 12px;
 }
 @keyframes Blink {
   0% {
@@ -186,8 +186,8 @@ body {
   /* opacity: 0; */
 }
 .settings__inner {
-  animation: move 0.5s ease;
-  transition: all 0.5s ease !important;
+  animation: move 300ms ease;
+  transition: all 300ms ease !important;
   margin-top: 10vh;
   display: flex;
   justify-content: center;
@@ -290,6 +290,7 @@ body {
   opacity: 1;
   transform: translateY(0px);
 }
+
 .reset__btn:hover:before {
   opacity: 1;
   transform: translateY(0px) rotate(180deg);
