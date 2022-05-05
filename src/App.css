@@ -20,7 +20,7 @@ body {
   color: var(--sub-clr);
 }
 .wrapper {
-  max-width: 990px;
+  max-width: 915px;
   width: 100%;
   margin: 0 auto;
 }
@@ -391,7 +391,7 @@ body {
   padding: 2rem 0;
   font-size: 13px;
   width: 100%;
-  max-width: 990px;
+  max-width: 915px;
   /* background: orange; */
   display: flex;
   align-items: center;
