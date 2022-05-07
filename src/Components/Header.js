@@ -3,6 +3,8 @@ import { FaTwitter, FaGithub, FaHeart } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
 import { useRef, useCallback, useState } from "react";
 import { sleep } from "../Static/Utils";
+import { FaDonate } from "react-icons/fa";
+import { BiCoffeeTogo } from "react-icons/bi";
 
 const ExternalLink = ({ href, children }) => (
   <a target="_blank" rel="noopener noreferrer" href={href}>
@@ -11,7 +13,7 @@ const ExternalLink = ({ href, children }) => (
 );
 
 export default function Header(props) {
-  const [donate, setDonate] = useState(true);
+  const [donate, setDonate] = useState(false);
   const donateRef = useRef(null);
 
   const close = useCallback(() => {
@@ -35,9 +37,31 @@ export default function Header(props) {
         {donate && (
           <div ref={donateRef} className="donate">
             <div>
-              <h1>Supporting Pigfingers</h1>
-              <p></p>
-              <ul className="donate__ul">
+              <p>
+                Before contributing, please remember all donations are
+                non-refundable. Only donate what you are willing. Contributions
+                are not required but are greatly appreciated.
+              </p>
+              <div className="dcontainer">
+                <ExternalLink href="https://twitter.com">
+                  <div className="dcontainer__item">
+                    <h2>
+                      <FaDonate />
+                    </h2>
+                    <p>Donate</p>
+                  </div>
+                </ExternalLink>
+
+                <ExternalLink href="https://ko-fi.com/">
+                  <div className="dcontainer__item">
+                    <h2>
+                      <BiCoffeeTogo />
+                    </h2>
+                    <p>Buy us a Coffee</p>
+                  </div>
+                </ExternalLink>
+              </div>
+              {/* <ul className="donate__ul">
                 <li>
                   <ExternalLink href="https://twitter.com">
                     Twitter
@@ -56,7 +80,7 @@ export default function Header(props) {
                     <FaGithub size={17} />
                   </ExternalLink>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         )}
