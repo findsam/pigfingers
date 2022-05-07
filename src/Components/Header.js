@@ -13,40 +13,11 @@ export default function Header(props) {
     <header className={`header`}>
       <aside className={`header__item header__item--left`}>
         <div className="header__logo">
-          <span className="top">www.</span>
-          <h1>PIGFINGERS</h1>
-          <span className="bottom">.gg</span>
+          <h1>pigfingers</h1>
         </div>
       </aside>
-      {/* <aside
-        className={`header__item header__item--right ${
-          props.playing && "close"
-        }`}
-      >
-        <ul className="header__item__ul">
-          <li>
-            <ExternalLink href="https://twitter.com">
-              <FaTwitter size={18} />
-            </ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href="https://discord.com">
-              <SiDiscord size={19} />
-            </ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href="https://discord.com">
-              <FaGithub size={17} />
-            </ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href="https://discord.com">
-              Donate
-              <FaHeart size={17} />
-            </ExternalLink>
-          </li>
-        </ul>
-      </aside> */}
+
+      <div className="donate"></div>
     </header>
   );
 }
