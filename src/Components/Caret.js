@@ -3,6 +3,20 @@ import * as React from "react";
 export default function Caret(props) {
   const [position, setPosition] = React.useState(null);
   const { caretType } = props?.gameSettings;
+  const [windowResizing, setWindowResizing] = React.useState(false);
+  let timerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      clearTimeout(timerRef);
+      setWindowResizing(true);
+      timerRef = setTimeout(() => {
+        setWindowResizing(false);
+      }, 500);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   React.useEffect(() => {
     setPosition(
@@ -10,7 +24,9 @@ export default function Caret(props) {
         props?.currentDomNode
       ]?.getBoundingClientRect()
     );
-  }, [props.textRef, props.currentDomNode, props.quote]);
+  }, [props.textRef, props.currentDomNode, props.quote, windowResizing]);
+
+  if (windowResizing) return null;
 
   switch (caretType) {
     case "stroke":
