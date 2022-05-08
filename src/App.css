@@ -22,9 +22,10 @@ body {
   color: var(--sub-clr);
 }
 .wrapper {
-  max-width: 915px;
+  max-width: 940px;
   width: 100%;
   margin: 0 auto;
+  padding: 2rem;
 }
 .input {
   font-size: 1em;
@@ -392,7 +393,7 @@ body {
   padding: 2rem 0;
   font-size: 13px;
   width: 100%;
-  max-width: 915px;
+  max-width: 940px;
   /* background: orange; */
   display: flex;
   align-items: center;
