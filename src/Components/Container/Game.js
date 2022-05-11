@@ -28,6 +28,7 @@ export default function Game() {
   const textRef = React.useRef(null);
   const opacRef = React.useRef(null);
   const intervalRef = React.useRef(null);
+  const focusRef = React.useRef(null);
 
   React.useEffect(() => {
     restart();
@@ -41,6 +42,22 @@ export default function Game() {
     document.addEventListener("keydown", restartKeybind);
     return () => document.removeEventListener("keydown", restartKeybind);
   }, [restartKeybind]);
+
+  console.log(focusRef?.current);
+
+  const onTab = (event) => {
+    if (event.key.toLowerCase() === "tab") {
+      event.preventDefault();
+      // console.log(focusRef.current);
+      // console.log("tab pressed");
+      focusRef?.current?.focus();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", onTab);
+    return () => document.removeEventListener("keydown", onTab);
+  }, [onTab]);
 
   if (quote.length === 0) return null;
 
@@ -92,7 +109,7 @@ export default function Game() {
     }
   }
 
-  const onFocusFall = () => inputRef?.current?.focus();
+  // const onFocusFall = () => inputRef?.current?.focus();
 
   return (
     <>
@@ -125,12 +142,11 @@ export default function Game() {
         </div>
       </div>
       <div className="reset">
-        <button className="reset__btn" onClick={restart}>
+        <button className="reset__btn" onClick={restart} ref={focusRef}>
           <VscDebugRestart size={22} />
         </button>
       </div>
       <input
-        onBlur={onFocusFall}
         autoComplete="off"
         spellCheck="false"
         autoFocus
