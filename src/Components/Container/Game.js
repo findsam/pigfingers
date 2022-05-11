@@ -28,25 +28,16 @@ export default function Game() {
   const textRef = React.useRef(null);
   const opacRef = React.useRef(null);
   const intervalRef = React.useRef(null);
-  const focusRef = React.useRef(null);
+  const tabRef = React.useRef(null);
 
   React.useEffect(() => {
     restart();
   }, [gameSettings.mode, gameSettings.quoteLength, gameSettings.wordLength]);
 
-  const restartKeybind = (event) => {
-    if (event.key.toLowerCase() === "enter" && event.ctrlKey) restart();
-  };
-
-  React.useEffect(() => {
-    document.addEventListener("keydown", restartKeybind);
-    return () => document.removeEventListener("keydown", restartKeybind);
-  }, [restartKeybind]);
-
   const onTab = (event) => {
     if (event.key.toLowerCase() === "tab") {
       event.preventDefault();
-      focusRef?.current?.focus();
+      tabRef?.current?.focus();
     }
   };
 
@@ -105,7 +96,14 @@ export default function Game() {
     }
   }
 
-  // const onFocusFall = () => inputRef?.current?.focus();
+  const onFocusFall = () => {
+    // if (document.activeElement)) {
+    //   return null;
+    // } else {
+    //   inputRef?.current?.focus();
+    // }
+    console.log(document.activeElement);
+  };
 
   return (
     <>
@@ -138,7 +136,7 @@ export default function Game() {
         </div>
       </div>
       <div className="reset">
-        <button className="reset__btn" onClick={restart} ref={focusRef}>
+        <button className="reset__btn" onClick={restart} ref={tabRef}>
           <VscDebugRestart size={22} />
         </button>
       </div>
@@ -151,6 +149,7 @@ export default function Game() {
         type="text"
         value={input}
         onChange={(e) => playGame(e)}
+        // onBlur={onFocusFall}
       />
       <Footer
         gameSettings={gameSettings}

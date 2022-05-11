@@ -14,7 +14,7 @@ export default function Footer(props) {
             <span>esc/escape</span> - command line
           </p>
           <p className="footer__commands--item">
-            <span>ctrl/cmd</span>+<span>enter</span> - restart game
+            <span>tab</span>and<span>enter</span> - restart game
           </p>
           <p className="footer__commands--item">
             <FaCodeBranch style={{ marginRight: "0.5rem" }} /> v1.0.0
