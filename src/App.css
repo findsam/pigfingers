@@ -285,15 +285,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-.reset__btn:hover {
+.reset__btn:hover,
+.reset__btn:focus {
   cursor: pointer;
   color: var(--color);
 }
-.reset__btn:hover:after {
+.reset__btn:hover:after,
+.reset__btn:focus:after {
   opacity: 1;
   transform: translateY(0px);
 }
-.reset__btn:hover:before {
+.reset__btn:hover:before,
+.reset__btn:focus:before {
   opacity: 1;
   transform: translateY(0px) rotate(180deg);
 }
@@ -341,6 +344,7 @@ body {
   opacity: 0;
   transition: all 0.3s ease;
 }
+
 .checkboxcontainer {
   position: relative;
   display: inline-block;
@@ -406,7 +410,6 @@ body {
   flex: 1;
 }
 .header__item--left {
-  /* align-self: flex-start; */
   align-items: center;
   justify-content: center;
 }

@@ -43,13 +43,9 @@ export default function Game() {
     return () => document.removeEventListener("keydown", restartKeybind);
   }, [restartKeybind]);
 
-  console.log(focusRef?.current);
-
   const onTab = (event) => {
     if (event.key.toLowerCase() === "tab") {
       event.preventDefault();
-      // console.log(focusRef.current);
-      // console.log("tab pressed");
       focusRef?.current?.focus();
     }
   };
