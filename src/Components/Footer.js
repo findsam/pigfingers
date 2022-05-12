@@ -14,7 +14,7 @@ export default function Footer(props) {
             <span>esc/escape</span> - command line
           </p>
           <p className="footer__commands--item">
-            <span>tab</span>and<span>enter</span> or <span>space</span>- restart
+            <span>tab</span>and<span>enter</span> / <span>space</span>- restart
             game
           </p>
           <p className="footer__commands--item">

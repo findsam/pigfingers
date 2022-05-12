@@ -387,12 +387,12 @@ body {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid RGB(0, 0, 0, 0.6);
-  transform: translateY(-8px) rotate(180deg);
+  transform: translateY(-5px) rotate(180deg);
 }
 .reset__btn:before,
 .reset__btn:after {
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.125s ease;
 }
 
 .checkboxcontainer {
