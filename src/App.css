@@ -31,7 +31,7 @@ body {
   0% {
     opacity: 0;
   }
-  70% {
+  55% {
     opacity: 0;
   }
   100% {
@@ -46,7 +46,7 @@ body {
   color: var(--color);
   font-size: 400;
   opacity: 1;
-  animation: 1.76s ease 0s normal forwards fadeIn;
+  animation: 1.95s ease 0s normal forwards fadeIn;
   z-index: 100;
   border-radius: 8px;
   position: absolute;
@@ -110,15 +110,14 @@ body {
   z-index: -1;
 }
 .paragraph > span {
-  transition: filter 0.125s ease, text-shadow 0.125s ease;
+  transition: filter 0.125s ease;
 }
 .paragraph.inactive {
-  transition: filter 0.3s ease 1s, text-shadow 0.125s ease 1s !important;
+  transition: filter 0.35s ease-in-out 1s;
 }
 .paragraph.inactive > span {
   transition: inherit;
   filter: blur(3px);
-  text-shadow: 3px 0 6px var(--sub-clr);
 }
 .caret-container {
   z-index: -1000;
