@@ -27,12 +27,39 @@ body {
   margin: 0 auto;
   padding: 2rem;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.focus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  font-size: 400;
+  animation: fadeIn 0.3s ease forwards;
+  z-index: 100;
+  border-radius: 8px;
+  position: absolute;
+  font-size: 1em;
+  font-family: inherit;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
 .input {
-  z-index: 50;
+  transition: backdrop-filter 0.2s ease;
+  border-radius: 8px;
   position: absolute;
   font-size: 1em;
   height: 100%;
-  margin-top: 1rem;
   font-family: inherit;
   color: transparent;
   background: transparent;
@@ -65,9 +92,9 @@ body {
   max-width: 990px;
   width: 100%;
   margin: 0 auto;
-  /* overflow: hidden; */
   position: relative;
   flex-wrap: wrap;
+  padding: 0.3rem;
 }
 .paragraph {
   max-width: max-content;

@@ -5,6 +5,7 @@ import * as React from "react";
 import Paragraph from "../Paragraph";
 import Statistics from "../Statistics";
 import { VscDebugRestart } from "react-icons/vsc";
+import { FaMousePointer } from "react-icons/fa";
 import useLocalstorage from "../../Hooks/useLocalstorage";
 import {
   playSound,
@@ -15,6 +16,7 @@ import {
 import { sleep } from "../../Static/Utils";
 
 export default function Game() {
+  const [focus, setFocus] = React.useState(true);
   const [time, setTime] = React.useState(0);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
@@ -45,6 +47,8 @@ export default function Game() {
     document.addEventListener("keydown", onTab);
     return () => document.removeEventListener("keydown", onTab);
   }, [onTab]);
+
+  // React.useEffect(() => {}, [focus]);
 
   if (quote.length === 0) return null;
 
@@ -88,16 +92,25 @@ export default function Game() {
     setCurrentDomNode(0);
     setInput("");
     startGame();
-    inputRef?.current?.focus();
     if (opacRef.current !== null) {
       opacRef.current.style = `opacity:0;`;
       await sleep(350);
       opacRef.current.style = `opacity:1;`;
     }
+    onFocusGain();
   }
 
   function onFocusfall() {
-    return null;
+    setFocus(false);
+    inputRef.current.style = `backdrop-filter: blur(4px) opacity(1);`;
+  }
+
+  function onFocusGain() {
+    if (inputRef.current !== null) {
+      setFocus(true);
+      inputRef?.current?.focus();
+      inputRef.current.style = `backdrop-filter: blur(0px) opacity(0);`;
+    }
   }
 
   return (
@@ -112,7 +125,10 @@ export default function Game() {
             time={time}
           />
         </div>
-        <div className="quotewrapper">
+        <div
+          className="quotewrapper"
+          onClick={() => inputRef?.current?.focus()}
+        >
           <Caret
             currentDomNode={currentDomNode}
             setCurrentDomNode={setCurrentDomNode}
@@ -128,6 +144,12 @@ export default function Game() {
             quote={quote}
             textRef={textRef}
           />
+          {!focus && (
+            <div className="focus">
+              <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to
+              focus.
+            </div>
+          )}
           <input
             autoComplete="off"
             spellCheck="false"
@@ -138,6 +160,7 @@ export default function Game() {
             value={input}
             onChange={(e) => playGame(e)}
             onBlur={onFocusfall}
+            onFocus={onFocusGain}
           />
         </div>
       </div>
