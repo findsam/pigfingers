@@ -39,7 +39,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand);
+  color: var(--color);
   font-size: 400;
   animation: fadeIn 0.3s ease forwards;
   z-index: 100;
@@ -103,6 +103,13 @@ body {
   font-weight: 400;
   position: relative;
   z-index: -1;
+}
+.paragraph > span {
+  transition: all 0.125s ease;
+}
+.paragraph.inactive > span {
+  filter: blur(3px);
+  text-shadow: 3px 0 6px var(--sub-clr);
 }
 .caret-container {
   z-index: -1000;

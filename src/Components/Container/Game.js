@@ -48,8 +48,6 @@ export default function Game() {
     return () => document.removeEventListener("keydown", onTab);
   }, [onTab]);
 
-  // React.useEffect(() => {}, [focus]);
-
   if (quote.length === 0) return null;
 
   async function startGame() {
@@ -100,16 +98,17 @@ export default function Game() {
     onFocusGain();
   }
 
-  function onFocusfall() {
+  async function onFocusfall() {
+    await sleep(500);
     setFocus(false);
-    inputRef.current.style = `backdrop-filter: blur(4px) opacity(1);`;
+    textRef.current.classList.add("inactive");
   }
 
   function onFocusGain() {
     if (inputRef.current !== null) {
       setFocus(true);
       inputRef?.current?.focus();
-      inputRef.current.style = `backdrop-filter: blur(0px) opacity(0);`;
+      textRef.current.classList.remove("inactive");
     }
   }
 
