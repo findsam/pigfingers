@@ -37,11 +37,6 @@ export default function Header(props) {
         {donate && (
           <div ref={donateRef} className="donate">
             <div>
-              <p>
-                Before contributing, please remember all donations are
-                non-refundable. Only donate what you are willing. Contributions
-                are not required but are greatly appreciated.
-              </p>
               <div className="dcontainer">
                 <ExternalLink href="https://twitter.com">
                   <div className="dcontainer__item">

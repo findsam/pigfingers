@@ -16,7 +16,6 @@ import {
 import { sleep } from "../../Static/Utils";
 
 export default function Game() {
-  // const [focus, setFocus] = React.useState(true);
   const [time, setTime] = React.useState(0);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
