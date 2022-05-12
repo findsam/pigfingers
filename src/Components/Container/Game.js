@@ -96,14 +96,9 @@ export default function Game() {
     }
   }
 
-  const onFocusFall = () => {
-    // if (document.activeElement)) {
-    //   return null;
-    // } else {
-    //   inputRef?.current?.focus();
-    // }
-    console.log(document.activeElement);
-  };
+  function onFocusfall() {
+    return null;
+  }
 
   return (
     <>
@@ -133,6 +128,17 @@ export default function Game() {
             quote={quote}
             textRef={textRef}
           />
+          <input
+            autoComplete="off"
+            spellCheck="false"
+            autoFocus
+            ref={inputRef}
+            className="input"
+            type="text"
+            value={input}
+            onChange={(e) => playGame(e)}
+            onBlur={onFocusfall}
+          />
         </div>
       </div>
       <div className="reset">
@@ -140,17 +146,7 @@ export default function Game() {
           <VscDebugRestart size={22} />
         </button>
       </div>
-      <input
-        autoComplete="off"
-        spellCheck="false"
-        autoFocus
-        ref={inputRef}
-        className="input"
-        type="text"
-        value={input}
-        onChange={(e) => playGame(e)}
-        // onBlur={onFocusFall}
-      />
+
       <Footer
         gameSettings={gameSettings}
         setGameSettings={setGameSettings}
