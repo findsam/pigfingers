@@ -98,7 +98,7 @@ export default function Game() {
     onFocusGain();
   }
 
-  async function onFocusfall() {
+  function onFocusfall() {
     setFocus(false);
     textRef.current.classList.add("inactive");
   }
