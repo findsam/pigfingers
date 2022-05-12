@@ -39,14 +39,18 @@ body {
   }
 }
 
+.focus.active {
+  opacity: 1;
+  transition: opacity 1.95s ease 1s;
+}
 .focus {
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color);
   font-size: 400;
-  opacity: 1;
-  animation: 1.95s ease 0s normal forwards fadeIn;
+  /* animation: 1.95s ease 0s normal forwards fadeIn; */
   z-index: 100;
   border-radius: 8px;
   position: absolute;
@@ -131,7 +135,7 @@ body {
   right: 0;
 }
 .caret {
-  transition: all 0.1s ease 0.01s;
+  transition: all 0.08s ease;
   position: relative;
   background: var(--brand);
   border-radius: 6px;

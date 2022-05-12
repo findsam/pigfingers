@@ -16,7 +16,7 @@ import {
 import { sleep } from "../../Static/Utils";
 
 export default function Game() {
-  const [focus, setFocus] = React.useState(true);
+  // const [focus, setFocus] = React.useState(true);
   const [time, setTime] = React.useState(0);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
@@ -31,6 +31,7 @@ export default function Game() {
   const opacRef = React.useRef(null);
   const intervalRef = React.useRef(null);
   const tabRef = React.useRef(null);
+  const focusRef = React.useRef(null);
 
   React.useEffect(() => {
     restart();
@@ -99,15 +100,15 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    setFocus(false);
     textRef.current.classList.add("inactive");
+    focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
     if (inputRef.current !== null) {
-      setFocus(true);
       inputRef?.current?.focus();
       textRef.current.classList.remove("inactive");
+      focusRef.current.classList.remove("active");
     }
   }
 
@@ -142,12 +143,12 @@ export default function Game() {
             quote={quote}
             textRef={textRef}
           />
-          {!focus && (
-            <div className="focus">
-              <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to
-              focus.
-            </div>
-          )}
+
+          <div className="focus" ref={focusRef}>
+            <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to
+            start typing again.
+          </div>
+
           <input
             autoComplete="off"
             spellCheck="false"
