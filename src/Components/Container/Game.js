@@ -99,7 +99,6 @@ export default function Game() {
   }
 
   async function onFocusfall() {
-    await sleep(500);
     setFocus(false);
     textRef.current.classList.add("inactive");
   }
