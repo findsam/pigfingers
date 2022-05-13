@@ -1,6 +1,7 @@
 import * as React from "react";
 import Settings from "./Container/Settings";
 import { FaCodeBranch } from "react-icons/fa";
+
 export default function Footer(props) {
   return (
     <>

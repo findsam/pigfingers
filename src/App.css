@@ -38,7 +38,6 @@ body {
     opacity: 1;
   }
 }
-
 .focus.active {
   opacity: 1;
   transition: opacity 1s ease 1.2s;
@@ -61,7 +60,6 @@ body {
   border-radius: 2px;
   color: var(--color) !important;
   font-family: "Fira Code", monospace;
-  /* background: RGB(0, 0, 0, 0.6); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +73,7 @@ body {
   cursor: pointer;
 }
 .input {
-  transition: backdrop-filter 0.5s;
+  /* transition: backdrop-filter 0.5s; */
   border-radius: 8px;
   position: absolute;
   font-size: 1em;
@@ -132,7 +130,7 @@ body {
 }
 .paragraph.inactive > span {
   transition: inherit;
-  filter: blur(3px);
+  filter: blur(4px);
 }
 .caret-container {
   z-index: -1000;
@@ -143,7 +141,7 @@ body {
   right: 0;
 }
 .caret {
-  transition: all 0.08s ease;
+  transition: all 0.1s ease;
   position: relative;
   background: var(--brand);
   border-radius: 6px;
@@ -326,6 +324,7 @@ body {
 }
 
 .reset {
+  transition: all 0.3s ease;
   margin-top: 3rem;
   align-items: center;
   justify-content: center;
