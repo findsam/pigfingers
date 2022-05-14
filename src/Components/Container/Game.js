@@ -113,7 +113,7 @@ export default function Game() {
 
   return (
     <>
-      <Header playing={playing} />
+      {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
         <div className="gameinfo">
           <Statistics
