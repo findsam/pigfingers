@@ -367,37 +367,43 @@ export default function Settings(props) {
                 </label>
               </div>
             </li>
+
+            <li>
+              <span>
+                <FaDonate size={15} /> donate:
+              </span>
+              <div>
+                <ExternalLink href="https://twitter.com">here</ExternalLink>
+              </div>
+            </li>
+
+            <li>
+              <span>
+                <FaTwitter size={15} /> twitter:
+              </span>
+              <div>
+                <ExternalLink href="https://twitter.com">here</ExternalLink>
+              </div>
+            </li>
+
+            <li>
+              <span>
+                <SiDiscord size={15} /> discord:
+              </span>
+              <div>
+                <ExternalLink href="https://twitter.com">here</ExternalLink>
+              </div>
+            </li>
+
+            <li>
+              <span>
+                <FaGithub size={15} /> github:
+              </span>
+              <div>
+                <ExternalLink href="https://twitter.com">here</ExternalLink>
+              </div>
+            </li>
           </ul>
-          <div className="settings__donate">
-            <div className="settings__donate__inner">
-              <ul className="donate__ul">
-                <li>
-                  <ExternalLink href="https://twitter.com">
-                    Donate
-                    <FaDonate size={18} />
-                  </ExternalLink>
-                </li>
-                <li>
-                  <ExternalLink href="https://twitter.com">
-                    Twitter
-                    <FaTwitter size={18} />
-                  </ExternalLink>
-                </li>
-                <li>
-                  <ExternalLink href="https://discord.com">
-                    Discord
-                    <SiDiscord size={19} />
-                  </ExternalLink>
-                </li>
-                <li>
-                  <ExternalLink href="https://discord.com">
-                    Github
-                    <FaGithub size={17} />
-                  </ExternalLink>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     )
