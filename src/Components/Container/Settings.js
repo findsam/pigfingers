@@ -3,10 +3,10 @@ import { IoMdQuote } from "react-icons/io";
 import { SiLetterboxd } from "react-icons/si";
 import { AiFillSound } from "react-icons/ai";
 import { BiItalic } from "react-icons/bi";
-import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
+import { FaClock, FaTachometerAlt, FaBars, FaDonate } from "react-icons/fa";
 import { sleep } from "../../Static/Utils";
-import { FaDonate } from "react-icons/fa";
-import { BiCoffeeTogo } from "react-icons/bi";
+import { FaTwitter, FaGithub, FaHeart } from "react-icons/fa";
+import { SiDiscord } from "react-icons/si";
 
 const ExternalLink = ({ href, children }) => (
   <a target="_blank" rel="noopener noreferrer" href={href}>
@@ -369,7 +369,34 @@ export default function Settings(props) {
             </li>
           </ul>
           <div className="settings__donate">
-            <div className="settings__donate__inner">123123123</div>
+            <div className="settings__donate__inner">
+              <ul className="donate__ul">
+                <li>
+                  <ExternalLink href="https://twitter.com">
+                    Donate
+                    <FaDonate size={18} />
+                  </ExternalLink>
+                </li>
+                <li>
+                  <ExternalLink href="https://twitter.com">
+                    Twitter
+                    <FaTwitter size={18} />
+                  </ExternalLink>
+                </li>
+                <li>
+                  <ExternalLink href="https://discord.com">
+                    Discord
+                    <SiDiscord size={19} />
+                  </ExternalLink>
+                </li>
+                <li>
+                  <ExternalLink href="https://discord.com">
+                    Github
+                    <FaGithub size={17} />
+                  </ExternalLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

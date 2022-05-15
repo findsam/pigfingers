@@ -529,6 +529,7 @@ body {
   flex-direction: column;
 }
 .donate__ul {
+  padding: -0.5rem 0.5rem;
   width: 100%;
   list-style: none;
   display: flex;
@@ -544,8 +545,8 @@ body {
   justify-content: flex-start;
   font-size: 11px;
   line-height: 12px;
-  background: var(--sub-clr);
-  color: var(--color);
+  /* color: var(--color); */
+  color: var(--sub-clr);
 }
 .donate__ul li:hover > a {
   color: var(--color);
