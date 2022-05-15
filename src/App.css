@@ -306,6 +306,15 @@ body {
 .settings__inner > ul > li > div > p {
   font-weight: 500;
 }
+.settings__inner > ul > li > div > a {
+  font-weight: 500;
+  color: var(--sub-clr);
+  text-decoration: none;
+}
+.settings__inner > ul > li > div > a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .settings__inner > ul > li > div > p > svg {
   margin-right: 0.25rem;
 }

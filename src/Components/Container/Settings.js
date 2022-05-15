@@ -373,7 +373,7 @@ export default function Settings(props) {
                 <FaDonate size={15} /> donate:
               </span>
               <div>
-                <ExternalLink href="https://twitter.com">here</ExternalLink>
+                <ExternalLink href="https://twitter.com">link</ExternalLink>
               </div>
             </li>
 
@@ -382,7 +382,7 @@ export default function Settings(props) {
                 <FaTwitter size={15} /> twitter:
               </span>
               <div>
-                <ExternalLink href="https://twitter.com">here</ExternalLink>
+                <ExternalLink href="https://twitter.com">link</ExternalLink>
               </div>
             </li>
 
@@ -391,7 +391,7 @@ export default function Settings(props) {
                 <SiDiscord size={15} /> discord:
               </span>
               <div>
-                <ExternalLink href="https://twitter.com">here</ExternalLink>
+                <ExternalLink href="https://twitter.com">link</ExternalLink>
               </div>
             </li>
 
@@ -400,7 +400,7 @@ export default function Settings(props) {
                 <FaGithub size={15} /> github:
               </span>
               <div>
-                <ExternalLink href="https://twitter.com">here</ExternalLink>
+                <ExternalLink href="https://twitter.com">link</ExternalLink>
               </div>
             </li>
           </ul>
