@@ -230,6 +230,13 @@ body {
     transform: translateY(0px);
   }
 }
+.settings__donate {
+  width: 100%;
+  border-top: 1px solid var(--err);
+}
+.settings__donate__inner {
+  padding: 1rem;
+}
 .settings {
   top: 0;
   left: 0;

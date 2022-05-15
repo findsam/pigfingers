@@ -5,6 +5,14 @@ import { AiFillSound } from "react-icons/ai";
 import { BiItalic } from "react-icons/bi";
 import { FaClock, FaTachometerAlt, FaBars } from "react-icons/fa";
 import { sleep } from "../../Static/Utils";
+import { FaDonate } from "react-icons/fa";
+import { BiCoffeeTogo } from "react-icons/bi";
+
+const ExternalLink = ({ href, children }) => (
+  <a target="_blank" rel="noopener noreferrer" href={href}>
+    {children}
+  </a>
+);
 
 export default function Settings(props) {
   const [open, setOpen] = React.useState(false);
@@ -360,6 +368,9 @@ export default function Settings(props) {
               </div>
             </li>
           </ul>
+          <div className="settings__donate">
+            <div className="settings__donate__inner">123123123</div>
+          </div>
         </div>
       </div>
     )
