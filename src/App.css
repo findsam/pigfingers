@@ -230,7 +230,7 @@ body {
     transform: translateY(0px);
   }
 }
-.divider {
+hr {
   margin: 0.5rem 0;
   border: none;
   height: 1px;
