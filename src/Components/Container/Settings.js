@@ -415,7 +415,7 @@ export default function Settings(props) {
 
             <li>
               <span>
-                <FaCog size={15} /> reset game settings to defaults:
+                <FaCog size={15} /> restore settings to default:
               </span>
               <div>
                 <p
