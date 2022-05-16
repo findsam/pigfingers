@@ -3,10 +3,17 @@ import { IoMdQuote } from "react-icons/io";
 import { SiLetterboxd } from "react-icons/si";
 import { AiFillSound } from "react-icons/ai";
 import { BiItalic } from "react-icons/bi";
-import { FaClock, FaTachometerAlt, FaBars, FaDonate } from "react-icons/fa";
+import {
+  FaClock,
+  FaTachometerAlt,
+  FaBars,
+  FaDonate,
+  FaCog,
+} from "react-icons/fa";
 import { sleep } from "../../Static/Utils";
 import { FaTwitter, FaGithub, FaHeart } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
+import { INITIAL_STATE } from "../../Static/Utils";
 
 const ExternalLink = ({ href, children }) => (
   <a target="_blank" rel="noopener noreferrer" href={href}>
@@ -402,6 +409,21 @@ export default function Settings(props) {
               </span>
               <div>
                 <ExternalLink href="https://twitter.com">link</ExternalLink>
+              </div>
+            </li>
+            <hr />
+
+            <li>
+              <span>
+                <FaCog size={15} /> reset game settings to defaults:
+              </span>
+              <div>
+                <p
+                  className={`${props.gameSettings.wordLength === 15 && "set"}`}
+                  onClick={() => props.setGameSettings(INITIAL_STATE)}
+                >
+                  reset
+                </p>
               </div>
             </li>
           </ul>
