@@ -231,6 +231,11 @@ body {
   }
 }
 .divider {
+  margin: 0.5rem 0;
+  border: none;
+  height: 1px;
+  color: var(--sub-clr); /* old IE */
+  background-color: var(--sub-clr); /* Modern Browsers */
 }
 .settings {
   top: 0;
