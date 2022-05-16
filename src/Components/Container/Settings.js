@@ -368,6 +368,7 @@ export default function Settings(props) {
               </div>
             </li>
 
+            <hr className="divider"></hr>
             <li>
               <span>
                 <FaDonate size={15} /> donate:

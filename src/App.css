@@ -230,6 +230,8 @@ body {
     transform: translateY(0px);
   }
 }
+.divider {
+}
 .settings {
   top: 0;
   left: 0;
