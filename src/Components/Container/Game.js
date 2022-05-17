@@ -99,16 +99,16 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    textRef.current.classList.add("inactive");
-    focusRef.current.classList.add("active");
+    // textRef.current.classList.add("inactive");
+    // focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
-    if (inputRef.current !== null) {
-      inputRef?.current?.focus();
-      textRef.current.classList.remove("inactive");
-      focusRef.current.classList.remove("active");
-    }
+    // if (inputRef.current !== null) {
+    //   inputRef?.current?.focus();
+    //   textRef.current.classList.remove("inactive");
+    //   focusRef.current.classList.remove("active");
+    // }
   }
 
   return (

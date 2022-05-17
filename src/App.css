@@ -115,7 +115,10 @@ body {
   padding: 0.3rem;
 }
 .paragraph {
-  max-width: max-content;
+  /* max-width: max-content; */
+  max-height: 70px;
+  /* overflow: hidden; */
+  /* background: orange; */
   line-height: 33px;
   font-size: 20px;
   font-weight: 400;
@@ -126,11 +129,12 @@ body {
   transition: filter 0.125s ease;
 }
 .paragraph.inactive {
-  transition: filter 0.35s ease-in-out 1s;
+  transition: filter 0.35s ease-in-out 1s, opacity 0.2s ease-in-out 1s;
 }
 .paragraph.inactive > span {
   transition: inherit;
   filter: blur(4px);
+  opacity: 0.5;
 }
 .caret-container {
   z-index: -1000;
@@ -231,11 +235,11 @@ body {
   }
 }
 hr {
-  margin: 0.5rem 0;
   border: none;
   height: 1px;
-  color: var(--sub-clr); /* old IE */
-  background-color: var(--sub-clr); /* Modern Browsers */
+  margin: 0.5rem 0;
+  color: var(--sub-clr);
+  background-color: var(--sub-clr);
 }
 .settings {
   top: 0;

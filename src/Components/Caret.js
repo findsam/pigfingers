@@ -1,8 +1,8 @@
 import * as React from "react";
 
 export default function Caret(props) {
-  const [position, setPosition] = React.useState(null);
   const { caretType } = props?.gameSettings;
+  const [position, setPosition] = React.useState(null);
   const [windowResizing, setWindowResizing] = React.useState(false);
   let timerRef = React.useRef(null);
 
