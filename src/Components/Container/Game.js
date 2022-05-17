@@ -19,6 +19,7 @@ export default function Game() {
   const [time, setTime] = React.useState(0);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
+  const [arrInput, setArrInput] = React.useState([]);
   const [playing, setPlaying] = React.useState(false);
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
   const [gameSettings, setGameSettings] = useLocalstorage(
@@ -64,13 +65,26 @@ export default function Game() {
     intervalRef.current = intervalId;
   }
 
+  // function playGame(e) {
+  //   const { value } = e.target;
+  //   if (input === "") {
+  //     startTimer();
+  //     setPlaying(true);
+  //   }
+  //   setInput(value);
+  //   checkComplete();
+  //   if (gameSettings.audio) playSound();
+  // }
+
   function playGame(e) {
     const { value } = e.target;
     if (input === "") {
       startTimer();
       setPlaying(true);
     }
+
     setInput(value);
+    setArrInput(value.split(" "));
     checkComplete();
     if (gameSettings.audio) playSound();
   }
@@ -99,16 +113,16 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    textRef.current.classList.add("inactive");
-    focusRef.current.classList.add("active");
+    // textRef.current.classList.add("inactive");
+    // focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
-    if (inputRef.current !== null) {
-      inputRef?.current?.focus();
-      textRef.current.classList.remove("inactive");
-      focusRef.current.classList.remove("active");
-    }
+    // if (inputRef.current !== null) {
+    //   inputRef?.current?.focus();
+    //   textRef.current.classList.remove("inactive");
+    //   focusRef.current.classList.remove("active");
+    // }
   }
 
   return (
@@ -123,6 +137,8 @@ export default function Game() {
             time={time}
           />
         </div>
+
+        {arrInput.map((item) => item).join(" ")}
         <div
           className="quotewrapper"
           onClick={() => inputRef?.current?.focus()}
