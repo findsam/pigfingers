@@ -116,7 +116,7 @@ body {
   position: relative;
   flex-wrap: wrap;
   /* background: orange; */
-  max-height: 70px;
+  /* max-height: 70px; */
   padding: 0.3rem;
   overflow: hidden;
 }
