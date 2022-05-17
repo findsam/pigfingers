@@ -138,7 +138,11 @@ export default function Game() {
           />
         </div>
 
-        {arrInput.map((item) => item).join(" ")}
+        <div className="dev">
+          {arrInput.map((item) => (
+            <span>{item}</span>
+          ))}
+        </div>
         <div
           className="quotewrapper"
           onClick={() => inputRef?.current?.focus()}

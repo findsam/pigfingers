@@ -651,3 +651,9 @@ hr {
 .dcontainer__item > h2 {
   font-size: 5em;
 }
+
+.dev {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
