@@ -106,19 +106,21 @@ body {
 .opac {
   transition: opacity 0.15s ease;
 }
+.top {
+  top: -1rem;
+}
 .quotewrapper {
   max-width: 990px;
   width: 100%;
   margin: 0 auto;
   position: relative;
   flex-wrap: wrap;
+  /* background: orange; */
+  max-height: 70px;
   padding: 0.3rem;
+  overflow: hidden;
 }
 .paragraph {
-  /* max-width: max-content; */
-  max-height: 70px;
-  /* overflow: hidden; */
-  /* background: orange; */
   line-height: 33px;
   font-size: 20px;
   font-weight: 400;
@@ -126,6 +128,7 @@ body {
   z-index: -1;
 }
 .paragraph > span {
+  position: relative;
   transition: filter 0.125s ease;
 }
 .paragraph.inactive {
