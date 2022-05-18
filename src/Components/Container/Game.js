@@ -49,27 +49,6 @@ export default function Game() {
     return () => document.removeEventListener("keydown", onTab);
   }, [onTab]);
 
-  const [prev, setPrev] = React.useState({ y: 0, num: 0 });
-
-  React.useEffect(() => {
-    sleep(200).then(() => {
-      const floor = Math.floor(caretRef?.current?.getBoundingClientRect().y);
-      setPrev((_) => ({ y: floor, num: 0 }));
-    });
-  }, []);
-
-  React.useEffect(() => {
-    const floor = Math.floor(caretRef?.current?.getBoundingClientRect().y);
-
-    if (floor !== prev.y) {
-      setPrev((_) => ({ ..._, y: floor, num: _.num + 1 }));
-    }
-
-    console.log(prev);
-  }, [caretRef?.current?.getBoundingClientRect().y]);
-
-  // console.log(prev);
-
   if (quote.length === 0) return null;
 
   async function startGame() {
