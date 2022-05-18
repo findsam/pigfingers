@@ -19,7 +19,6 @@ export default function Game() {
   const [time, setTime] = React.useState(0);
   const [quote, setQuote] = React.useState("");
   const [input, setInput] = React.useState("");
-  const [arrInput, setArrInput] = React.useState([]);
   const [playing, setPlaying] = React.useState(false);
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
   const [gameSettings, setGameSettings] = useLocalstorage(
@@ -32,6 +31,7 @@ export default function Game() {
   const intervalRef = React.useRef(null);
   const tabRef = React.useRef(null);
   const focusRef = React.useRef(null);
+  const caretRef = React.useRef(null);
 
   React.useEffect(() => {
     restart();
@@ -49,6 +49,18 @@ export default function Game() {
     return () => document.removeEventListener("keydown", onTab);
   }, [onTab]);
 
+  const [prev, setPrev] = React.useState();
+  React.useEffect(() => {
+    const floor = Math.floor(caretRef?.current?.getBoundingClientRect().y);
+    let x = caretRef?.current?.getBoundingClientRect().y;
+    setPrev(floor);
+    if (x === prev) {
+      console.log("ape");
+    }
+  }, [caretRef?.current?.getBoundingClientRect().y]);
+
+  console.log(prev);
+
   if (quote.length === 0) return null;
 
   async function startGame() {
@@ -65,16 +77,16 @@ export default function Game() {
     intervalRef.current = intervalId;
   }
 
-  // function playGame(e) {
-  //   const { value } = e.target;
-  //   if (input === "") {
-  //     startTimer();
-  //     setPlaying(true);
-  //   }
-  //   setInput(value);
-  //   checkComplete();
-  //   if (gameSettings.audio) playSound();
-  // }
+  function playGame(e) {
+    const { value } = e.target;
+    if (input === "") {
+      startTimer();
+      setPlaying(true);
+    }
+    setInput(value);
+    checkComplete();
+    if (gameSettings.audio) playSound();
+  }
 
   function playGame(e) {
     const { value } = e.target;
@@ -84,7 +96,6 @@ export default function Game() {
     }
 
     setInput(value);
-    setArrInput(value.split(" "));
     checkComplete();
     if (gameSettings.audio) playSound();
   }
@@ -138,11 +149,6 @@ export default function Game() {
           />
         </div>
 
-        <div className="dev">
-          {arrInput.map((item) => (
-            <span>{item}</span>
-          ))}
-        </div>
         <div
           className="quotewrapper"
           onClick={() => inputRef?.current?.focus()}
@@ -154,6 +160,7 @@ export default function Game() {
             input={input}
             quote={quote}
             gameSettings={gameSettings}
+            caretRef={caretRef}
           />
           <Paragraph
             currentDomNode={currentDomNode}

@@ -33,6 +33,7 @@ export default function Caret(props) {
       return (
         <div className="caret-container">
           <div
+            ref={props.caretRef}
             className={`caret stroke ${props?.input?.length === 0 && "blink"}`}
             style={{
               top: `${position?.top}px`,
@@ -46,6 +47,7 @@ export default function Caret(props) {
       return (
         <div className="caret-container">
           <div
+            ref={props.caretRef}
             className={`caret  ${props?.input?.length === 0 && "blink"}`}
             style={{
               top: `${position?.top + 24}px`,

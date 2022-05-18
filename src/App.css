@@ -116,7 +116,8 @@ body {
   position: relative;
   flex-wrap: wrap;
   /* background: orange; */
-  /* max-height: 70px; */
+  max-height: 70px;
+  background: rgba(0, 0, 0, 0.2);
   padding: 0.3rem;
   overflow: hidden;
 }
@@ -650,10 +651,4 @@ hr {
 }
 .dcontainer__item > h2 {
   font-size: 5em;
-}
-
-.dev {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
