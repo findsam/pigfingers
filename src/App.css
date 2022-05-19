@@ -651,3 +651,10 @@ hr {
 .dcontainer__item > h2 {
   font-size: 5em;
 }
+
+.dev_text {
+  max-width: 990px;
+  width: 100%;
+  display: flex;
+  gap: 0.5rem 1rem;
+}

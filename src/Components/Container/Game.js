@@ -141,6 +141,21 @@ export default function Game() {
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
+        <div className="dev">
+          <div className="dev_text">
+            {arr.map((item, index) => {
+              return (
+                <div key={index}>
+                  {item.split("").map((i, index) => (
+                    <span>{i}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+          <input onChange={(e) => handleChange(e)} value={arrInput} />
+        </div>
+
         <div className="gameinfo">
           <Statistics
             gameSettings={gameSettings}
@@ -148,18 +163,6 @@ export default function Game() {
             quote={quote}
             time={time}
           />
-        </div>
-
-        <div className="dev">
-          {/* {arr.map((item, index) => (
-            <div key={index}>
-              {item}
-              {item.map((i, index) => (
-                <span key={index}>{i}</span>
-              ))}
-            </div>
-          ))} */}
-          <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
 
         <div
