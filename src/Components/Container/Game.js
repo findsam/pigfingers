@@ -152,6 +152,9 @@ export default function Game() {
                   {item.split("").map((item, index) => {
                     const isActiveLetter = index === activeLetter;
 
+                    //get active word -> get active letter.
+                    // check if letter matches with current word via index
+                    // apply styles relatively.
                     return (
                       <span
                         key={index}

@@ -19,11 +19,7 @@ export default function Caret(props) {
   }, []);
 
   React.useEffect(() => {
-    setPosition(
-      props?.textRef?.current?.childNodes[
-        props?.currentDomNode
-      ]?.getBoundingClientRect()
-    );
+    setPosition(props?.textRef?.current?.childNodes[props?.currentDomNode]?.getBoundingClientRect());
   }, [props.textRef, props.currentDomNode, props.quote, windowResizing]);
 
   if (windowResizing) return null;

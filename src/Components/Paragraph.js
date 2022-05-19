@@ -9,11 +9,7 @@ export default function Paragraph(props) {
           <span
             key={index}
             className={`letter ${active && "active"} ${
-              index < props.input.length
-                ? letter === props.input[index]
-                  ? "correct"
-                  : "incorrect"
-                : ""
+              index < props.input.length ? (letter === props.input[index] ? "correct" : "incorrect") : ""
             }`}
           >
             {letter}
