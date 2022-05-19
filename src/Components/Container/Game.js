@@ -143,6 +143,16 @@ export default function Game() {
       <div className="opac" ref={opacRef}>
         <div className="dev">
           <div className="dev_text">
+            {quote.split(" ").map((item, index) => (
+              <div className={`word`} key={index}>
+                {item.split("").map((item, index) => (
+                  <span key={index}>{item}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <br />
+          <div className="dev_text">
             {arr.map((item, index) => {
               return (
                 <div key={index}>
@@ -153,6 +163,7 @@ export default function Game() {
               );
             })}
           </div>
+
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
 
