@@ -151,10 +151,10 @@ export default function Game() {
                 <div className={`word ${isActive && "dev_active"}`} key={index}>
                   {item.split("").map((item, index) => {
                     const isActiveLetter = index === activeLetter;
-
                     //get active word -> get active letter.
                     // check if letter matches with current word via index
                     // apply styles relatively.
+                    let corr;
                     return (
                       <span
                         key={index}
