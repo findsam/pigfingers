@@ -35,6 +35,7 @@ export default function Game() {
 
   const [arr, setArr] = React.useState([]);
   const [arrInput, setArrInput] = React.useState("");
+  const [activeWord, setActiveWord] = React.useState(0);
 
   React.useEffect(() => {
     restart();
@@ -133,26 +134,31 @@ export default function Game() {
     setArrInput(value);
     if (inputSplit.at(-1) === " ") {
       setArr((_) => [..._, value.replace(/\s/g, "")]);
+      setActiveWord((_) => _ + 1);
       setArrInput("");
     }
   }
 
+  console.log(activeWord);
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
         <div className="dev">
           <div className="dev_text">
-            {quote.split(" ").map((item, index) => (
-              <div className={`word`} key={index}>
-                {item.split("").map((item, index) => (
-                  <span key={index}>{item}</span>
-                ))}
-              </div>
-            ))}
+            {quote.split(" ").map((item, index) => {
+              const isActive = index === activeWord;
+              return (
+                <div className={`word ${isActive && "dev_active"}`} key={index}>
+                  {item.split("").map((item, index) => (
+                    <span key={index}>{item}</span>
+                  ))}
+                </div>
+              );
+            })}
           </div>
           <br />
-          <div className="dev_text">
+          {/* <div className="dev_text">
             {arr.map((item, index) => {
               return (
                 <div key={index}>
@@ -162,7 +168,7 @@ export default function Game() {
                 </div>
               );
             })}
-          </div>
+          </div> */}
 
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
