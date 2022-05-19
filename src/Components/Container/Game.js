@@ -25,10 +25,10 @@ export default function Game() {
   const focusRef = React.useRef(null);
   const caretRef = React.useRef(null);
 
-  const [arr, setArr] = React.useState([]);
-  const [arrInput, setArrInput] = React.useState("");
-  const [activeWord, setActiveWord] = React.useState(0);
-  const [activeLetter, setActiveLetter] = React.useState(0);
+  // const [arr, setArr] = React.useState([]);
+  // const [arrInput, setArrInput] = React.useState("");
+  // const [activeWord, setActiveWord] = React.useState(0);
+  // const [activeLetter, setActiveLetter] = React.useState(0);
 
   React.useEffect(() => {
     restart();
@@ -107,58 +107,52 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    // textRef.current.classList.add("inactive");
-    // focusRef.current.classList.add("active");
+    textRef.current.classList.add("inactive");
+    focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
-    // if (inputRef.current !== null) {
-    //   inputRef?.current?.focus();
-    //   textRef.current.classList.remove("inactive");
-    //   focusRef.current.classList.remove("active");
-    // }
-  }
-
-  function handleChange(e) {
-    const { value } = e.target;
-    const inputSplit = value.split("");
-    setArrInput(value);
-    setActiveLetter(value.length);
-    if (inputSplit.at(-1) === " ") {
-      setArr((_) => [..._, value.replace(/\s/g, "")]);
-      setActiveWord((_) => _ + 1);
-      setArrInput("");
-      setActiveLetter(0);
+    if (inputRef.current !== null) {
+      inputRef?.current?.focus();
+      textRef.current.classList.remove("inactive");
+      focusRef.current.classList.remove("active");
     }
   }
 
-  // index < props.input.length
-  //   ? letter === props.input[index]
-  //     ? "correct"
-  //     : "incorrect"
-  //   : "";
-  // console.log(arrInput);
+  // function handleChange(e) {
+  //   const { value } = e.target;
+  //   const inputSplit = value.split("");
+  //   setArrInput(value);
+  //   setActiveLetter(value.length);
+  //   if (inputSplit.at(-1) === " ") {
+  //     setArr((_) => [..._, value.replace(/\s/g, "")]);
+  //     setActiveWord((_) => _ + 1);
+  //     setArrInput("");
+  //     setActiveLetter(0);
+  //   }
+  // }
 
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
-        <div className="dev">
+        {/* <div className="dev">
           <div className="dev_text">
             {quote.split(" ").map((item, index) => {
               const isActive = index === activeWord;
               return (
                 <div className={`word ${isActive && "dev_active"}`} key={index}>
                   {item.split("").map((item, index) => {
-                    const isActiveLetter = index === activeLetter;
                     //get active word -> get active letter.
                     // check if letter matches with current word via index
                     // apply styles relatively.
-                    let corr;
+                    let corr, isActiveLetter;
                     return (
                       <span
                         key={index}
-                        className={`${corr && "dev_active_letter_correct"} ${isActiveLetter && "dev_active_letter"}`}
+                        className={`${
+                          index < arrInput.length ? (item === arrInput[index] ? "correct" : "incorrect") : ""
+                        } ${isActiveLetter && "dev_active_letter"}`}
                       >
                         {item}
                       </span>
@@ -169,20 +163,9 @@ export default function Game() {
             })}
           </div>
           <br />
-          {/* <div className="dev_text">
-            {arr.map((item, index) => {
-              return (
-                <div key={index}>
-                  {item.split("").map((i, index) => (
-                    <span>{i}</span>
-                  ))}
-                </div>
-              );
-            })}
-          </div> */}
 
           <input onChange={(e) => handleChange(e)} value={arrInput} />
-        </div>
+        </div> */}
 
         <div className="gameinfo">
           <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
