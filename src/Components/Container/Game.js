@@ -34,6 +34,7 @@ export default function Game() {
   const caretRef = React.useRef(null);
 
   const [arr, setArr] = React.useState([]);
+  const [arrInput, setArrInput] = React.useState("");
 
   React.useEffect(() => {
     restart();
@@ -128,7 +129,19 @@ export default function Game() {
 
   function handleChange(e) {
     const { value } = e.target;
-    console.log(value);
+    const splitInput = value.split("");
+
+    if (splitInput.at(-1) === " ") {
+      console.log("space");
+    }
+
+    // setArrInput(value);
+    // const split = value.split(" ");
+    // console.log(split);
+    // setArr((_) => split);
+    // if (split.at(-1) === " ") {
+    //   setArrInput("");
+    // }
   }
 
   return (
@@ -147,12 +160,13 @@ export default function Game() {
         <div className="dev">
           {arr.map((item, index) => (
             <div key={index}>
-              {item.map((i, index) => (
+              {item}
+              {/* {item.map((i, index) => (
                 <span key={index}>{i}</span>
-              ))}
+              ))} */}
             </div>
           ))}
-          <input onChange={(e) => handleChange(e)} />
+          <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
 
         <div
