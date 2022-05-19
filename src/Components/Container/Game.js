@@ -26,12 +26,14 @@ export default function Game() {
     INITIAL_STATE
   );
   const inputRef = React.useRef(null);
+  const intervalRef = React.useRef(null);
   const textRef = React.useRef(null);
   const opacRef = React.useRef(null);
-  const intervalRef = React.useRef(null);
   const tabRef = React.useRef(null);
   const focusRef = React.useRef(null);
   const caretRef = React.useRef(null);
+
+  const [arr, setArr] = React.useState([]);
 
   React.useEffect(() => {
     restart();
@@ -112,16 +114,21 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    textRef.current.classList.add("inactive");
-    focusRef.current.classList.add("active");
+    // textRef.current.classList.add("inactive");
+    // focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
-    if (inputRef.current !== null) {
-      inputRef?.current?.focus();
-      textRef.current.classList.remove("inactive");
-      focusRef.current.classList.remove("active");
-    }
+    // if (inputRef.current !== null) {
+    //   inputRef?.current?.focus();
+    //   textRef.current.classList.remove("inactive");
+    //   focusRef.current.classList.remove("active");
+    // }
+  }
+
+  function handleChange(e) {
+    const { value } = e.target;
+    console.log(value);
   }
 
   return (
@@ -135,6 +142,17 @@ export default function Game() {
             quote={quote}
             time={time}
           />
+        </div>
+
+        <div className="dev">
+          {arr.map((item, index) => (
+            <div key={index}>
+              {item.map((i, index) => (
+                <span key={index}>{i}</span>
+              ))}
+            </div>
+          ))}
+          <input onChange={(e) => handleChange(e)} />
         </div>
 
         <div
