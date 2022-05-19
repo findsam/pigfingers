@@ -7,12 +7,7 @@ import Statistics from "../Statistics";
 import { VscDebugRestart } from "react-icons/vsc";
 import { FaMousePointer } from "react-icons/fa";
 import useLocalstorage from "../../Hooks/useLocalstorage";
-import {
-  playSound,
-  getQuote,
-  getWords,
-  INITIAL_STATE,
-} from "../../Static/Utils";
+import { playSound, getQuote, getWords, INITIAL_STATE } from "../../Static/Utils";
 import { sleep } from "../../Static/Utils";
 
 export default function Game() {
@@ -21,10 +16,7 @@ export default function Game() {
   const [input, setInput] = React.useState("");
   const [playing, setPlaying] = React.useState(false);
   const [currentDomNode, setCurrentDomNode] = React.useState(null);
-  const [gameSettings, setGameSettings] = useLocalstorage(
-    "game_state",
-    INITIAL_STATE
-  );
+  const [gameSettings, setGameSettings] = useLocalstorage("game_state", INITIAL_STATE);
   const inputRef = React.useRef(null);
   const intervalRef = React.useRef(null);
   const textRef = React.useRef(null);
@@ -57,10 +49,8 @@ export default function Game() {
   if (quote.length === 0) return null;
 
   async function startGame() {
-    if (gameSettings.mode === "quote")
-      setQuote(await getQuote(gameSettings.quoteLength));
-    else if (gameSettings.mode === "words")
-      setQuote(await getWords(gameSettings.wordLength));
+    if (gameSettings.mode === "quote") setQuote(await getQuote(gameSettings.quoteLength));
+    else if (gameSettings.mode === "words") setQuote(await getWords(gameSettings.wordLength));
   }
 
   function startTimer() {
@@ -133,7 +123,6 @@ export default function Game() {
     const { value } = e.target;
     const inputSplit = value.split("");
     setArrInput(value);
-    // setActiveLetter(value.split("").at(-1));
     setActiveLetter(value.length);
     if (inputSplit.at(-1) === " ") {
       setArr((_) => [..._, value.replace(/\s/g, "")]);
@@ -143,7 +132,13 @@ export default function Game() {
     }
   }
 
-  console.log(activeWord);
+  // index < props.input.length
+  //   ? letter === props.input[index]
+  //     ? "correct"
+  //     : "incorrect"
+  //   : "";
+  // console.log(arrInput);
+
   return (
     <>
       {/* <Header playing={playing} /> */}
@@ -155,11 +150,12 @@ export default function Game() {
               return (
                 <div className={`word ${isActive && "dev_active"}`} key={index}>
                   {item.split("").map((item, index) => {
-                    const isActiveLetter = index === activeLetter && isActive;
+                    const isActiveLetter = index === activeLetter;
+
                     return (
                       <span
                         key={index}
-                        className={`${isActiveLetter && "dev_active_letter"}`}
+                        className={`${corr && "dev_active_letter_correct"} ${isActiveLetter && "dev_active_letter"}`}
                       >
                         {item}
                       </span>
@@ -186,18 +182,10 @@ export default function Game() {
         </div>
 
         <div className="gameinfo">
-          <Statistics
-            gameSettings={gameSettings}
-            input={input}
-            quote={quote}
-            time={time}
-          />
+          <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
         </div>
 
-        <div
-          className="quotewrapper"
-          onClick={() => inputRef?.current?.focus()}
-        >
+        <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
           <Caret
             currentDomNode={currentDomNode}
             setCurrentDomNode={setCurrentDomNode}
@@ -216,8 +204,7 @@ export default function Game() {
           />
 
           <div className="focus" ref={focusRef}>
-            <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to
-            start typing again.
+            <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to start typing again.
           </div>
 
           <input
@@ -240,11 +227,7 @@ export default function Game() {
         </button>
       </div>
 
-      <Footer
-        gameSettings={gameSettings}
-        setGameSettings={setGameSettings}
-        playing={playing}
-      />
+      <Footer gameSettings={gameSettings} setGameSettings={setGameSettings} playing={playing} />
     </>
   );
 }

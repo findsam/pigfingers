@@ -663,5 +663,8 @@ hr {
   color: orange;
 }
 .dev_active_letter {
-  color: black;
+  color: pink;
+}
+.dev_active_letter_correct {
+  color: green !important;
 }
