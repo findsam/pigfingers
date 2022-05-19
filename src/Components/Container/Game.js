@@ -36,6 +36,7 @@ export default function Game() {
   const [arr, setArr] = React.useState([]);
   const [arrInput, setArrInput] = React.useState("");
   const [activeWord, setActiveWord] = React.useState(0);
+  const [activeLetter, setActiveLetter] = React.useState(0);
 
   React.useEffect(() => {
     restart();
@@ -132,10 +133,13 @@ export default function Game() {
     const { value } = e.target;
     const inputSplit = value.split("");
     setArrInput(value);
+    // setActiveLetter(value.split("").at(-1));
+    setActiveLetter(value.length);
     if (inputSplit.at(-1) === " ") {
       setArr((_) => [..._, value.replace(/\s/g, "")]);
       setActiveWord((_) => _ + 1);
       setArrInput("");
+      setActiveLetter(0);
     }
   }
 
@@ -150,9 +154,17 @@ export default function Game() {
               const isActive = index === activeWord;
               return (
                 <div className={`word ${isActive && "dev_active"}`} key={index}>
-                  {item.split("").map((item, index) => (
-                    <span key={index}>{item}</span>
-                  ))}
+                  {item.split("").map((item, index) => {
+                    const isActiveLetter = index === activeLetter && isActive;
+                    return (
+                      <span
+                        key={index}
+                        className={`${isActiveLetter && "dev_active_letter"}`}
+                      >
+                        {item}
+                      </span>
+                    );
+                  })}
                 </div>
               );
             })}

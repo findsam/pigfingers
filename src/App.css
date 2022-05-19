@@ -662,3 +662,6 @@ hr {
 .dev_active {
   color: orange;
 }
+.dev_active_letter {
+  color: black;
+}
