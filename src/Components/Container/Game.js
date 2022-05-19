@@ -129,19 +129,12 @@ export default function Game() {
 
   function handleChange(e) {
     const { value } = e.target;
-    const splitInput = value.split("");
-
-    if (splitInput.at(-1) === " ") {
-      console.log("space");
+    const inputSplit = value.split("");
+    setArrInput(value);
+    if (inputSplit.at(-1) === " ") {
+      setArr((_) => [..._, value.replace(/\s/g, "")]);
+      setArrInput("");
     }
-
-    // setArrInput(value);
-    // const split = value.split(" ");
-    // console.log(split);
-    // setArr((_) => split);
-    // if (split.at(-1) === " ") {
-    //   setArrInput("");
-    // }
   }
 
   return (
@@ -158,14 +151,14 @@ export default function Game() {
         </div>
 
         <div className="dev">
-          {arr.map((item, index) => (
+          {/* {arr.map((item, index) => (
             <div key={index}>
               {item}
-              {/* {item.map((i, index) => (
+              {item.map((i, index) => (
                 <span key={index}>{i}</span>
-              ))} */}
+              ))}
             </div>
-          ))}
+          ))} */}
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
 
