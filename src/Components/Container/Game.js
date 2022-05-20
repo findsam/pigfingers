@@ -25,10 +25,10 @@ export default function Game() {
   const focusRef = React.useRef(null);
   const caretRef = React.useRef(null);
 
-  // const [arr, setArr] = React.useState([]);
-  // const [arrInput, setArrInput] = React.useState("");
-  // const [activeWord, setActiveWord] = React.useState(0);
-  // const [activeLetter, setActiveLetter] = React.useState(0);
+  const [arr, setArr] = React.useState([]);
+  const [arrInput, setArrInput] = React.useState("");
+  const [activeWord, setActiveWord] = React.useState(0);
+  const [activeLetter, setActiveLetter] = React.useState(0);
 
   React.useEffect(() => {
     restart();
@@ -119,44 +119,38 @@ export default function Game() {
     }
   }
 
-  // function handleChange(e) {
-  //   const { value } = e.target;
-  //   const inputSplit = value.split("");
-  //   setArrInput(value);
-  //   setActiveLetter(value.length);
-  //   if (inputSplit.at(-1) === " ") {
-  //     setArr((_) => [..._, value.replace(/\s/g, "")]);
-  //     setActiveWord((_) => _ + 1);
-  //     setArrInput("");
-  //     setActiveLetter(0);
-  //   }
-  // }
+  function handleChange(e) {
+    const { value } = e.target;
+    const inputSplit = value.split("");
+    setArrInput(value);
+    setActiveLetter(value.length);
+    if (inputSplit.at(-1) === " ") {
+      setArr((_) => [..._, value.replace(/\s/g, "")]);
+      setActiveWord((_) => _ + 1);
+      setActiveLetter(0);
+      setArrInput("");
+    }
+  }
 
+  // const overallQuote = quote.split(" ")[activeWord];
+
+  let testQuote = "testing new something frankfurt rangers";
+  const overallQuote = testQuote.split(" ")[activeWord].split("");
+  const overallInput = arrInput.split("");
+  console.log(overallQuote);
+  console.log(overallInput);
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
         {/* <div className="dev">
           <div className="dev_text">
-            {quote.split(" ").map((item, index) => {
+            {testQuote.split(" ").map((item, index) => {
               const isActive = index === activeWord;
               return (
                 <div className={`word ${isActive && "dev_active"}`} key={index}>
                   {item.split("").map((item, index) => {
-                    //get active word -> get active letter.
-                    // check if letter matches with current word via index
-                    // apply styles relatively.
-                    let corr, isActiveLetter;
-                    return (
-                      <span
-                        key={index}
-                        className={`${
-                          index < arrInput.length ? (item === arrInput[index] ? "correct" : "incorrect") : ""
-                        } ${isActiveLetter && "dev_active_letter"}`}
-                      >
-                        {item}
-                      </span>
-                    );
+                    return <span key={index}>{item}</span>;
                   })}
                 </div>
               );
@@ -166,6 +160,14 @@ export default function Game() {
 
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div> */}
+
+        <div className="dev">
+          {overallQuote}
+          <br />
+          {overallInput}
+          <br />
+          <input onChange={(e) => handleChange(e)} value={arrInput} />
+        </div>
 
         <div className="gameinfo">
           <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
