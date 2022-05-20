@@ -9,6 +9,7 @@ import { FaMousePointer } from "react-icons/fa";
 import useLocalstorage from "../../Hooks/useLocalstorage";
 import { playSound, getQuote, getWords, INITIAL_STATE } from "../../Static/Utils";
 import { sleep } from "../../Static/Utils";
+import NewCaret from "../NewCaret";
 
 export default function Game() {
   const [time, setTime] = React.useState(0);
@@ -23,7 +24,6 @@ export default function Game() {
   const opacRef = React.useRef(null);
   const tabRef = React.useRef(null);
   const focusRef = React.useRef(null);
-  const caretRef = React.useRef(null);
 
   const [arr, setArr] = React.useState([]);
   const [arrInput, setArrInput] = React.useState("");
@@ -107,16 +107,16 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    textRef.current.classList.add("inactive");
-    focusRef.current.classList.add("active");
+    // textRef.current.classList.add("inactive");
+    // focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
-    if (inputRef.current !== null) {
-      inputRef?.current?.focus();
-      textRef.current.classList.remove("inactive");
-      focusRef.current.classList.remove("active");
-    }
+    // if (inputRef.current !== null) {
+    //   inputRef?.current?.focus();
+    //   textRef.current.classList.remove("inactive");
+    //   focusRef.current.classList.remove("active");
+    // }
   }
 
   function handleChange(e) {
@@ -132,28 +132,25 @@ export default function Game() {
     }
   }
 
-  // const overallQuote = quote.split(" ")[activeWord];
-  let testQuote = "testing quote money";
-
   const overallInput = arrInput.split("");
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
         <div className="dev">
-          <div className="dev_text">
-            {testQuote.split(" ").map((word, index) => {
-              const everyWord = arr.join(" ").toString() || arrInput;
+          <NewCaret textRef={textRef} input={input} quote={quote} gameSettings={gameSettings} activeLetter={activeLetter} activeWord={activeWord} />
+          <div className="dev_text" ref={textRef}>
+            {quote.split(" ").map((word, index) => {
+              // const everyWord = arr.join(" ").toString() || arrInput;
+
               const wordex = index;
               const arrActive = index <= arr.length;
               const typeActive = index === activeWord;
-              //do a checker to make sure wordex is greater
               const correct =
                 arrActive &&
                 word
                   .split("")
                   .map((letter, index) => arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive));
-
               return (
                 <div key={index}>
                   {word.split("").map((letter, index) => {
@@ -169,20 +166,20 @@ export default function Game() {
                       </span>
                     );
                   })}
+                  {wordex !== quote.split(" ").length - 1 && <span className=""> </span>}
                 </div>
               );
             })}
           </div>
           <br />
 
-          {overallInput}
-          <br />
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
-        <div className="gameinfo">
+
+        {/* <div className="gameinfo">
           <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
-        </div>
-        <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
+        </div> */}
+        {/* <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
           <Caret
             currentDomNode={currentDomNode}
             setCurrentDomNode={setCurrentDomNode}
@@ -190,7 +187,6 @@ export default function Game() {
             input={input}
             quote={quote}
             gameSettings={gameSettings}
-            caretRef={caretRef}
           />
           <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
 
@@ -210,7 +206,7 @@ export default function Game() {
             onBlur={onFocusfall}
             onFocus={onFocusGain}
           />
-        </div>
+        </div> */}
       </div>
       <div className="reset">
         <button className="reset__btn" onClick={restart} ref={tabRef}>

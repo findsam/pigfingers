@@ -658,6 +658,10 @@ hr {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
+  font-size: 22px;
+}
+.dev_text > div > span {
+  transition: color 0.1s ease;
 }
 .dev_active {
   color: orange;
