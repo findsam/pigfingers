@@ -145,16 +145,17 @@ export default function Game() {
             {testQuote.split(" ").map((word, index) => {
               // const everyWord = arr.join(" ").toString().length || arrInput.length;
               const wordex = index;
-              const active = index <= arr.length;
-
-              //do a checker to make sure wordex is greater
+              const arrActive = index <= arr.length;
+              const typeActive = index === activeWord;
               const correct =
-                active && word.split("").map((letter, index) => arr[wordex]?.split("")[index] === letter || arrInput.split("")[index] === letter);
+                arrActive &&
+                word
+                  .split("")
+                  .map((letter, index) => arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive));
               return (
                 <div key={index}>
                   {word.split("").map((letter, index) => {
                     const isCorr = correct[index];
-
                     return (
                       <span key={index} className={`${isCorr && "correct"}`}>
                         {letter}
