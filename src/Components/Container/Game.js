@@ -146,6 +146,8 @@ export default function Game() {
               // const everyWord = arr.join(" ").toString().length || arrInput.length;
               const wordex = index;
               const active = index <= arr.length;
+
+              //do a checker to make sure wordex is greater
               const correct =
                 active && word.split("").map((letter, index) => arr[wordex]?.split("")[index] === letter || arrInput.split("")[index] === letter);
               return (
