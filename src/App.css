@@ -668,3 +668,7 @@ hr {
 .dev_active_letter_correct {
   color: green !important;
 }
+
+.testing_dev {
+  color: black;
+}

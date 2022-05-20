@@ -134,11 +134,10 @@ export default function Game() {
 
   // const overallQuote = quote.split(" ")[activeWord];
 
-  let testQuote = "testing new something frankfurt rangers";
+  // let testQuote = "testing new something frankfurt rangers";
+  let testQuote = "testing something else";
   const overallQuote = testQuote.split(" ")[activeWord].split("");
   const overallInput = arrInput.split("");
-  console.log(overallQuote);
-  console.log(overallInput);
   return (
     <>
       {/* <Header playing={playing} /> */}
@@ -160,26 +159,46 @@ export default function Game() {
 
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div> */}
-
+        {/* {console.log(arr, "arry")} */}
         <div className="dev">
-          {overallQuote.map((item, index) => {
-            const isCorr = index < overallInput.length && item === arrInput[index];
-            return (
-              <span key={index} className={`${isCorr && "correct"}`}>
-                {item}
-              </span>
-            );
-          })}
+          <div className="dev_text">
+            {testQuote.split(" ").map((item, index) => {
+              const isActive = testQuote.split(" ")[activeWord] === item;
+              const isCorr = index < overallInput.length && item === arrInput[index];
+              const completeWord = arr[index] === item;
+              const word = index;
+
+              return (
+                <div key={index} className={`${isActive && "dev_active"} ${completeWord && "correct"}`}>
+                  {item.split("").map((item, index) => {
+                    // const isCorrLetter = index < overallInput.length && item === arrInput[index] && isActive;
+                    // const newCorr = index < overallInput.length && arrInput.split("").at(-1) === item && isActive;
+                    // const newComplete = arr[index]?.split("")[index] === item;
+                    // const corrLetter =
+                    //   testQuote.split(" ")[word].split("")[index] === arrInput.split("")[arrInput.length - 1];
+                    // const xyz = testQuote.split(" ")[word].split("")[index] === arrInput.split("")[arrInput.length - 1];
+
+                    const w = arr[word]?.split("")[index] === item;
+
+                    return (
+                      <span className={` ${w ? "correct" : "incorrect"}`} key={index}>
+                        {item}
+                      </span>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
           <br />
+
           {overallInput}
           <br />
           <input onChange={(e) => handleChange(e)} value={arrInput} />
         </div>
-
         <div className="gameinfo">
           <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
         </div>
-
         <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
           <Caret
             currentDomNode={currentDomNode}
