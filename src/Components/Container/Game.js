@@ -133,7 +133,7 @@ export default function Game() {
   }
 
   // const overallQuote = quote.split(" ")[activeWord];
-  let testQuote = "testing";
+  let testQuote = "testing quote money";
 
   const overallInput = arrInput.split("");
   return (
@@ -150,25 +150,20 @@ export default function Game() {
               //do a checker to make sure wordex is greater
               const correct =
                 arrActive &&
-                word.split("").map((letter, index) => {
-                  if (arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive)) {
-                    return true;
-                  } else {
-                    return "";
-                  }
-                });
+                word
+                  .split("")
+                  .map((letter, index) => arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive));
 
               return (
                 <div key={index}>
                   {word.split("").map((letter, index) => {
                     const isCorr = correct[index];
-
-                    // const test = index < everyWord[wordex]?.split("");
-                    // const isFalse = index < arrInput.length && arrInput.split("")[arrInput.split("").length - 1] === letter && activeLetter === index;
                     return (
                       <span
                         key={index}
-                        className={`${isCorr && "correct"} ${index < arrInput.length ? (letter === arrInput[index] ? "correct" : "incorrect") : ""}`}
+                        className={`${wordex < arr.length ? (isCorr ? "correct" : "incorrect") : ""} ${
+                          index < arrInput.length && activeWord === wordex ? (letter === arrInput[index] ? "correct" : "incorrect") : ""
+                        }`}
                       >
                         {letter}
                       </span>
