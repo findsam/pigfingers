@@ -133,7 +133,7 @@ export default function Game() {
   }
 
   // const overallQuote = quote.split(" ")[activeWord];
-  let testQuote = "testing the quote testing";
+  let testQuote = "testing";
 
   const overallInput = arrInput.split("");
   return (
@@ -143,23 +143,33 @@ export default function Game() {
         <div className="dev">
           <div className="dev_text">
             {testQuote.split(" ").map((word, index) => {
-              // const everyWord = arr.join(" ").toString().length || arrInput.length;
+              const everyWord = arr.join(" ").toString() || arrInput;
               const wordex = index;
               const arrActive = index <= arr.length;
               const typeActive = index === activeWord;
-
               //do a checker to make sure wordex is greater
               const correct =
                 arrActive &&
-                word
-                  .split("")
-                  .map((letter, index) => arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive));
+                word.split("").map((letter, index) => {
+                  if (arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive)) {
+                    return true;
+                  } else {
+                    return "";
+                  }
+                });
+
               return (
                 <div key={index}>
                   {word.split("").map((letter, index) => {
                     const isCorr = correct[index];
+
+                    // const test = index < everyWord[wordex]?.split("");
+                    // const isFalse = index < arrInput.length && arrInput.split("")[arrInput.split("").length - 1] === letter && activeLetter === index;
                     return (
-                      <span key={index} className={`${isCorr && "correct"}`}>
+                      <span
+                        key={index}
+                        className={`${isCorr && "correct"} ${index < arrInput.length ? (letter === arrInput[index] ? "correct" : "incorrect") : ""}`}
+                      >
                         {letter}
                       </span>
                     );
