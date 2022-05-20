@@ -162,7 +162,14 @@ export default function Game() {
         </div> */}
 
         <div className="dev">
-          {overallQuote}
+          {overallQuote.map((item, index) => {
+            const isCorr = index < overallInput.length && item === arrInput[index];
+            return (
+              <span key={index} className={`${isCorr && "correct"}`}>
+                {item}
+              </span>
+            );
+          })}
           <br />
           {overallInput}
           <br />
