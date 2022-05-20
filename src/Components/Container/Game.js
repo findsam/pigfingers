@@ -133,10 +133,8 @@ export default function Game() {
   }
 
   // const overallQuote = quote.split(" ")[activeWord];
+  let testQuote = "testing the quote testing";
 
-  // let testQuote = "testing new something frankfurt rangers";
-  let testQuote = "testing something gg";
-  // const overallQuote = testQuote.split(" ")[activeWord].split("");
   const overallInput = arrInput.split("");
   return (
     <>
@@ -145,17 +143,18 @@ export default function Game() {
         <div className="dev">
           <div className="dev_text">
             {testQuote.split(" ").map((word, index) => {
-              const everyWord = arr.join(" ").toString();
+              // const everyWord = arr.join(" ").toString().length || arrInput.length;
               const wordex = index;
-              const correct = word
-                .split("")
-                .map((letter, index) => letter === arrInput.at(index) || arr[wordex]?.split("")[index] === letter);
+              const active = index <= arr.length;
+              const correct =
+                active && word.split("").map((letter, index) => arr[wordex]?.split("")[index] === letter || arrInput.split("")[index] === letter);
               return (
                 <div key={index}>
                   {word.split("").map((letter, index) => {
                     const isCorr = correct[index];
+
                     return (
-                      <span className={`${isCorr && "correct"}`} key={index}>
+                      <span key={index} className={`${isCorr && "correct"}`}>
                         {letter}
                       </span>
                     );
@@ -183,13 +182,7 @@ export default function Game() {
             gameSettings={gameSettings}
             caretRef={caretRef}
           />
-          <Paragraph
-            currentDomNode={currentDomNode}
-            setCurrentDomNode={setCurrentDomNode}
-            input={input}
-            quote={quote}
-            textRef={textRef}
-          />
+          <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
 
           <div className="focus" ref={focusRef}>
             <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to start typing again.
