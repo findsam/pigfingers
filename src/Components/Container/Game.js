@@ -147,6 +147,8 @@ export default function Game() {
               const wordex = index;
               const arrActive = index <= arr.length;
               const typeActive = index === activeWord;
+
+              //do a checker to make sure wordex is greater
               const correct =
                 arrActive &&
                 word
