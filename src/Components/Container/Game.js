@@ -135,54 +135,28 @@ export default function Game() {
   // const overallQuote = quote.split(" ")[activeWord];
 
   // let testQuote = "testing new something frankfurt rangers";
-  let testQuote = "testing something else";
-  const overallQuote = testQuote.split(" ")[activeWord].split("");
+  let testQuote = "testing something gg";
+  // const overallQuote = testQuote.split(" ")[activeWord].split("");
   const overallInput = arrInput.split("");
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
-        {/* <div className="dev">
-          <div className="dev_text">
-            {testQuote.split(" ").map((item, index) => {
-              const isActive = index === activeWord;
-              return (
-                <div className={`word ${isActive && "dev_active"}`} key={index}>
-                  {item.split("").map((item, index) => {
-                    return <span key={index}>{item}</span>;
-                  })}
-                </div>
-              );
-            })}
-          </div>
-          <br />
-
-          <input onChange={(e) => handleChange(e)} value={arrInput} />
-        </div> */}
-        {/* {console.log(arr, "arry")} */}
         <div className="dev">
           <div className="dev_text">
-            {testQuote.split(" ").map((item, index) => {
-              const isActive = testQuote.split(" ")[activeWord] === item;
-              const isCorr = index < overallInput.length && item === arrInput[index];
-              const completeWord = arr[index] === item;
-              const word = index;
-
+            {testQuote.split(" ").map((word, index) => {
+              const everyWord = arr.join(" ").toString();
+              const wordex = index;
+              const correct = word
+                .split("")
+                .map((letter, index) => letter === arrInput.at(index) || arr[wordex]?.split("")[index] === letter);
               return (
-                <div key={index} className={`${isActive && "dev_active"} ${completeWord && "correct"}`}>
-                  {item.split("").map((item, index) => {
-                    // const isCorrLetter = index < overallInput.length && item === arrInput[index] && isActive;
-                    // const newCorr = index < overallInput.length && arrInput.split("").at(-1) === item && isActive;
-                    // const newComplete = arr[index]?.split("")[index] === item;
-                    // const corrLetter =
-                    //   testQuote.split(" ")[word].split("")[index] === arrInput.split("")[arrInput.length - 1];
-                    // const xyz = testQuote.split(" ")[word].split("")[index] === arrInput.split("")[arrInput.length - 1];
-
-                    const w = arr[word]?.split("")[index] === item;
-
+                <div key={index}>
+                  {word.split("").map((letter, index) => {
+                    const isCorr = correct[index];
                     return (
-                      <span className={` ${w ? "correct" : "incorrect"}`} key={index}>
-                        {item}
+                      <span className={`${isCorr && "correct"}`} key={index}>
+                        {letter}
                       </span>
                     );
                   })}
