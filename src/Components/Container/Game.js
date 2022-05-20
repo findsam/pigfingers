@@ -152,7 +152,7 @@ export default function Game() {
                   .split("")
                   .map((letter, index) => arr[wordex]?.split("")[index] === letter || (arrInput.split("")[index] === letter && typeActive));
               return (
-                <div key={index}>
+                <div key={index} className="text">
                   {word.split("").map((letter, index) => {
                     const isCorr = correct[index];
                     return (

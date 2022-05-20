@@ -657,11 +657,14 @@ hr {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  gap: 0.5rem 0;
   font-size: 22px;
 }
 .dev_text > div > span {
   transition: color 0.1s ease;
+}
+.text {
+  margin: 0 0.37rem;
 }
 .dev_active {
   color: orange;
