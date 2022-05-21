@@ -158,7 +158,7 @@ export default function Game() {
                     return (
                       <span
                         key={index}
-                        className={`${wordex < arr.length ? (isCorr ? "correct" : "incorrect") : ""} ${
+                        className={`${wordex < arr.length ? (isCorr ? "correct" : "incorrect underline") : ""} ${
                           index < arrInput.length && activeWord === wordex ? (letter === arrInput[index] ? "correct" : "incorrect") : ""
                         }`}
                       >

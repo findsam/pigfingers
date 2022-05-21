@@ -147,7 +147,12 @@ body {
   bottom: 0;
   right: 0;
 }
-.caret {
+.underline {
+  text-decoration: underline;
+  /* color: var(--sub-clr); */
+  opacity: 0.6;
+}
+/* .caret {
   transition: all 0.1s ease;
   position: relative;
   background: var(--brand);
@@ -155,6 +160,15 @@ body {
   z-index: 500;
   height: 3px;
   width: 12px;
+} */
+.caret {
+  transition: all 0.1s ease;
+  position: relative;
+  background: var(--brand);
+  border-radius: 6px;
+  z-index: 500;
+  height: 3px;
+  width: 14px;
 }
 @keyframes Blink {
   0% {

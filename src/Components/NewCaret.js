@@ -44,8 +44,9 @@ export default function Caret(props) {
           <div
             className={`caret`}
             style={{
-              top: `${position?.top + 24}px`,
+              top: `${position?.top + 26}px`,
               left: `${position?.left}px`,
+              // width: `${position?.width}px`,
             }}
           />
         </div>
