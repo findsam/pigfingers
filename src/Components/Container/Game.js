@@ -60,36 +60,6 @@ export default function Game() {
     intervalRef.current = intervalId;
   }
 
-  function playGame(e) {
-    const { value } = e.target;
-    if (input === "") {
-      startTimer();
-      setPlaying(true);
-    }
-    setInput(value);
-    checkComplete();
-    if (gameSettings.audio) playSound();
-  }
-
-  function playGame(e) {
-    const { value } = e.target;
-    if (input === "") {
-      startTimer();
-      setPlaying(true);
-    }
-    setInput(value);
-    checkComplete();
-    if (gameSettings.audio) playSound();
-  }
-
-  const checkComplete = () => {
-    const newLength = input.length + 1;
-    if (newLength === quote.length) {
-      clearInterval(intervalRef.current);
-      setPlaying(false);
-    }
-  };
-
   async function restart() {
     setPlaying(false);
     clearInterval(intervalRef.current);
@@ -118,52 +88,56 @@ export default function Game() {
     }
   }
 
+  const checkComplete = () => {
+    if ("" === quote.split(" ").length) {
+      clearInterval(intervalRef.current);
+      setPlaying(false);
+    }
+  };
+
+  function playGame(e) {
+    if (playing === false) {
+      startTimer();
+      setPlaying(true);
+    }
+    handleChange(e);
+    if (gameSettings.audio) playSound();
+  }
+
   function handleChange(e) {
     const { value } = e.target;
     const inputSplit = value.split("");
     setArrInput(value);
     setActiveLetter(value.length);
+
+    if (arr.length === quote.split(" ").length - 1) {
+      const lastWord = quote.split(" ").at(-1);
+      if (value === lastWord) {
+        setArr((_) => [..._, value]);
+      }
+    }
     if (inputSplit.at(-1) === " ") {
       setArr((_) => [..._, value.replace(/\s/g, "")]);
+      setArrInput("");
       setActiveWord((_) => _ + 1);
       setActiveLetter(0);
-      setArrInput("");
     }
+    checkComplete();
   }
 
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
-        {/* <div className="gameinfo">
-          <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
-        </div> */}
-        {/* <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
-          <Caret
-            currentDomNode={currentDomNode}
-            setCurrentDomNode={setCurrentDomNode}
-            textRef={textRef}
-            input={input}
-            quote={quote}
-            gameSettings={gameSettings}
-          />
-          <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
+        <button
+          onClick={() => {
+            console.log(arr);
+          }}
+        >
+          ARRAY LOGGER
+        </button>
 
-
-          <input
-            autoComplete="off"
-            spellCheck="false"
-            autoFocus
-            ref={inputRef}
-            className="input"
-            type="text"
-            value={input}
-            onChange={(e) => playGame(e)}
-            onBlur={onFocusfall}
-            onFocus={onFocusGain}
-          />
-        </div> */}
-
+        <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
         <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
           <NewCaret
             textRef={textRef}
@@ -217,7 +191,7 @@ export default function Game() {
             className="input"
             type="text"
             value={arrInput}
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => playGame(e)}
             onBlur={onFocusfall}
             onFocus={onFocusGain}
           />
