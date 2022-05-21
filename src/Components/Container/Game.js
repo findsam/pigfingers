@@ -9,7 +9,7 @@ import { FaMousePointer } from "react-icons/fa";
 import useLocalstorage from "../../Hooks/useLocalstorage";
 import { playSound, getQuote, getWords, INITIAL_STATE } from "../../Static/Utils";
 import { sleep } from "../../Static/Utils";
-import NewCaret from "../NewCaret";
+// import NewCaret from "../NewCaret";
 
 export default function Game() {
   const [time, setTime] = React.useState(0);
@@ -25,10 +25,10 @@ export default function Game() {
   const tabRef = React.useRef(null);
   const focusRef = React.useRef(null);
 
-  const [arr, setArr] = React.useState([]);
-  const [arrInput, setArrInput] = React.useState("");
-  const [activeWord, setActiveWord] = React.useState(0);
-  const [activeLetter, setActiveLetter] = React.useState(0);
+  // const [arr, setArr] = React.useState([]);
+  // const [arrInput, setArrInput] = React.useState("");
+  // const [activeWord, setActiveWord] = React.useState(0);
+  // const [activeLetter, setActiveLetter] = React.useState(0);
 
   React.useEffect(() => {
     restart();
@@ -88,47 +88,86 @@ export default function Game() {
     }
   }
 
+  function playGame(e) {
+    const { value } = e.target;
+    if (input === "") {
+      startTimer();
+      setPlaying(true);
+    }
+    setInput(value);
+    checkComplete();
+    if (gameSettings.audio) playSound();
+  }
+
   const checkComplete = () => {
-    if ("" === quote.split(" ").length) {
+    const newLength = input.length + 1;
+    if (newLength === quote.length) {
       clearInterval(intervalRef.current);
       setPlaying(false);
     }
   };
+  // function playGame(e) {
+  //   if (playing === false) {
+  //     startTimer();
+  //     setPlaying(true);
+  //   }
+  //   handleChange(e);
+  //   if (gameSettings.audio) playSound();
+  // }
 
-  function playGame(e) {
-    if (playing === false) {
-      startTimer();
-      setPlaying(true);
-    }
-    handleChange(e);
-    if (gameSettings.audio) playSound();
-  }
+  // function handleChange(e) {
+  //   const { value } = e.target;
+  //   const inputSplit = value.split("");
+  //   setArrInput(value);
+  //   setActiveLetter(value.length);
 
-  function handleChange(e) {
-    const { value } = e.target;
-    const inputSplit = value.split("");
-    setArrInput(value);
-    setActiveLetter(value.length);
-
-    if (arr.length === quote.split(" ").length - 1) {
-      const lastWord = quote.split(" ").at(-1);
-      if (value === lastWord) {
-        setArr((_) => [..._, value]);
-      }
-    }
-    if (inputSplit.at(-1) === " ") {
-      setArr((_) => [..._, value.replace(/\s/g, "")]);
-      setArrInput("");
-      setActiveWord((_) => _ + 1);
-      setActiveLetter(0);
-    }
-    checkComplete();
-  }
+  //   if (arr.length === quote.split(" ").length - 1) {
+  //     const lastWord = quote.split(" ").at(-1);
+  //     if (value === lastWord) {
+  //       setArr((_) => [..._, value]);
+  //     }
+  //   }
+  //   if (inputSplit.at(-1) === " ") {
+  //     setArr((_) => [..._, value.replace(/\s/g, "")]);
+  //     setArrInput("");
+  //     setActiveWord((_) => _ + 1);
+  //     setActiveLetter(0);
+  //   }
+  //   checkComplete();
+  // }
 
   return (
     <>
-      {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
+        <div className="gameinfo">
+          <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
+        </div>
+        <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
+          <Caret
+            currentDomNode={currentDomNode}
+            setCurrentDomNode={setCurrentDomNode}
+            textRef={textRef}
+            input={input}
+            quote={quote}
+            gameSettings={gameSettings}
+          />
+          <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
+          <input
+            autoComplete="off"
+            spellCheck="false"
+            autoFocus
+            ref={inputRef}
+            className="input"
+            type="text"
+            value={input}
+            onChange={(e) => playGame(e)}
+            onBlur={onFocusfall}
+            onFocus={onFocusGain}
+          />
+        </div>
+      </div>
+      {/* <Header playing={playing} /> */}
+      {/* <div className="opac" ref={opacRef}>
         <button
           onClick={() => {
             console.log(arr);
@@ -201,7 +240,7 @@ export default function Game() {
         <button className="reset__btn" onClick={restart} ref={tabRef}>
           <VscDebugRestart size={22} />
         </button>
-      </div>
+      </div> */}
 
       <Footer gameSettings={gameSettings} setGameSettings={setGameSettings} playing={playing} />
     </>
