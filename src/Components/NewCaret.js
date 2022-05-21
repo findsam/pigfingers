@@ -33,7 +33,7 @@ export default function Caret(props) {
             style={{
               top: `${position?.top}px`,
               left: `${position?.left}px`,
-              width: `${position?.width}px`,
+              width: `${position?.width || "12"}px`,
             }}
           />
         </div>

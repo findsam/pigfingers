@@ -166,7 +166,7 @@ export default function Game() {
                       </span>
                     );
                   })}
-                  {wordex !== quote.split(" ").length - 1 && <span className=""> </span>}
+                  {wordex !== quote.split(" ").length - 1 && <span className="span"> </span>}
                 </div>
               );
             })}
