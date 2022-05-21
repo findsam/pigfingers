@@ -77,7 +77,6 @@ export default function Game() {
       startTimer();
       setPlaying(true);
     }
-
     setInput(value);
     checkComplete();
     if (gameSettings.audio) playSound();
@@ -107,16 +106,16 @@ export default function Game() {
   }
 
   function onFocusfall() {
-    // textRef.current.classList.add("inactive");
-    // focusRef.current.classList.add("active");
+    textRef.current.classList.add("inactive");
+    focusRef.current.classList.add("active");
   }
 
   function onFocusGain() {
-    // if (inputRef.current !== null) {
-    //   inputRef?.current?.focus();
-    //   textRef.current.classList.remove("inactive");
-    //   focusRef.current.classList.remove("active");
-    // }
+    if (inputRef.current !== null) {
+      inputRef?.current?.focus();
+      textRef.current.classList.remove("inactive");
+      focusRef.current.classList.remove("active");
+    }
   }
 
   function handleChange(e) {
@@ -132,12 +131,40 @@ export default function Game() {
     }
   }
 
-  const overallInput = arrInput.split("");
   return (
     <>
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
-        <div className="dev">
+        {/* <div className="gameinfo">
+          <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
+        </div> */}
+        {/* <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
+          <Caret
+            currentDomNode={currentDomNode}
+            setCurrentDomNode={setCurrentDomNode}
+            textRef={textRef}
+            input={input}
+            quote={quote}
+            gameSettings={gameSettings}
+          />
+          <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
+
+
+          <input
+            autoComplete="off"
+            spellCheck="false"
+            autoFocus
+            ref={inputRef}
+            className="input"
+            type="text"
+            value={input}
+            onChange={(e) => playGame(e)}
+            onBlur={onFocusfall}
+            onFocus={onFocusGain}
+          />
+        </div> */}
+
+        <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
           <NewCaret
             textRef={textRef}
             input={arrInput}
@@ -147,7 +174,7 @@ export default function Game() {
             activeLetter={activeLetter}
             activeWord={activeWord}
           />
-          <div className="dev_text" ref={textRef}>
+          <div className="para" ref={textRef}>
             {quote.split(" ").map((word, index) => {
               // const everyWord = arr.join(" ").toString() || arrInput;
               const wordex = index;
@@ -178,29 +205,10 @@ export default function Game() {
               );
             })}
           </div>
-          <br />
-
-          <input onChange={(e) => handleChange(e)} value={arrInput} />
-        </div>
-
-        {/* <div className="gameinfo">
-          <Statistics gameSettings={gameSettings} input={input} quote={quote} time={time} />
-        </div> */}
-        {/* <div className="quotewrapper" onClick={() => inputRef?.current?.focus()}>
-          <Caret
-            currentDomNode={currentDomNode}
-            setCurrentDomNode={setCurrentDomNode}
-            textRef={textRef}
-            input={input}
-            quote={quote}
-            gameSettings={gameSettings}
-          />
-          <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
 
           <div className="focus" ref={focusRef}>
             <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to start typing again.
           </div>
-
           <input
             autoComplete="off"
             spellCheck="false"
@@ -208,12 +216,12 @@ export default function Game() {
             ref={inputRef}
             className="input"
             type="text"
-            value={input}
-            onChange={(e) => playGame(e)}
+            value={arrInput}
+            onChange={(e) => handleChange(e)}
             onBlur={onFocusfall}
             onFocus={onFocusGain}
           />
-        </div> */}
+        </div>
       </div>
       <div className="reset">
         <button className="reset__btn" onClick={restart} ref={tabRef}>

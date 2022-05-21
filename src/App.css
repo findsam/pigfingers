@@ -149,7 +149,6 @@ body {
 }
 .underline {
   text-decoration: underline;
-  /* color: var(--sub-clr); */
   opacity: 0.6;
 }
 /* .caret {
@@ -666,7 +665,7 @@ hr {
   font-size: 5em;
 }
 
-.dev_text {
+.para {
   max-width: 990px;
   width: 100%;
   display: flex;
@@ -674,22 +673,21 @@ hr {
   gap: 0.5rem 0;
   font-size: 22px;
 }
-.dev_text > div > span {
-  transition: color 0.1s ease;
+.para > .text {
+  position: relative;
+  transition: filter 0.125s ease;
+}
+.para.inactive {
+  transition: filter 0.35s ease-in-out 1s, opacity 0.2s ease-in-out 1s;
+}
+.para.inactive > .text {
+  transition: inherit;
+  filter: blur(4px);
+  opacity: 0.5;
 }
 .text {
   margin: 0 0.37rem;
 }
-.dev_active {
-  color: orange;
-}
-.dev_active_letter {
-  color: pink;
-}
-.dev_active_letter_correct {
-  color: green !important;
-}
-
-.testing_dev {
-  color: black;
+.para > div > span {
+  transition: color 0.1s ease;
 }
