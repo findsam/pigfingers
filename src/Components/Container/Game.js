@@ -138,11 +138,18 @@ export default function Game() {
       {/* <Header playing={playing} /> */}
       <div className="opac" ref={opacRef}>
         <div className="dev">
-          <NewCaret textRef={textRef} input={input} quote={quote} gameSettings={gameSettings} activeLetter={activeLetter} activeWord={activeWord} />
+          <NewCaret
+            textRef={textRef}
+            input={arrInput}
+            arr={arr}
+            quote={quote}
+            gameSettings={gameSettings}
+            activeLetter={activeLetter}
+            activeWord={activeWord}
+          />
           <div className="dev_text" ref={textRef}>
             {quote.split(" ").map((word, index) => {
               // const everyWord = arr.join(" ").toString() || arrInput;
-
               const wordex = index;
               const arrActive = index <= arr.length;
               const typeActive = index === activeWord;
