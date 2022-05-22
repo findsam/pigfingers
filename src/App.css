@@ -137,7 +137,7 @@ body {
 }
 .paragraph > span {
   position: relative;
-  transition: filter 0.125s ease;
+  transition: filter 0.125s ease, color 0.1s linear;
 }
 .paragraph.inactive {
   transition: filter 0.35s ease-in-out 1s, opacity 0.2s ease-in-out 1s;
@@ -211,7 +211,7 @@ body {
   margin-top: 2px;
 }
 .letter {
-  transition: color 0.1s ease;
+  transition: color 0.3s ease;
 }
 .correct {
   color: var(--color);
