@@ -1,9 +1,17 @@
-:root {
+/* :root {
   --color: #b6bcc8;
   --brand: #cd98c2;
   --sub-clr: #4b4b59;
   --bg: #25252f;
   --err: #f14c4c;
+} */
+
+:root {
+  --bg: #161821;
+  --color: #d2d4de;
+  --sub-clr: #595e76;
+  --brand: #84a0c6;
+  --err: #e27878;
 }
 *,
 *:after,
@@ -122,7 +130,7 @@ body {
 }
 .paragraph {
   line-height: 33px;
-  font-size: 20px;
+  font-size: 22.5px;
   font-weight: 400;
   position: relative;
   z-index: -1;
