@@ -3,13 +3,7 @@ import { IoMdQuote } from "react-icons/io";
 import { SiLetterboxd } from "react-icons/si";
 import { AiFillSound } from "react-icons/ai";
 import { BiItalic } from "react-icons/bi";
-import {
-  FaClock,
-  FaTachometerAlt,
-  FaBars,
-  FaDonate,
-  FaCog,
-} from "react-icons/fa";
+import { FaClock, FaTachometerAlt, FaBars, FaDonate, FaCog } from "react-icons/fa";
 import { sleep } from "../../Static/Utils";
 import { FaTwitter, FaGithub, FaHeart } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
@@ -89,9 +83,7 @@ export default function Settings(props) {
                   </span>
                   <div>
                     <p
-                      className={`${
-                        props.gameSettings.wordLength === 15 && "set"
-                      }`}
+                      className={`${props.gameSettings.wordLength === 15 && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
@@ -102,9 +94,7 @@ export default function Settings(props) {
                       25
                     </p>
                     <p
-                      className={`${
-                        props.gameSettings.wordLength === 30 && "set"
-                      }`}
+                      className={`${props.gameSettings.wordLength === 30 && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
@@ -115,9 +105,7 @@ export default function Settings(props) {
                       50
                     </p>
                     <p
-                      className={`${
-                        props.gameSettings.wordLength === 60 && "set"
-                      }`}
+                      className={`${props.gameSettings.wordLength === 60 && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
@@ -139,64 +127,44 @@ export default function Settings(props) {
                   </span>
                   <div>
                     <p
-                      className={`${
-                        props.gameSettings.quoteLength ===
-                          "https://api.quotable.io/random?minLength=10&maxLength=500" &&
-                        "set"
-                      }`}
+                      className={`${props.gameSettings.quoteLength === "https://api.quotable.io/random?minLength=10&maxLength=500" && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          quoteLength:
-                            "https://api.quotable.io/random?minLength=10&maxLength=500",
+                          quoteLength: "https://api.quotable.io/random?minLength=10&maxLength=500",
                         }))
                       }
                     >
                       all
                     </p>
                     <p
-                      className={`${
-                        props.gameSettings.quoteLength ===
-                          "https://api.quotable.io/random?minLength=10&maxLength=150" &&
-                        "set"
-                      }`}
+                      className={`${props.gameSettings.quoteLength === "https://api.quotable.io/random?minLength=10&maxLength=150" && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          quoteLength:
-                            "https://api.quotable.io/random?minLength=10&maxLength=150",
+                          quoteLength: "https://api.quotable.io/random?minLength=10&maxLength=150",
                         }))
                       }
                     >
                       small
                     </p>
                     <p
-                      className={`${
-                        props.gameSettings.quoteLength ===
-                          "https://api.quotable.io/random?minLength=150&maxLength=300" &&
-                        "set"
-                      }`}
+                      className={`${props.gameSettings.quoteLength === "https://api.quotable.io/random?minLength=150&maxLength=300" && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          quoteLength:
-                            "https://api.quotable.io/random?minLength=150&maxLength=300",
+                          quoteLength: "https://api.quotable.io/random?minLength=150&maxLength=300",
                         }))
                       }
                     >
                       medium
                     </p>
                     <p
-                      className={`${
-                        props.gameSettings.quoteLength ===
-                          "https://api.quotable.io/random?minLength=300&maxLength=500" &&
-                        "set"
-                      }`}
+                      className={`${props.gameSettings.quoteLength === "https://api.quotable.io/random?minLength=300&maxLength=500" && "set"}`}
                       onClick={() =>
                         props.setGameSettings((prevSettings) => ({
                           ...prevSettings,
-                          quoteLength:
-                            "https://api.quotable.io/random?minLength=300&maxLength=500",
+                          quoteLength: "https://api.quotable.io/random?minLength=300&maxLength=500",
                         }))
                       }
                     >
@@ -213,9 +181,7 @@ export default function Settings(props) {
               </span>
               <div>
                 <p
-                  className={`${
-                    props.gameSettings.caretType === "underline" && "set"
-                  }`}
+                  className={`${props.gameSettings.caretType === "underline" && "set"}`}
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
@@ -226,9 +192,7 @@ export default function Settings(props) {
                   underline
                 </p>
                 <p
-                  className={`${
-                    props.gameSettings.caretType === "stroke" && "set"
-                  }`}
+                  className={`${props.gameSettings.caretType === "stroke" && "set"}`}
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
@@ -240,9 +204,29 @@ export default function Settings(props) {
                 </p>
 
                 <p
-                  className={`${
-                    props.gameSettings.caretType === "default" && "set"
-                  }`}
+                  className={`${props.gameSettings.caretType === "stroke" && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "stroke",
+                    }))
+                  }
+                >
+                  block
+                </p>
+                <p
+                  className={`${props.gameSettings.caretType === "line" && "set"}`}
+                  onClick={() =>
+                    props.setGameSettings((prevSettings) => ({
+                      ...prevSettings,
+                      caretType: "line",
+                    }))
+                  }
+                >
+                  line
+                </p>
+                <p
+                  className={`${props.gameSettings.caretType === "default" && "set"}`}
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
                       ...prevSettings,
@@ -260,12 +244,7 @@ export default function Settings(props) {
               </span>
               <div>
                 <label className="checkboxcontainer">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    checked={props.gameSettings.showWpm}
-                    readOnly
-                  />
+                  <input className="checkbox" type="checkbox" checked={props.gameSettings.showWpm} readOnly />
                   <span
                     className="slider"
                     onClick={() =>
@@ -284,12 +263,7 @@ export default function Settings(props) {
               </span>
               <div>
                 <label className="checkboxcontainer">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    readOnly
-                    checked={props.gameSettings.letterProg}
-                  />
+                  <input className="checkbox" type="checkbox" readOnly checked={props.gameSettings.letterProg} />
                   <span
                     className="slider"
                     onClick={() =>
@@ -308,12 +282,7 @@ export default function Settings(props) {
               </span>
               <div>
                 <label className="checkboxcontainer">
-                  <input
-                    className="checkbox"
-                    readOnly
-                    type="checkbox"
-                    checked={props.gameSettings.wordProg}
-                  />
+                  <input className="checkbox" readOnly type="checkbox" checked={props.gameSettings.wordProg} />
                   <span
                     className="slider"
                     onClick={() =>
@@ -332,12 +301,7 @@ export default function Settings(props) {
               </span>
               <div>
                 <label className="checkboxcontainer">
-                  <input
-                    readOnly
-                    className="checkbox"
-                    type="checkbox"
-                    checked={props.gameSettings.showTime}
-                  />
+                  <input readOnly className="checkbox" type="checkbox" checked={props.gameSettings.showTime} />
                   <span
                     className="slider"
                     onClick={() =>
@@ -356,12 +320,7 @@ export default function Settings(props) {
               </span>
               <div>
                 <label className="checkboxcontainer">
-                  <input
-                    readOnly
-                    className="checkbox"
-                    type="checkbox"
-                    checked={props.gameSettings.audio}
-                  />
+                  <input readOnly className="checkbox" type="checkbox" checked={props.gameSettings.audio} />
                   <span
                     className="slider"
                     onClick={() =>
@@ -418,10 +377,7 @@ export default function Settings(props) {
                 <FaCog size={15} /> restore settings to default:
               </span>
               <div>
-                <p
-                  className={`${props.gameSettings.wordLength === 15 && "set"}`}
-                  onClick={() => props.setGameSettings(INITIAL_STATE)}
-                >
+                <p className={`${props.gameSettings.wordLength === 15 && "set"}`} onClick={() => props.setGameSettings(INITIAL_STATE)}>
                   reset
                 </p>
               </div>

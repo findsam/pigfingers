@@ -52,6 +52,19 @@ export default function Caret(props) {
           />
         </div>
       );
+    case "line":
+      return (
+        <div className="caret-container">
+          <div
+            ref={props.caretRef}
+            className={`caret line ${props?.input?.length === 0 && "blink"}`}
+            style={{
+              top: `${position?.top}px`,
+              left: `${position?.left}px`,
+            }}
+          />
+        </div>
+      );
     default:
       return null;
   }
