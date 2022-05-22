@@ -151,6 +151,9 @@ export default function Game() {
             quote={quote}
             gameSettings={gameSettings}
           />
+          <div className="focus" ref={focusRef}>
+            <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to start typing again.
+          </div>
           <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
           <input
             autoComplete="off"
