@@ -154,6 +154,7 @@ export default function Game() {
           <div className="focus" ref={focusRef}>
             <FaMousePointer style={{ marginRight: "0.3rem" }} /> Click here to start typing again.
           </div>
+
           <Paragraph currentDomNode={currentDomNode} setCurrentDomNode={setCurrentDomNode} input={input} quote={quote} textRef={textRef} />
           <input
             autoComplete="off"
@@ -167,6 +168,11 @@ export default function Game() {
             onBlur={onFocusfall}
             onFocus={onFocusGain}
           />
+        </div>
+        <div className="reset">
+          <button className="reset__btn" onClick={restart} ref={tabRef}>
+            <VscDebugRestart size={22} />
+          </button>
         </div>
       </div>
       {/* <Header playing={playing} /> */}
