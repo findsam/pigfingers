@@ -203,17 +203,6 @@ export default function Settings(props) {
                   block
                 </p>
                 <p
-                  className={`${props.gameSettings.caretType === "stroke" && "set"}`}
-                  onClick={() =>
-                    props.setGameSettings((prevSettings) => ({
-                      ...prevSettings,
-                      caretType: "stroke",
-                    }))
-                  }
-                >
-                  block
-                </p>
-                <p
                   className={`${props.gameSettings.caretType === "line" && "set"}`}
                   onClick={() =>
                     props.setGameSettings((prevSettings) => ({
