@@ -1,6 +1,4 @@
-import { useEffect, useState, useRef } from "react";
-import { calcCorrectSymbols, calcWPM, sleep, calcSpeed } from "../Static/Utils";
-
+import { calcSpeed } from "../Static/Utils";
 export default function Statistics(props) {
   const split = props.input.split("");
 
