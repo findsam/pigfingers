@@ -41,22 +41,8 @@ export const calcSpeed = (input, quote, time) => {
 };
 
 export const playSound = () => {
-  const audioOptions = [
-    sOne,
-    sTwo,
-    sThree,
-    sFour,
-    sFive,
-    sSix,
-    sSeven,
-    sEight,
-    sNine,
-    sTen,
-    sEleven,
-    sTwelve,
-  ];
-  const randomAudio =
-    audioOptions[Math.floor(Math.random() * audioOptions.length)];
+  const audioOptions = [sOne, sTwo, sThree, sFour, sFive, sSix, sSeven, sEight, sNine, sTen, sEleven, sTwelve];
+  const randomAudio = audioOptions[Math.floor(Math.random() * audioOptions.length)];
   let audio = new Audio(randomAudio);
   audio.volume = 0.6;
   audio.play();
