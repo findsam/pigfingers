@@ -286,7 +286,7 @@ hr {
   max-height: 100vh;
   align-items: flex-start;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   transition: opacity 0.15s ease;
   /* opacity: 0; */
 }
