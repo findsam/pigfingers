@@ -4,6 +4,14 @@
 
 ![image](https://i.imgur.com/XHtATxA.png)
 
+
+#### Overview:
+
+- `components/` - Reusable components.
+- `components/containers` - Page State and Game Functionality.
+- `hooks` - custom localhost hooks.
+- `static/utils` - utility functions and calculations.
+
 #### Build using this technology:
 
 - [React JS](https://reactjs.org/)
